@@ -11,14 +11,14 @@ class MilestonesController < ApplicationController
 
 
   def create
-    @milestone = Milestone.new
+    @milestone = Milestone.new(milestone_params)
     @milestone.user = current_user
     @milestone.contact = @contact
     if @milestone.save
       flash[:alert] = " Your Milestone has been set!"
       redirect_to user_milestones_path
     else
-      render: new
+      render :new
     end
   end
 
