@@ -12,6 +12,18 @@ class ContactsController < ApplicationController
   end
 
   def show
+    @milestones = Milestone.where(contact_id: params[:contact_id])
+     @tags = []
+    @milestones.each do |m|
+      current_tags = Tag.where(milestone_id: params[:milestone_id])
+      @tags << current_tags
+    end
+     @locations = []
+    @milestones.each do |m|
+      current_locations = Location.where(milestone_id: params[:milestone_id])
+      @locations << current_locations
+    end
+
   end
 
   def create
