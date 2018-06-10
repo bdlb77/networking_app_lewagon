@@ -1,5 +1,5 @@
 class MilestonesController < ApplicationController
-    before_action :set_milestone, only: [:show]
+    before_action :set_milestone, only: [:show, :update, :destroy, :edit]
     before_action :set_contact, only: [:create]
   def index
     @milestones = Milestone.all
