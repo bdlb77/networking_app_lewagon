@@ -1,6 +1,6 @@
-class CreateDescussionTopics < ActiveRecord::Migration[5.2]
+class CreateSubjects < ActiveRecord::Migration[5.2]
   def change
-    create_table :descussion_topics do |t|
+    create_table :subjects do |t|
       t.string :name
       t.references :tag, foreign_key: true
       t.references :milestone, foreign_key: true
