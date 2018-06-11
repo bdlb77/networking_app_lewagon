@@ -25,17 +25,17 @@ class ContactsController < ApplicationController
     @location = Location.new
     @milestone.location_id = @location.id
 
-    @discussion_topic = Descussion_topic.new
-    discussion_topic.milestone_id = milestone.id
+    @subject = subject.new
+    @subject.milestone_id = milestone.id
 
     @tags = Tag.all
     @tags.each do |t|
-      if t == @discussion_topic
-        @discussion_topic.tag_id = t.id
+      if t == @subject
+        @subject.tag_id = t.id
       else
         @tag = Tag.new
-        @tag.title = @discussion_topic.name
-        @discussion_topic.tag_id = @tag.id
+        @tag.title = @subject.name
+        @subject.tag_id = @tag.id
       end
     end
   end
@@ -43,10 +43,10 @@ class ContactsController < ApplicationController
 
   def show
     @milestones = Milestone.where(contact_id: params[:contact_id])
-    @discussion_topic = []
+    @subject = []
     @milestones.each do |m|
-      current_tags = Discussion_topic.where(milestone_id: params[:milestone_id])
-      @discussion_topic << current_tags
+      current_tags = subject.where(milestone_id: params[:milestone_id])
+      @subject << current_tags
     end
     @locations = []
     @milestones.each do |m|
@@ -72,8 +72,8 @@ class ContactsController < ApplicationController
       render :edit
     end
 
-    @discussion_topic = Discussion_topic.new(discussion_topic_params)
-    if @discussion_topic.save
+    @subject = subject.new(subject_params)
+    if @subject.save
       redirect_to contacts_show_path(@contact)
     else
       render :edit
@@ -126,8 +126,8 @@ private
     params.require(:milestone).permit(:notes, :contact_type)
   end
 
-  def discussion_topic_params
-    params.require(:discussion_topic).permit(:name)
+  def subject_params
+    params.require(:subject).permit(:name)
   end
 
   def location_params

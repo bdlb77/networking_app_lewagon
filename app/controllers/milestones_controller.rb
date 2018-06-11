@@ -7,7 +7,6 @@ class MilestonesController < ApplicationController
 
   def new
     @milestone = Milestone.new
-    raise
     @locations = Location.all
     @location = Location.new
     @milestone.location_id = @location.id
