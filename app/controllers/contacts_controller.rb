@@ -1,6 +1,5 @@
 class ContactsController < ApplicationController
   before_action :find_contact, only: [:show, :create, :edit,  :update, :destroy]
-
   def index
      # @contacts = policy_scope(Contact).order(:desc)
     if contact.blank?
