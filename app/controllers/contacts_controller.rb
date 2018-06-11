@@ -17,6 +17,17 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     @contact.user = current_user
+
+    @milestone = Milestone.new
+    @milestone.contact = @contact
+
+    @locations = Location.all
+    @location = Location.new
+    @location.milestone_id = @milestone.id
+
+    @tags = Tag.all
+    @tag = Tag.new
+    @tag.milestone_id = @milestone.id
   end
 
   def show

@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: 'contacts#home'
+  root to: 'pages#home'
 
-  resources :users do
-    resources :contacts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-    resources :tags, only: [:index, :show, :new, :create, :edit, :update]
-    resources :locations, only: [:index, :show, :new, :create, :edit, :update]
+  resources :users, shallow: true do
+    resources :contacts
+    resources :tags, except: :destroy
+    resources :locations, except: :destroy
   end
 
   # resources :users do
@@ -17,20 +17,18 @@ Rails.application.routes.draw do
   #   resources :tags, only: [:index, :show, :new, :create, :edit, :update]
   # end
 
-  resources :contacts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
-    resources :milestones, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :contacts do
+    resources :milestones
   end
 
-  resources :milestones, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
-    resources :tags, only: [:index, :show, :new, :create, :edit, :update]
-    resources :locations, only: [:index, :show, :new, :create, :edit, :update]
+  resources :milestones do
+    resources :tags,  except: :destroy
+    resources :locations, except: :destroy
   end
 
   # resources :milestones, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
   #   resources :locations, only: [:index, :show, :new, :create, :edit, :update]
   # end
-
-end
   # get 'tags/index'
   # get 'tags/new'
   # get 'tags/show'
@@ -57,7 +55,5 @@ end
   # get 'contacts/edit'
   # get 'contacts/update'
   # get 'contacts/destroy'
-  devise_for :users
-  root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
