@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'subjects/new'
+  get 'subjects/create'
   devise_for :users
   root to: 'pages#home'
 
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
     resources :contacts do
       resources :milestones do
          resources :locations, except: :destroy
+         resources :subjects, only: [:new, :create]
       end
     end
     resources :tags, except: :destroy

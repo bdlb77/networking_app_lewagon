@@ -11,17 +11,17 @@ class MilestonesController < ApplicationController
     @location = Location.new
     @milestone.location_id = @location.id
 
-    @discussion_topic = Descussion_topic.new
-    discussion_topic.milestone_id = milestone.id
+    @subject = Subject.new
+    subject.milestone_id = milestone.id
 
     @tags = Tag.all
     @tags.each do |t|
-      if t == @discussion_topic
-        @discussion_topic.tag_id = t.id
+      if t == @subject
+        @subject.tag_id = t.id
       else
         @tag = Tag.new
-        @tag.title = @discussion_topic.name
-        @discussion_topic.tag_id = @tag.id
+        @tag.title = @subject.name
+        @subject.tag_id = @tag.id
       end
   end
 

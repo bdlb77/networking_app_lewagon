@@ -1,9 +1,9 @@
 <div class="container text-center">
   <div class="row">
     <div class="col-sm-offset-4 col-sm-4">
-      <%= simple_form_for(@contact) do |f| %>
+      <%= simple_form_for [@user , @contact] do |f| %>
         <%= f.input :first_name, label: 'First name', placeholder: 'Mark' %>
-        <%= f.input :Last_name, label: 'Last_name', placeholder: 'Zuckerberg' %>
+        <%= f.input :last_name, label: 'Last_name', placeholder: 'Zuckerberg' %>
         <%= f.input :position, label: 'Positions', placeholder: 'CEO at Facebook' %>
         <%= f.input :email, label: 'Email', placeholder: 'markz@gmail.com' %>
         <%= f.input :phone_number, label: 'Phone-number', placeholder: '050-7654768' %>
@@ -20,7 +20,7 @@
 <div class="container text-center">
   <div class="row">
     <div class="col-sm-offset-4 col-sm-4">
-      <%= simple_form_for(@milstone) do |f| %>
+      <%= simple_form_for [@contact, @milestone], url: {action: :create} do |f| %>
        <%= f.input :notes, label: ' conversation notes', placeholder: 'Have a common entrance in... ' %>
         <%= f.submit 'Submit milstone'%>
       <% end %>
@@ -32,7 +32,7 @@
 <div class="container text-center">
   <div class="row">
     <div class="col-sm-offset-4 col-sm-4">
-      <%= simple_form_for(@location) do |f| %>
+      <%= simple_form_for [@user, @location] do |f| %>
        <%= f.input :title, label: 'Meeting location ', placeholder: 'Fintech confrence' %>
         <%= f.submit 'Submit location'%>
       <% end %>
@@ -44,8 +44,8 @@
 <div class="container text-center">
   <div class="row">
     <div class="col-sm-offset-4 col-sm-4">
-      <%= simple_form_for(@discussion_topic) do |f| %>
-       <%= f.input :discussion_topic, label: 'Tag', placeholder: 'New-york realestate' %>
+      <%= simple_form_for [@milestone, @subject] do |f| %>
+       <%= f.input :subject, label: 'Tag', placeholder: 'New-york realestate' %>
         <%= f.submit 'Submit Tag'%>
       <% end %>
     </div>

@@ -15,6 +15,7 @@ class ContactsController < ApplicationController
 
 
   def new
+    @user = current_user
     @contact = Contact.new
     @contact.user = current_user
 
@@ -26,7 +27,7 @@ class ContactsController < ApplicationController
     @milestone.location_id = @location.id
 
     @subject = Subject.new
-    @subject.milestone_id = milestone.id
+    @subject.milestone_id = @milestone.id
 
     @tags = Tag.all
     @tags.each do |t|
