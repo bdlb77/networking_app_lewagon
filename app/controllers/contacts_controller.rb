@@ -25,7 +25,7 @@ class ContactsController < ApplicationController
     @location = Location.new
     @milestone.location_id = @location.id
 
-    @subject = subject.new
+    @subject = Subject.new
     @subject.milestone_id = milestone.id
 
     @tags = Tag.all
@@ -72,7 +72,7 @@ class ContactsController < ApplicationController
       render :edit
     end
 
-    @subject = subject.new(subject_params)
+    @subject = Subject.new(subject_params)
     if @subject.save
       redirect_to contacts_show_path(@contact)
     else
