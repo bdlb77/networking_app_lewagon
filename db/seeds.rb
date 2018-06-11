@@ -8,31 +8,37 @@
 
 
 require 'faker'
-Contact.destroy_all
+puts "Start"
 Milestone.destroy_all
+Contact.destroy_all
 User.destroy_all
-
+puts "Data destoyed"
 user = User.new(
 	email: 'bdlb@utexas.edu',
 	password: 123456
 )
-user.save! 
- 
+user.save!
+
+ 10.times do
 	contact = Contact.new(
-		first_name: 'Bryan',
-		user_id: user.id
+		first_name: Faker::Artist.name,
+		user_id: user.id,
+    email: Faker::Internet.email
 	)
 	contact.save!
+end
+
+  10.times do
+  milestone = Milestone.new(
+    contact_type: Faker::Address.full_address,
+    notes: Faker::Friends.quote,
+    contact_id: Contact.last.id
+  )
+
+  milestone.save!
+
+end
 
 
 puts "finished!"
-
-  milestone = Milestone.new(
-    id: 1,
-    contact_type: Faker::Address.full_address,
-    notes: Faker::Friends.quote,
-    contact_id: contact.id
-  )
-  milestone.save!
-
 

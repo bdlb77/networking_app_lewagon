@@ -1,16 +1,13 @@
 <div class="container text-center">
   <div class="row">
     <div class="col-sm-offset-4 col-sm-4">
-      <%= simple_form_for(@contact) do |f| %>
+      <%= simple_form_for [@user , @contact] do |f| %>
         <%= f.input :first_name, label: 'First name', placeholder: 'Mark' %>
-        <%= f.input :Last_name, label: 'Last_name', placeholder: 'Zuckerberg' %>
+        <%= f.input :last_name, label: 'Last_name', placeholder: 'Zuckerberg' %>
         <%= f.input :position, label: 'Positions', placeholder: 'CEO at Facebook' %>
         <%= f.input :email, label: 'Email', placeholder: 'markz@gmail.com' %>
         <%= f.input :phone_number, label: 'Phone-number', placeholder: '050-7654768' %>
         <%= f.input :date_of_birth, label: 'Date of birth', placeholder: 'may 14 1984' %>
-        <%#= f.input :@user.location[:title], label: 'Contact-point location', placeholder: 'Fintech confrence' %>
-        <%# @user.tags.title.each do |tag|%>
-          <%#= f.input :tag[:title], label: 'Tag', placeholder: 'Fintec' %>
         <%#= f.input :photo %>
         <%#= f.input :photo_cache, as: :hidden %>
         <%= f.submit 'Submit contact'%>
@@ -18,5 +15,42 @@
     </div>
   </div>
 </div>
+
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4">
+      <%= simple_form_for [@contact, @milestone], url: {action: :create} do |f| %>
+       <%= f.input :notes, label: ' conversation notes', placeholder: 'Have a common entrance in... ' %>
+        <%= f.submit 'Submit milstone'%>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4">
+      <%= simple_form_for [@user, @location] do |f| %>
+       <%= f.input :title, label: 'Meeting location ', placeholder: 'Fintech confrence' %>
+        <%= f.submit 'Submit location'%>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="container text-center">
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4"> -->
+      <%#= simple_form_for [@milestone, @subject] do |f| %>
+       <%#= f.input :subject, label: 'Tag', placeholder: 'New-york realestate' %>
+        <%#= f.submit 'Submit Tag'%>
+      <%# end %>
+  <!--   </div>
+  </div>
+</div> -->
+
 
 

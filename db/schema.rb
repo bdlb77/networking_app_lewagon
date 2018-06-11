@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_11_083020) do
+ActiveRecord::Schema.define(version: 2018_06_11_111740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,10 +43,8 @@ ActiveRecord::Schema.define(version: 2018_06_11_083020) do
   create_table "locations", force: :cascade do |t|
     t.string "title"
     t.bigint "user_id"
-    t.bigint "milestone_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["milestone_id"], name: "index_locations_on_milestone_id"
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
@@ -56,7 +54,19 @@ ActiveRecord::Schema.define(version: 2018_06_11_083020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "contact_type"
+    t.bigint "location_id"
     t.index ["contact_id"], name: "index_milestones_on_contact_id"
+    t.index ["location_id"], name: "index_milestones_on_location_id"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "name"
+    t.bigint "tag_id"
+    t.bigint "milestone_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["milestone_id"], name: "index_subjects_on_milestone_id"
+    t.index ["tag_id"], name: "index_subjects_on_tag_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -87,8 +97,10 @@ ActiveRecord::Schema.define(version: 2018_06_11_083020) do
   add_foreign_key "contacts", "users"
   add_foreign_key "descussion_topics", "milestones"
   add_foreign_key "descussion_topics", "tags"
-  add_foreign_key "locations", "milestones"
   add_foreign_key "locations", "users"
   add_foreign_key "milestones", "contacts"
+  add_foreign_key "milestones", "locations"
+  add_foreign_key "subjects", "milestones"
+  add_foreign_key "subjects", "tags"
   add_foreign_key "tags", "users"
 end
