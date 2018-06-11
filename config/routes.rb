@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   end
 
   resources :milestones do
-    resources :tags,  except: :destroy
     resources :locations, except: :destroy
   end
 
