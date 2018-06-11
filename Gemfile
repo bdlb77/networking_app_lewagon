@@ -10,6 +10,10 @@ gem 'puma'
 gem 'rails', '5.2.0'
 gem 'redis'
 gem 'faker'
+gem "algoliasearch-rails"
+gem 'will_paginate', '~> 3.1.0'
+
+
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'

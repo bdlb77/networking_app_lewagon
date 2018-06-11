@@ -1,4 +1,10 @@
 class Contact < ApplicationRecord
+  include AlgoliaSearch
+
+  algoliasearch do
+    searchableAttributes :first_name
+  end
+  
   belongs_to :user
   has_many :milestones
   validates :first_name, presence: true
