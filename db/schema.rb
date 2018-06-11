@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_11_111740) do
+ActiveRecord::Schema.define(version: 2018_06_11_204647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 2018_06_11_111740) do
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.string "name"
     t.bigint "tag_id"
     t.bigint "milestone_id"
     t.datetime "created_at", null: false

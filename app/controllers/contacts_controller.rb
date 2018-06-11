@@ -1,9 +1,11 @@
 class ContactsController < ApplicationController
   before_action :find_contact, only: [:show, :edit, :update, :destroy]
 
+
   def index
      # @contacts = policy_scope(Contact).order(:desc)
-    if user.blank?
+     @user = current_user
+    if @user.blank?
       @contacts = nil
     else
       @contacts = Contact.all
@@ -24,6 +26,7 @@ class ContactsController < ApplicationController
 
     @locations = Location.all
     @location = Location.new
+    @location.user_id = current_user
     @milestone.location_id = @location.id
 
     @subject = Subject.new
@@ -58,41 +61,41 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact.user = current_user
+    # @contact.user_id = current_user
     @contact = Contact.new(contact_params)
     if @contact.save
-      redirect_to contacts_show_path(@contact)
+      redirect_to contact_path(@contact)
     else
       render :edit
     end
 
-    @milestone = Milestone.new(milestone_params)
-    if @milestone.save
-      redirect_to contacts_show_path(@contact)
-    else
-      render :edit
-    end
+    # @milestone = Milestone.new(milestone_params)
+    # if @milestone.save
+    #   redirect_to contact_path(@contact)
+    # else
+    #   render :edit
+    # end
 
-    @subject = Subject.new(subject_params)
-    if @subject.save
-      redirect_to contacts_show_path(@contact)
-    else
-      render :edit
-    end
+    # @subject = Subject.new(subject_params)
+    # if @subject.save
+    #   redirect_to contact_path(@contact)
+    # else
+    #   render :edit
+    # end
 
-    @locations = Location.all
-    @locations.each do |l|
-      if l == @location
-         @milestone.location_id = l.id
-      else
-        @location = Location.new(location_params)
-        if @location.save
-          redirect_to contacts_show_path(@contact)
-        else
-          render :new
-        end
-      end
-    end
+    # @locations = Location.all
+    # @locations.each do |l|
+    #   if l == @location
+    #      @milestone.location_id = l.id
+    #   else
+    #     @location = Location.new(location_params)
+    #     if @location.save
+    #       redirect_to contact_path(@contact)
+    #     else
+    #       render :new
+    #     end
+    #   end
+    # end
   end
 
   def edit
@@ -109,7 +112,7 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact.destroy
-    redirect_to contacts_path
+    redirect_to user_contacts_path
   end
 end
 
