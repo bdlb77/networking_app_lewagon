@@ -2,13 +2,21 @@ class ContactsController < ApplicationController
   before_action :find_contact, only: [:show, :create, :edit,  :update, :destroy]
 
   def index
-    @contacts = Contact.all
-    # @contacts = policy_scope(Contact).order(:desc)
+     # @contacts = policy_scope(Contact).order(:desc)
+    if contact.blank?
+      @contacts = Contact.all
+    else
+      @contacts = Contact.all
+      @contact.each do |c|
+        c.user = current_user
+      end
+    end
   end
+
 
   def new
     @contact = Contact.new
-    @user = current_user
+    @contact.user = current_user
   end
 
   def show
@@ -23,10 +31,23 @@ class ContactsController < ApplicationController
       current_locations = Location.where(milestone_id: params[:milestone_id])
       @locations << current_locations
     end
-
+    if contact.blank?
+      @contact.user = nil
+    else
+      @contact.each do |c|
+        c.user = current_user
+      end
+    end
   end
 
   def create
+    if contact.blank?
+      @contact.user = nil
+    else
+      @contact.each do |c|
+        c.user = current_user
+      end
+    end
      @contact.update(contact_params)
     if @contact.save
       redirect_to contacts_show_path(@contact)
