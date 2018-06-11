@@ -1,7 +1,18 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+ <% if user_signed_in? %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1496389395181-e5fdd5c0315e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=49bd31ab070ce144fe11d9df225d1d4c&auto=format&fit=crop&w=1946&q=80');">
   <div class="banner-content">
     <h1>Remember me?</h1>
     <p>Remember the people you met.</p>
-    <a class="btn btn-primary btn-lg">Add contacts</a>
+    <a class="btn btn-primary btn-lg">Add Contact</a>
+    <a class="btn btn-primary btn-lg">My Contacts</a>
   </div>
 </div>
+<% else %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1496389395181-e5fdd5c0315e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=49bd31ab070ce144fe11d9df225d1d4c&auto=format&fit=crop&w=1946&q=80');">
+  <div class="banner-content">
+    <h1>Remember me?</h1>
+    <p>Remember the people you met.</p>
+    <a class="btn btn-primary btn-lg">Start now</a>
+  </div>
+</div>
+  <% end %>
