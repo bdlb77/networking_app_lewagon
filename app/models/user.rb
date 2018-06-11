@@ -6,5 +6,4 @@ class User < ApplicationRecord
   has_many :contacts
   has_many :locations
   has_many :tags
-
 end
