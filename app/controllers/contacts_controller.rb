@@ -1,13 +1,13 @@
 class ContactsController < ApplicationController
-  before_action :find_contact, only: [:show, :create, :edit,  :update, :destroy]
+  before_action :find_contact, only: [:show, :edit, :update, :destroy]
 
   def index
      # @contacts = policy_scope(Contact).order(:desc)
-    if contact.blank?
-      @contacts = Contact.all
+    if user.blank?
+      @contacts = nil
     else
       @contacts = Contact.all
-      @contact.each do |c|
+      @contacts.each do |c|
         c.user = current_user
       end
     end
@@ -19,51 +19,78 @@ class ContactsController < ApplicationController
     @contact.user = current_user
 
     @milestone = Milestone.new
-    @milestone.contact = @contact
+    @milestone.contact_id = @contact.id
 
     @locations = Location.all
     @location = Location.new
-    @location.milestone_id = @milestone.id
+    @milestone.location_id = @location.id
+
+    @discussion_topic = Descussion_topic.new
+    discussion_topic.milestone_id = milestone.id
 
     @tags = Tag.all
-    @tag = Tag.new
-    @tag.milestone_id = @milestone.id
+    @tags.each do |t|
+      if t == @discussion_topic
+        @discussion_topic.tag_id = t.id
+      else
+        @tag = Tag.new
+        @tag.title = @discussion_topic.name
+        @discussion_topic.tag_id = @tag.id
+      end
+    end
   end
+
 
   def show
     @milestones = Milestone.where(contact_id: params[:contact_id])
-     @tags = []
+    @discussion_topic = []
     @milestones.each do |m|
-      current_tags = Tag.where(milestone_id: params[:milestone_id])
-      @tags << current_tags
+      current_tags = Discussion_topic.where(milestone_id: params[:milestone_id])
+      @discussion_topic << current_tags
     end
-     @locations = []
+    @locations = []
     @milestones.each do |m|
-      current_locations = Location.where(milestone_id: params[:milestone_id])
+      current_locations = m.location_id
       @locations << current_locations
     end
-    if contact.blank?
-      @contact.user = nil
-    else
-      @contact.each do |c|
-        c.user = current_user
-      end
-    end
+    @contact.user = current_user
   end
 
   def create
-    if contact.blank?
-      @contact.user = nil
-    else
-      @contact.each do |c|
-        c.user = current_user
-      end
-    end
-     @contact.update(contact_params)
+    @contact.user = current_user
+    @contact = Contact.new(contact_params)
     if @contact.save
       redirect_to contacts_show_path(@contact)
     else
       render :edit
+    end
+
+    @milestone = Milestone.new(milestone_params)
+    if @milestone.save
+      redirect_to contacts_show_path(@contact)
+    else
+      render :edit
+    end
+
+    @discussion_topic = Discussion_topic.new(discussion_topic_params)
+    if @discussion_topic.save
+      redirect_to contacts_show_path(@contact)
+    else
+      render :edit
+    end
+
+    @locations = Location.all
+    @locations.each do |l|
+      if l == @location
+         @milestone.location_id = l.id
+      else
+        @location = Location.new(location_params)
+        if @location.save
+          redirect_to contacts_show_path(@contact)
+        else
+          render :new
+        end
+      end
     end
   end
 
@@ -87,10 +114,22 @@ end
 
 private
 
-    def find_contact
+  def find_contact
     @contact = Contact.find(params[:id])
   end
 
   def contact_params
     params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :date_of_birth)
+  end
+
+  def milestone_params
+    params.require(:milestone).permit(:notes, :contact_type)
+  end
+
+  def discussion_topic_params
+    params.require(:discussion_topic).permit(:name)
+  end
+
+  def location_params
+    params.require(:location_params).permit(:title)
   end

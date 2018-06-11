@@ -7,6 +7,23 @@ class MilestonesController < ApplicationController
 
   def new
     @milestone = Milestone.new
+    raise
+    @locations = Location.all
+    @location = Location.new
+    @milestone.location_id = @location.id
+
+    @discussion_topic = Descussion_topic.new
+    discussion_topic.milestone_id = milestone.id
+
+    @tags = Tag.all
+    @tags.each do |t|
+      if t == @discussion_topic
+        @discussion_topic.tag_id = t.id
+      else
+        @tag = Tag.new
+        @tag.title = @discussion_topic.name
+        @discussion_topic.tag_id = @tag.id
+      end
   end
 
 
@@ -20,6 +37,7 @@ class MilestonesController < ApplicationController
     else
       render :new
     end
+
   end
 
   def edit
@@ -38,17 +56,17 @@ class MilestonesController < ApplicationController
 
   def destroy
     @milestone.destroy
-    flash[:alert] = "Your Milestone for #{@milestone.contact.first_name} 
+    flash[:alert] = "Your Milestone for #{@milestone.contact.first_name}
       has been deleted!"
   end
-  
+
   def show
   end
 
   private
 
   def set_contact
-    @contact = Contact.find(params[:contact_id])    
+    @contact = Contact.find(params[:contact_id])
   end
 
   def set_milestone
@@ -56,7 +74,7 @@ class MilestonesController < ApplicationController
   end
 
   def milestone_params
-    params.require(:milestone).permit(:notes, :contact_type)      
+    params.require(:milestone).permit(:notes, :contact_type)
   end
 
 end
