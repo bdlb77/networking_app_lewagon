@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   before_action :find_contact, only: [:show, :edit, :update, :destroy]
-
+  before_action :user_user, only: [:create]
 
   def index
      # @contacts = policy_scope(Contact).order(:desc)
@@ -63,6 +63,7 @@ class ContactsController < ApplicationController
   def create
     # @contact.user_id = current_user
     @contact = Contact.new(contact_params)
+    @contact.user = @user
     if @contact.save
       flash[:alert] = " Your contact has been set!"
       redirect_to contact_path(@contact)
@@ -121,6 +122,10 @@ private
     @contact = Contact.find(params[:id])
   end
 
+  def find_user
+    @user = User.find(params[:id])
+  end
+
   # def contact_params
   #   params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :date_of_birth)
   # end
@@ -138,10 +143,10 @@ private
   # end
 
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :user_id,
-    milstone_attributes: [:id, :notes, :_destroy, subjects_attributes: [:id, :_destroy, :tag_id, tag_attributes: [:id, :_destroy, :title]], location_attributes: [:id, :_destroy, :title]]
-    user_attributes: [:id, :email]
-    )
+    params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :user_id)
+    # milstone_attributes: [:id, :notes, :_destroy, subjects_attributes: [:id, :_destroy, :tag_id, tag_attributes: [:id, :_destroy, :title]], location_attributes: [:id, :_destroy, :title]]
+    # user_attributes: [:id, :email]
+    # )
   end
 
 end

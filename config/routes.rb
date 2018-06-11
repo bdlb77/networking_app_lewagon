@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :users do
+    # resources :locations
+    # resources :tags
     resources :contacts do
       resources :milestones
-      end
     end
   end
 
