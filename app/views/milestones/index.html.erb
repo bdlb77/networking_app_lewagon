@@ -1,4 +1,20 @@
-<% @milestones.each do |milestone| %>
-	<%= milestone.notes %>
+
+
+<section class="intro">
+  <div class="container">
+    <h1>My Timeline &darr;</h1>
+  </div>
+</section>
+
+<section class="timeline">
+  <ul>
+      <% @milestones.each do |milestone| %>
+    <li>
+      <div>
+        <time><%= milestone.created_at.strftime "%B %e" %></time> <%= milestone.notes %>
+      </div>
+    </li>
 <% end %>
 
+  </ul>
+</section>
