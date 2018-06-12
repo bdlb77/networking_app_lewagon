@@ -1,6 +1,5 @@
 class Location < ApplicationRecord
-
   belongs_to :user
-  belongs_to :milestone
+  has_many :milestones
   validates :title, presence: true, uniqueness: true
 end

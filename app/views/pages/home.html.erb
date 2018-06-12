@@ -1,13 +1,89 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1 class="text-center">Pages#home</h1>
+
+<div class="container text-center">
+  <div class="row inline">
+    <div class="col-sm-3">
+      <div class="name-search">
+        <%= form_tag root_path, method: :get  do %>
+        <%= text_field_tag :query, params[:query], type: "search", class: "form-control", 
+          placeholder: "search by name", onsearch: "toggleDisplay()" %>
+        <%  end %>
+        <script>
+          function toggleDisplay(){
+            var button = document.getElementById('location');
+            if (button.style.display === "none"){
+              button.style.display = "block";
+            }else{
+              button.style.display = "block";            
+            }
+          }
+        </script>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <%= button_tag 'Location', class: "location-search btn btn-primary", onclick: "buttonDisappear()" %>
+      <script>
+        function buttonDisappear(){
+          var button = document.getElementById('location');
+          if (button.style.display === "block"){
+            button.style.display = "none";
+          } else {
+            button.style.display = "block";
+          }
+        }
+      </script>
+    </div>
+    <div class="col-sm-3 ">
+      <%= button_tag'Tags', class: "tags-search btn btn-primary", onclick: "toggleFunction()"  %>
+      <script>
+        function toggleFunction(){
+          var button = document.getElementById('tags');
+          if (button.style.display === "none"){
+            button.style.display = "block";
+          } else {
+            button.style.display = "none";
+          }
+        }
+      </script>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <div id="contacts">
+        <% if params[:query].present? %>
+          <% @contacts.each do |contact|  %>
+            <h4><%= contact.first_name %></h4>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+   
+    <div class="col-sm-3">
+      <div id="location" style="display: none;">
+        <% @location_names.each do |location|  %>
+          <h4><%= location.title %></h4>
+        <% end %>
+      </div>
+    </div> 
+    <div class="col-sm-3">
+      <div id="tags" style="display: none;">
+        <% @tag_names.each do |tag|  %>
+          <h4><%= tag.title %></h4>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-<%= form_tag root_path, method: :get  do %>
-
-  <%= text_field_tag :query, params[:query], class: "form-control",
-      placeholder: "Find a movie" %>
-<% end %>
 
 
-<div id="hits"></div>
-
+ <!-- Allow searches to stay visible when value is entered into search -->
+<script>
+  if(document.getElementById('query').value == ''){
+  }else{
+    document.querySelector('.location-search').click();
+    document.querySelector('.tags-search').click();
+  }
+</script>

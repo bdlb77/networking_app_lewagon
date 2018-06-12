@@ -9,36 +9,59 @@
 
 require 'faker'
 puts "Start"
-Milestone.destroy_all
-Contact.destroy_all
-User.destroy_all
-puts "Data destoyed"
-user = User.new(
+
+user = User.create(
 	email: 'bdlb@utexas.edu',
 	password: 123456
 )
 user.save!
+puts "user created"
 
- 10.times do
-	contact = Contact.new(
-		first_name: Faker::Artist.name,
-		user_id: user.id,
-    email: Faker::Internet.email
-	)
-	contact.save!
+contact = Contact.create(
+	first_name: Faker::DragonBall.character, #=> "Goku"
+	user_id: user.id,
+  email: Faker::Internet.email
+)
+contact.save!
+
+puts "contacts created"
+10.times do 
+  location = Location.create(
+    title: Faker::DragonBall.character,
+    user_id: user.id
+    )
+  location.save!
 end
 
-  10.times do
-  milestone = Milestone.new(
+puts "location created"
+10.times do 
+  milestone = Milestone.create(
     contact_type: Faker::Address.full_address,
     notes: Faker::Friends.quote,
-    contact_id: Contact.last.id
+    contact_id: Faker::Number.between(1, 1),
+    location_id: Faker::Number.between(1, 3)
   )
-
   milestone.save!
+end
+puts "milestone created!"
 
+15.times do 
+  tag = Tag.create(
+    title: Faker::Hobbit.character, #=> "Gandalf the Grey"
+    user_id: user.id #=> "Tatooine"
+  )
+  tag.save!
 end
 
+puts "Tags created!"
+10.times do
+  subject = Subject.create(
+    name: Faker::Friends.character, #=> "Rachel Green" #=> "Gungan"
+    milestone_id: Faker::Number.between(1, 5),
+    tag_id: Faker::Number.between(1, 5)
+  )
+  subject.save!
+end
 
 puts "finished!"
 

@@ -12,8 +12,10 @@ gem 'redis'
 gem 'faker'
 gem "algoliasearch-rails"
 gem 'will_paginate', '~> 3.1.0'
+gem 'pg_search'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
+
 
 
 gem 'autoprefixer-rails'
