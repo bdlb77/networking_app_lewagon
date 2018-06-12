@@ -5,13 +5,18 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :users do
-    # resources :locations
-    # resources :tags
-    resources :contacts do
-      resources :milestones
-    end
-  end
+  # resources :users do
+  #   # resources :locations
+  #   # resources :tags
+
+  # end
+
+  resources :contacts
+  resources :milestones
+  resources :locations,  except: :destroy
+  resources :subjects, except: :destroy
+  resources :tags,  except: :destroy
+
 
   # resources :users do
   #   resources :locations, only: [:index, :show, :new, :create, :edit, :update]

@@ -1,6 +1,6 @@
 class MilestonesController < ApplicationController
     before_action :find_milestone, only: [:show, :update, :destroy, :edit]
-    before_action :find_contact, only: [:create]
+    # before_action :find_contact, only: [:create]
   def index
     @milestones = Milestone.all
   end
@@ -28,12 +28,12 @@ class MilestonesController < ApplicationController
 
   def create
     @milestone = Milestone.new(milestone_params)
-    @milestone.contact =  @contact
+    @milestone.contact = Contact.last
     # @milestone.location =  Location.find(params[:milestone][:location_id])
     # @milestone.user = current_user
-    if @milestone.save
+    if @milestone.save!
       flash[:alert] = " Your Milestone has been set!"
-      redirect_to user_milestones_path
+      redirect_to milestones_path
     else
       render :new
     end
@@ -74,10 +74,10 @@ class MilestonesController < ApplicationController
   end
 
   def milestone_params
-    params.require(:milestone).permit(:notes, :contact_type, :contact_id
-    subjects_attributes: [:id, :_destroy, :tag_id, tag_attributes: [:id, :_destroy, :title]]
-    location_attributes: [:id, :_destroy, :title]
-    contact_attributes: [:id, :first_name, :last_name, :position, :company, :username, :email, :phone_number]
-    )
+    params.require(:milestone).permit(:notes, :contact_type, :contact_id)
+    # subjects_attributes: [:id, :_destroy, :tag_id, tag_attributes: [:id, :_destroy, :title]]
+    # location_attributes: [:id, :_destroy, :title]
+    # contact_attributes: [:id, :first_name, :last_name, :position, :company, :username, :email, :phone_number]
+    # )
   end
 end

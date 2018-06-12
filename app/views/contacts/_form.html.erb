@@ -1,32 +1,54 @@
 <div class="container text-center">
   <div class="row">
     <div class="col-sm-offset-4 col-sm-4"> -->
-      <%= simple_form_for [@user, @contact], url: user_contacts_path do |f| %>
+      <%= simple_form_for @contact do |f| %>
       <%= f.input :first_name, label: 'First name', placeholder: 'Mark' %>
       <%= f.input :last_name, label: 'Last_name', placeholder: 'Zuckerberg' %>
       <%= f.input :position, label: 'Positions', placeholder: 'CEO at Facebook' %>
       <%= f.input :email, label: 'Email', placeholder: 'markz@gmail.com' %>
       <%= f.input :phone_number, label: 'Phone-number', placeholder: '050-7654768' %>
       <%= f.input :date_of_birth, label: 'Date of birth', placeholder: 'may 14 1984' %>
+
+      <%= f.input :first_contact_type, label: 'Contact point:', placeholder: 'Physical/Virtual/Phone' %>
+      <%= f.input :first_location, label: 'Location:', placeholder: 'Fintach confrence' %>
+      <%= f.input :first_tag, label: 'tag::', placeholder: 'Fintech' %>
+      <%= f.input :second_tag, label: 'tag::', placeholder: 'Fintech' %>
       <%#= f.input :photo %>
       <%#= f.input :photo_cache, as: :hidden %>
       <%= f.submit 'Submit contact'%>
+       <% end %>
+    </div>
+  </div>
+</div>
 
 
-  <ul  class = "nav nav-tabs" role='tablist'>
-    <li.active>
-      <%= link_to 'Milstones (:has_many)', '#people', data: {toggle: 'tab'}%>
-    </li.active>
-    <li>
-      <%= link_to 'User (:belongs_to)', '#owner', data: {toggle: 'tab'}%>
-    </li>
-    <li>
-      <%= link_to 'Tags (:has_many :through)', '#tags', data: {toggle: 'tab'}%>
-    </li>
-    <li>
-      <%= link_to 'Locations (:has_many :through)', '#tags', data: {toggle: 'tab'}%>
-    </li>
-  </ul>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4"> -->
+      <%= simple_form_for @milestone do |f| %>
+      <%= f.input :notes, label: ' conversation notes', placeholder: 'Have a common entrance in... ' %>
+      <%= f.input :contact_type, label: 'contact point:', placeholder: 'Physical/Virtual/Phone' %>
+      <%= f.submit 'Submit milestone'%>
+       <% end %>
+    </div>
+  </div>
+</div>
+
+
+  <!-- <ul  class = "nav nav-tabs" role='tablist'> -->
+  <!--   <li.active> -->
+      <%#= link_to 'Milstones (:has_many)', '#people', data: {toggle: 'tab'}%>
+ <!--    </li.active>
+    <li> -->
+      <%#= link_to 'User (:belongs_to)', '#owner', data: {toggle: 'tab'}%>
+    <!-- </li>
+    <li> -->
+      <%#= link_to 'Tags (:has_many :through)', '#tags', data: {toggle: 'tab'}%>
+   <!--  </li>
+    <li> -->
+      <%# link_to 'Locations (:has_many :through)', '#tags', data: {toggle: 'tab'}%>
+   <!--  </li>
+  </ul> -->
 
 
 <!--   <div class = "tab-content">
@@ -38,14 +60,14 @@
     <!--   </div>
     </div>
   </div> -->
-
-      <div class ="actions">
-      <%f.button :submit, disable_with: 'Please wait...'%>
-      </div>
-      <% end %>
-    </div>
+<!--
+      <div class ="actions"> -->
+      <%#f.button :submit, disable_with: 'Please wait...'%>
+     <!--  </div> -->
+      <%# end %>
+  <!--   </div>
   </div>
-</div>
+</div> -->
 
  <!--  <div class= "user tab-pane" role='tabpanel'>
     <div class = "contact_from_list"> -->

@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   before_action :find_contact, only: [:show, :edit, :update, :destroy]
-  before_action :user_user, only: [:create]
+  # before_action :find_user, only: [:create]
 
   def index
      # @contacts = policy_scope(Contact).order(:desc)
@@ -21,7 +21,11 @@ class ContactsController < ApplicationController
     @contact = Contact.new
     # @contact.user = current_user
 
-    # @milestone = Milestone.new
+    @milestone = Milestone.new
+    @location = Location.new
+    @subject = Subject.new
+    @tag = Tag.new
+
     # @milestone.contact_id = @contact.id
 
     # @locations = Location.all
@@ -63,10 +67,60 @@ class ContactsController < ApplicationController
   def create
     # @contact.user_id = current_user
     @contact = Contact.new(contact_params)
-    @contact.user = @user
-    if @contact.save
-      flash[:alert] = " Your contact has been set!"
-      redirect_to user_contact_path( @user, @contact)
+    @contact.user = current_user
+    if @contact.save!
+      flash[:alert] = "Your contact has been set!"
+      @locations = Location.all
+      @have_location = false
+        @locations.each do |l|
+          if l.title == @contact.first_location
+            @milestone = Milestone.new(contact_id:@contact.id, contact_type: @contact.first_contact_type, location_id:l.id)
+            @have_location = true
+            @milestone.save!
+          end
+        end
+        if @have_location == false
+          @location = Location.new(title:@contact.first_location, user_id:@contact.user_id)
+          if @location.save!
+            @milestone = Milestone.new(contact_id:@contact.id, contact_type: @contact.first_contact_type, location_id:@location.id)
+            @milestone.save!
+          end
+        end
+      if @milestone.save!
+        @tags = Tag.all
+        @have_first_tag = false
+        @tags.each do |t|
+          if t.title == @contact.first_tag
+            @subject = Subject.new(milestone_id:@milestone.id, tag_id:t.id)
+            @have_first_tag = true
+            @subject.save!
+          end
+        end
+        if @have_first_tag == false
+          @tag = Tag.new(title:@contact.first_tag, user_id:@contact.user_id)
+          @tag.save!
+          @subject = Subject.new(milestone_id:@milestone.id, tag_id:@tag.id)
+          @subject.save!
+        end
+
+        @have_second_tag == false
+        @tags.each do |t|
+          if t.title == @contact.second_tag
+            @subject = Subject.new(milestone_id:@milestone.id, tag_id:t.id)
+            @have_second_tag = true
+            @subject.save!
+          end
+        end
+        if @have_second_tag = false
+          @tag = Tag.new(title:@contact.second_tag, user_id:@contact.user_id)
+          @tag.save!
+          @subject = Subject.new(milestone_id:@milestone.id, tag_id:@tag.id)
+          @subject.save!
+        end
+      else
+        render :edit
+      end
+      redirect_to contact_path(@contact)
     else
       render :edit
     end
@@ -130,9 +184,19 @@ private
   #   params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :date_of_birth)
   # end
 
-  # def milestone_params
-  #   params.require(:milestone).permit(:notes, :contact_type)
-  # end
+  def milestone_params
+    params.require(:milestone).permit(:notes, :contact_type)
+  end
+
+  def tag_params
+    params.require(:tag).permit(:title)
+  end
+
+   def subject_params
+    params.require(:subject).permit(:tag_id, :milestone_id)
+  end
+
+
 
   # def subject_params
   #   params.require(:subject).permit(:name)
@@ -143,7 +207,7 @@ private
   # end
 
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :user_id)
+    params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :user_id, :date_of_birth, :first_contact_type, :first_location, :first_tag, :second_tag)
     # milstone_attributes: [:id, :notes, :_destroy, subjects_attributes: [:id, :_destroy, :tag_id, tag_attributes: [:id, :_destroy, :title]], location_attributes: [:id, :_destroy, :title]]
     # user_attributes: [:id, :email]
     # )
