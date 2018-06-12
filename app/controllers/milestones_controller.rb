@@ -75,5 +75,5 @@ class MilestonesController < ApplicationController
   def milestone_params
     params.require(:milestone).permit(:notes, :contact_type)
   end
-
+end
 end
