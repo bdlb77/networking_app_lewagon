@@ -73,6 +73,7 @@ class MilestonesController < ApplicationController
     @contact = Contact.find(params[:id])
   end
 
+
   def milestone_params
     params.require(:milestone).permit(:notes, :contact_type, :contact_id)
     # subjects_attributes: [:id, :_destroy, :tag_id, tag_attributes: [:id, :_destroy, :title]]
@@ -80,4 +81,5 @@ class MilestonesController < ApplicationController
     # contact_attributes: [:id, :first_name, :last_name, :position, :company, :username, :email, :phone_number]
     # )
   end
+
 end
