@@ -4,12 +4,12 @@ class Contact < ApplicationRecord
   algoliasearch do
     searchableAttributes :first_name
   end
-  
+
   belongs_to :user
   has_many :milestones
   validates :first_name, presence: true
   validates :username, uniqueness: true, allow_blank: true
-  validates :email, uniqueness: true, allow_blank: true
+  validates :email, uniqueness: true, presence: true
   # mount_uploader :photo, PhotoUploader
    # include PgSearch
    #  pg_search_scope :search_by_date_and_price,
@@ -17,6 +17,13 @@ class Contact < ApplicationRecord
    #  using: {
    #    tsearch: { prefix: true }
    #   }
+  after_save :async_update # Run on create & update
+
+  private
+
+  def async_update
+    UpdateContactJob.perform_later(self.email) if self.email
+  end
 end
 
 
