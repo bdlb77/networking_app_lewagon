@@ -66,7 +66,7 @@ class ContactsController < ApplicationController
     @contact.user = @user
     if @contact.save
       flash[:alert] = " Your contact has been set!"
-      redirect_to contact_path(@contact)
+      redirect_to user_contact_path( @user, @contact)
     else
       render :edit
     end

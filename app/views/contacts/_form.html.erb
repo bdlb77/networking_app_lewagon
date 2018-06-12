@@ -1,7 +1,7 @@
 <div class="container text-center">
   <div class="row">
     <div class="col-sm-offset-4 col-sm-4"> -->
-      <%= simple_form_for @contact do |f| %>
+      <%= simple_form_for [@user, @contact], url: user_contacts_path do |f| %>
       <%= f.input :first_name, label: 'First name', placeholder: 'Mark' %>
       <%= f.input :last_name, label: 'Last_name', placeholder: 'Zuckerberg' %>
       <%= f.input :position, label: 'Positions', placeholder: 'CEO at Facebook' %>
@@ -10,11 +10,8 @@
       <%= f.input :date_of_birth, label: 'Date of birth', placeholder: 'may 14 1984' %>
       <%#= f.input :photo %>
       <%#= f.input :photo_cache, as: :hidden %>
-      <%#= f.submit 'Submit contact'%>
-      <% end %>
-    </div>
-  </div>
-</div>
+      <%= f.submit 'Submit contact'%>
+
 
   <ul  class = "nav nav-tabs" role='tablist'>
     <li.active>
@@ -32,19 +29,23 @@
   </ul>
 
 
-  <div class = "tab-content">
-    <div class = "tasks tab-pane active" role='tabpanel'>
-      <% f.simple_fields_for :milestone do |milestone|%>
-        <% render 'milestone_fields', f: milestone %>
-      <div class = "links" >
-        <% link_to_add_association 'add milestone', f, :milestones%>
+<!--   <div class = "tab-content">
+    <div class = "tasks tab-pane active" role='tabpanel'> -->
+      <%# f.simple_fields_for :milestone do |milestone|%>
+        <%# render 'milestone_fields', f: milestone %>
+      <!-- <div class = "links" > -->
+        <%# link_to_add_association 'add milestone', f, :milestones%>
+    <!--   </div>
+    </div>
+  </div> -->
+
+      <div class ="actions">
+      <%f.button :submit, disable_with: 'Please wait...'%>
       </div>
+      <% end %>
     </div>
   </div>
-
-  <div class ="actions">
-    <%f.button :submit, :disable_with => 'Please wait...'%>
-  </div>
+</div>
 
  <!--  <div class= "user tab-pane" role='tabpanel'>
     <div class = "contact_from_list"> -->
