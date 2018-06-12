@@ -1,6 +1,5 @@
 class Tag < ApplicationRecord
-
+  has_many :subjects
   belongs_to :user
-  belongs_to :milestone
   validates :title, presence: true, uniqueness: true
 end
