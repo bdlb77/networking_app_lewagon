@@ -25,6 +25,8 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'nested_form_fields'
+gem "cocoon"
 
 group :development do
   gem 'web-console', '>= 3.3.0'

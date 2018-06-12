@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_12_100724) do
+
+ActiveRecord::Schema.define(version: 2018_06_12_145845) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +29,11 @@ ActiveRecord::Schema.define(version: 2018_06_12_100724) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_contact_type"
+    t.string "first_location"
+    t.string "string"
+    t.string "first_tag"
+    t.string "second_tag"
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
@@ -49,7 +56,6 @@ ActiveRecord::Schema.define(version: 2018_06_12_100724) do
   end
 
   create_table "milestones", force: :cascade do |t|
-    t.string "notes"
     t.bigint "contact_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -60,7 +66,6 @@ ActiveRecord::Schema.define(version: 2018_06_12_100724) do
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.string "name"
     t.bigint "tag_id"
     t.bigint "milestone_id"
     t.datetime "created_at", null: false
