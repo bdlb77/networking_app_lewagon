@@ -92,31 +92,31 @@ class ContactsController < ApplicationController
         @have_first_tag = false
         @tags.each do |t|
           if t.title == @contact.first_tag
-            @subject = Subject.new(milestone_id:@milestone.id, tag_id:t.id)
+            @subject1 = Subject.new(milestone_id:@milestone.id, tag_id:t.id)
             @have_first_tag = true
-            @subject.save!
+            @subject1.save!
           end
         end
         if @have_first_tag == false
-          @tag = Tag.new(title:@contact.first_tag, user_id:@contact.user_id)
-          @tag.save!
-          @subject = Subject.new(milestone_id:@milestone.id, tag_id:@tag.id)
-          @subject.save!
+          @tag1 = Tag.new(title:@contact.first_tag, user_id:@contact.user_id)
+          @tag1.save!
+          @subject1 = Subject.new(milestone_id:@milestone.id, tag_id:@tag1.id)
+          @subject1.save!
         end
 
-        @have_second_tag == false
+        @have_second_tag = false
         @tags.each do |t|
           if t.title == @contact.second_tag
-            @subject = Subject.new(milestone_id:@milestone.id, tag_id:t.id)
+            @subject2 = Subject.new(milestone_id:@milestone.id, tag_id:t.id)
             @have_second_tag = true
-            @subject.save!
+            @subject2.save!
           end
         end
-        if @have_second_tag = false
-          @tag = Tag.new(title:@contact.second_tag, user_id:@contact.user_id)
-          @tag.save!
-          @subject = Subject.new(milestone_id:@milestone.id, tag_id:@tag.id)
-          @subject.save!
+        if @have_second_tag == false
+          @tag2 = Tag.new(title:@contact.second_tag, user_id:@contact.user_id)
+          @tag2.save!
+          @subject2 = Subject.new(milestone_id:@milestone.id, tag_id:@tag2.id)
+          @subject2.save!
         end
       else
         render :edit
@@ -160,7 +160,7 @@ class ContactsController < ApplicationController
   def update
     if @contact.update(contact_params)
       flash[:alert] = " Your contact has been updated!"
-      redirect_to contact_path(@event)
+      redirect_to contact_path(@contact)
     else
       render :edit
     end

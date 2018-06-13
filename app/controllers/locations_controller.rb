@@ -33,6 +33,10 @@ class LocationsController < ApplicationController
     end
   end
 
+  def destroy
+    @location.destroy
+  end
+
   private
 
   def find_location

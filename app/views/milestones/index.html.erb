@@ -11,7 +11,7 @@
       <% @milestones.each do |milestone| %>
     <li>
       <div>
-        <time><%= milestone.created_at.strftime "%B %e" %></time> <%= milestone.notes %>
+        <time><%= milestone.created_at.strftime "%B %e" %></time> <%= milestone.note %>
       </div>
     </li>
 <% end %>

@@ -1,2 +1,21 @@
-<h1>Milestones#edit</h1>
-<p>Find me in app/views/milestones/edit.html.erb</p>
+<div class="wrapper-form">
+  <div class="container text-center">
+  <div class="row">
+    <div class="form col-sm-offset-4 col-sm-4"> -->
+      <%= simple_form_for @milestone, url: contact_milestone_path do |f| %>
+      <%= f.input :contact_type, label: 'Contact point:', placeholder: 'Physical/Virtual/Phone' %>
+
+      <%= f.input :last_location, label: 'Location:', placeholder: 'Fintach confrence' %>
+       <%= f.input :note, label: 'Notes:', placeholder: 'Have a common interest in...' %>
+      <%# if @tags.any? %>
+        <%#= f.input @tags.title, as: :select, collection: @tags, prompt: 'Select tag', label: false %>
+      <%# end %>
+      <%= f.input :last_tag, label: 'Tag', placeholder: 'Fintech' %>
+      <%= f.input :last_tag_two, label: 'Tag', placeholder: 'Fintech' %>
+      <%= f.submit 'Submit contact'%>
+       <% end %>
+    </div>
+  </div>
+</div>
+
+</div>
