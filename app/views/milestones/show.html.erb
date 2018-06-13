@@ -1,2 +1,8 @@
 <h1>Milestones#show</h1>
 <%= @milestone.contact_type %>
+<%= @milestone.location.title %>
+<% @milestone.tags.each do |t| %>
+<%= t.title %>
+<% end %>
+
+

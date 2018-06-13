@@ -1,1 +1,23 @@
+<div class="wrapper-form">
+  <div class="container text-center">
+    <div class="row">
+      <div class="form col-sm-offset-4 col-sm-4"> -->
+        <%= simple_form_for @contact do |f| %>
+        <%= f.input :first_name, label: 'First name', placeholder: 'Mark' %>
+        <%= f.input :last_name, label: 'Last_name', placeholder: 'Zuckerberg' %>
+        <%= f.input :position, label: 'Positions', placeholder: 'CEO at Facebook' %>
+        <%= f.input :company, label: 'Company', placeholder: 'facebook' %>
+        <%= f.input :username, label: 'Linkedin username', placeholder: 'mark123' %>
+        <%= f.input :email, label: 'Email', placeholder: 'markz@gmail.com' %>
+        <%= f.input :phone_number, label: 'Phone-number', placeholder: '050-7654768' %>
+        <%= f.input :date_of_birth, label: 'Date of birth', placeholder: 'may 14 1984' %>
 
+        <%= f.input :first_contact_type, label: 'Contact point:', placeholder: 'Physical/Virtual/Phone' %>
+
+        <%= f.input :first_location, label: 'Location:', placeholder: 'Fintach confrence' %>
+         <%= f.submit 'Submit contact'%>
+       <% end %>
+     </div>
+    </div>
+  </div>
+</div>

@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   resources :contacts do
     resources :milestones
   end
-  resources :locations,  except: :destroy
-  resources :subjects, except: :destroy
-  resources :tags,  except: :destroy
+  resources :locations
+  resources :subjects
+  resources :tags
 
 
   # resources :users do
