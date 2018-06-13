@@ -7,72 +7,64 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-require 'faker'
-puts "Start"
-
-user = User.new(
-	email: 'bdlb@utexas.edu',
-	password: 123456
-)
-user.save!
-puts "user created"
-
-  contact = Contact.new(
-    first_name: Faker::DragonBall.character, #=> "Goku"
-    user_id: user.id,
-    email: Faker::Internet.email
-  )
-
-contact.save!
-
-contact = Contact.new(
-  	first_name: Faker::DragonBall.character, #=> "Goku"
-  	user_id: user.id,
-    email: Faker::Internet.email
-  )
-contact.save!
-
-puts "contacts created"
-
-3.times do 
-  location = Location.new(
-    title: Faker::GameOfThrones.city,
-
-    user_id: user.id
-    )
-location.save!
-end
-
-puts "location created"
-
-3.times do 
-  milestone = Milestone.new(
-    contact_type: Faker::Address.full_address,
-    contact_id: Faker::Number.between(1, 2),
-    location_id: Faker::Number.between(1, 2)
-  )
-milestone.save!
-end
-puts "milestone created!"
+# require 'faker'
+# puts "Start"
 
 
-3.times do 
-  tag = Tag.new(
-    title: Faker::Job.field, #=> "Gandalf the Grey"
+#   contact = Contact.new(
+#     first_name: Faker::DragonBall.character, #=> "Goku"
+#     user_id: 1,
+#     email: Faker::Internet.email
+#   )
 
-    user_id: user.id #=> "Tatooine"
-  )
-  tag.save!
-end
+# contact.save!
 
-puts "Tags created!"
-3.times do
-  subject = Subject.new(
-    milestone_id: Faker::Number.between(1, 3),
-    tag_id: Faker::Number.between(1, 3)
-  )
-  subject.save!
-end
+# contact = Contact.new(
+#   	first_name: Faker::DragonBall.character, #=> "Goku"
+#   	user_id: 1,
+#     email: Faker::Internet.email
+#   )
+# contact.save!
 
-puts "finished!"
+# puts "contacts created"
+
+# 3.times do 
+#   location = Location.new(
+#     title: Faker::GameOfThrones.city,
+#     user_id: 1
+#     )
+# location.save!
+# end
+
+# puts "location created"
+
+# 3.times do 
+#   milestone = Milestone.new(
+#     contact_type: Faker::Address.full_address,
+#     contact_id: Faker::Number.between(1, 2),
+#     location_id: Faker::Number.between(1, 2)
+#   )
+# milestone.save!
+# end
+# puts "milestone created!"
+
+
+# 3.times do 
+#   tag = Tag.new(
+#     title: Faker::Job.field, #=> "Gandalf the Grey"
+#     user_id: 1 #=> "Tatooine"
+#   )
+#   tag.save!
+# end
+
+# puts "Tags created!"
+# 3.times do
+#   subject = Subject.new(
+#     milestone_id: Faker::Number.between(1, 3),
+#     tag_id: Faker::Number.between(1, 3)
+#   )
+#   subject.save!
+# end
+
+# puts "finished!"
 

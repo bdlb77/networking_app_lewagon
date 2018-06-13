@@ -2,7 +2,6 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
   before_action :set_contacts, only: [:home]
   def home
-    recent_activity
     if params[:query].present?
       tag_titles
     else
@@ -12,8 +11,9 @@ class PagesController < ApplicationController
     if params[:query].present?
       location_titles
     else
-      @location_names = Location.all
+      @my_locations = Location.all
     end
+    recent_activity
   end
   private 
   
@@ -24,53 +24,18 @@ class PagesController < ApplicationController
   def tag_titles
     @tag_names = []
     @tags = Tag.all
-    @milestones = Milestone.all
-    @subjects = Subject.all
-    @contact_tags = []
-    
-    @contacts.each do |c|  
-      @milestones.each do |m|
-        if c.id == m.contact_id
-          @subjects.each do |s|
-            if m.id == s.milestone_id
-              tag.id = s.tag_id
-              @contact_tags << tag.id
-            end
-          end
-        end
-      end
-    end
-    @contact_tags.each do |ct|
-      @tags.each do |t|
-        if ct == t.id
-          @tag_names << t
-        end
+    @tag_names = @tags.map do |tag|
+      if tag.user == current_user
+       tag
       end
     end
   end
 
   def location_titles
-    @location_ids = []
-    @location_names =[]
     @locations = Location.all
-    @milestones = Milestone.all
-    @ubjects = Subject.all
-  
-    @contacts.each do |c|
-      @milestones.each do |m|
-        if c.id == m.contact_id
-          location = m.location_id
-          @location_ids << location
-        end
-      end
-    end
-    raise
-
-    @location_ids.each do |lt|
-      @locations.each do |l|
-        if lt == l.id
-          @location_names << l
-        end
+    @my_locations = @locations.map do |location|
+      if location.user == current_user
+        location
       end
     end
   end
