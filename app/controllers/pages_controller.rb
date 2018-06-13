@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
   before_action :set_contacts, only: [:home]
   def home
+    recent_activity
     if params[:query].present?
       tag_titles
     else
@@ -14,16 +15,6 @@ class PagesController < ApplicationController
       @location_names = Location.all
     end
   end
-
-
-
-  #   if @contacts.present?
-  #     @locations = @contacts.locations.each { |location| location }
-  #   else
-  #     @locations = Location.all
-  #   end
-  # end
-  
   private 
   
   def set_contacts 
@@ -33,17 +24,17 @@ class PagesController < ApplicationController
   def tag_titles
     @tag_names = []
     @tags = Tag.all
-    @contact_tags = []
     @milestones = Milestone.all
     @subjects = Subject.all
+    @contact_tags = []
     
     @contacts.each do |c|  
       @milestones.each do |m|
         if c.id == m.contact_id
           @subjects.each do |s|
             if m.id == s.milestone_id
-              tag = s.tag_id
-              @contact_tags << tag
+              tag.id = s.tag_id
+              @contact_tags << tag.id
             end
           end
         end
@@ -73,6 +64,7 @@ class PagesController < ApplicationController
         end
       end
     end
+    raise
 
     @location_ids.each do |lt|
       @locations.each do |l|
@@ -83,4 +75,9 @@ class PagesController < ApplicationController
     end
   end
 
+  def recent_activity
+    @sorted_milestones = Milestone.all
+    @sorted_milestones.sort_by { |milestone| milestone.updated_at }
+    @sorted_milestones.first(3)
+  end
 end

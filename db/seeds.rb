@@ -18,6 +18,14 @@ user.save!
 puts "user created"
 
   contact = Contact.new(
+    first_name: Faker::DragonBall.character, #=> "Goku"
+    user_id: user.id,
+    email: Faker::Internet.email
+  )
+
+contact.save!
+
+contact = Contact.new(
   	first_name: Faker::DragonBall.character, #=> "Goku"
   	user_id: user.id,
     email: Faker::Internet.email
@@ -37,7 +45,7 @@ puts "location created"
 3.times do 
   milestone = Milestone.new(
     contact_type: Faker::Address.full_address,
-    contact_id: Faker::Number.between(1, 1),
+    contact_id: Faker::Number.between(1, 2),
     location_id: Faker::Number.between(1, 2)
   )
 milestone.save!

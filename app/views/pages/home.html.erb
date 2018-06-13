@@ -76,9 +76,11 @@
   </div>
 </div>
 
-
-
-
+<div class="recent-activity">
+  <% @sorted_milestones.each do |milestone|%>
+    <h4><%= milestone %></h4>
+  <% end %>
+</div>
  <!-- Allow searches to stay visible when value is entered into search -->
 <script>
   if(document.getElementById('query').value == ''){
