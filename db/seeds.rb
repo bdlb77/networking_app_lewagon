@@ -28,7 +28,7 @@
 
 # puts "contacts created"
 
-# 3.times do 
+# 3.times do
 #   location = Location.new(
 #     title: Faker::GameOfThrones.city,
 #     user_id: 1
@@ -38,7 +38,7 @@
 
 # puts "location created"
 
-# 3.times do 
+# 3.times do
 #   milestone = Milestone.new(
 #     contact_type: Faker::Address.full_address,
 #     contact_id: Faker::Number.between(1, 2),
@@ -49,7 +49,7 @@
 # puts "milestone created!"
 
 
-# 3.times do 
+# 3.times do
 #   tag = Tag.new(
 #     title: Faker::Job.field, #=> "Gandalf the Grey"
 #     user_id: 1 #=> "Tatooine"
