@@ -1,3 +1,13 @@
+<% @user = current_user%>
+<% @tags = [] %>
+<% @alltags = Tag.all %>
+<% @alltags.each do |t|%>
+  <% if t.user_id = @user.id %>
+  <% @tags << t %>
+  <% end %>
+<% end %>
+
+
 <div class="container text-center">
   <div class="row">
     <div class="form col-sm-offset-4 col-sm-4"> -->
@@ -12,9 +22,14 @@
       <%= f.input :date_of_birth, label: 'Date of birth', placeholder: 'may 14 1984' %>
 
       <%= f.input :first_contact_type, label: 'Contact point:', placeholder: 'Physical/Virtual/Phone' %>
+
       <%= f.input :first_location, label: 'Location:', placeholder: 'Fintach confrence' %>
-      <%= f.input :first_tag, label: 'tag', placeholder: 'Fintech' %>
-      <%= f.input :second_tag, label: 'tag', placeholder: 'Fintech' %>
+      <%= f.input :one_note, label: 'Notes:', placeholder: 'Have a common interest in...' %>
+      <%# if @tags.any? %>
+        <%#= f.input @tags.title, as: :select, collection: @tags, prompt: 'Select tag', label: false %>
+      <%# end %>
+      <%= f.input :first_tag, label: 'Tag', placeholder: 'Fintech' %>
+      <%= f.input :second_tag, label: 'Tag', placeholder: 'Fintech' %>
       <%#= f.input :photo %>
       <%#= f.input :photo_cache, as: :hidden %>
       <%= f.submit 'Submit contact'%>

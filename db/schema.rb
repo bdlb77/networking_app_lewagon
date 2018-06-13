@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_12_145845) do
+ActiveRecord::Schema.define(version: 2018_06_13_083737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2018_06_12_145845) do
     t.string "first_location"
     t.string "first_tag"
     t.string "second_tag"
+    t.string "one_note"
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
@@ -48,6 +49,10 @@ ActiveRecord::Schema.define(version: 2018_06_12_145845) do
     t.datetime "updated_at", null: false
     t.string "contact_type"
     t.bigint "location_id"
+    t.string "note"
+    t.string "last_location"
+    t.string "last_tag_two"
+    t.string "last_tag"
     t.index ["contact_id"], name: "index_milestones_on_contact_id"
     t.index ["location_id"], name: "index_milestones_on_location_id"
   end
