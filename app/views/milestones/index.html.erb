@@ -8,13 +8,22 @@
 
 <section class="timeline">
   <ul>
+
       <% @milestones.each do |milestone| %>
+
     <li>
       <div>
-        <time><%= milestone.created_at.strftime "%B %e" %></time> <%= milestone.notes %>
+        <%= milestone.contact.first_name%> <div class="avatar"></div>
+        <br>
+        <% milestone.tags.each do |tag| %>
+          <%= tag.title %>
+        <% end %>
+          <time style="font-size: 13px"><%= milestone.created_at.strftime "%B %e %G" %></time>
+          <% @locations.each do |location|%>
+            <%= location.title %>
+          <% end %>
       </div>
     </li>
 <% end %>
-
   </ul>
 </section>
