@@ -11,8 +11,8 @@
         <script>
           function toggleDisplay(){
             var button = document.getElementById('location');
-            if (button.style.display === "none"){
-              button.style.display = "block";
+            if (button.style.display === "block"){
+              button.style.display = "none";
             }else{
               button.style.display = "block";            
             }
@@ -53,37 +53,80 @@
       <div id="contacts">
         <% if params[:query].present? %>
           <% @contacts.each do |contact|  %>
-            <h4><%= contact.first_name %></h4>
+            <h4><%= link_to contact.first_name, contact_milestones_path(contact) %></h4>
           <% end %>
         <% end %>
       </div>
     </div>
-   
+  
+
     <div class="col-sm-3">
       <div id="location" style="display: none;">
-        <% @location_names.each do |location|  %>
-          <h4><%= location.title %></h4>
-        <% end %>
+        <% @my_locations.each do |location|  %>
+          <h4>
+              <%= link_to location.title, root_path(location_id: location.id), onclick: "showLocation()"  %>
+          </h4>
+        <%  end  %>
+        
+        <script>
+          function showLocation(){
+            var button = document.getElementById('contact-location');
+            if (button.style.display === "block"){
+              button.style.display = "none";
+            } else {
+              button.style.display = "block";
+            }
+          }
+        </script>
       </div>
     </div> 
     <div class="col-sm-3">
       <div id="tags" style="display: none;">
         <% @tag_names.each do |tag|  %>
-          <h4><%= tag.title %></h4>
+          <h4><%= link_to tag.title, root_path(tag_id: tag.id), onclick:"showTags()" %></h4>
+        <% end %>
+        <script>
+          function showTags(){
+            var button = document.getElementById('tags-contacts');
+            if (button.style.display === "block"){
+              button.style.display = "none";
+            } else {
+              button.style.display = "block";
+            }
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div id="tags-contacts" style="display: block;">
+         <% if params[:tag_id].present? %>
+            <%  @list_of_contacts.each   do |contact| %>
+              <h4><%= link_to contact.first_name, contact_milestones_path(contact) %></h4>
+              <h4><%= contact.email %></h4>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div id="contact-location" style="display: block;">
+         <%if params[:location_id].present? %>
+            <% @contacts_for_location.each do |contact| %>
+              <!-- Rooted Back To Home until cards installed -->
+              <h4><%=link_to contact.first_name, contact_milestones_path(contact.id) %></h4>
+              <h4><%= contact.email %></h4>
+            <% end %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
 
-
-
-
+<div class="recent-activity">
+  <% @sorted_milestones.each do |milestone|%>
+    <h4><%= milestone.contact.first_name + ": " + milestone.contact.email%></h4>
+    <h5><%= milestone.location.title %></h5>
+  <% end %>
+</div>
  <!-- Allow searches to stay visible when value is entered into search -->
-<script>
-  if(document.getElementById('query').value == ''){
-  }else{
-    document.querySelector('.location-search').click();
-    document.querySelector('.tags-search').click();
-  }
-</script>

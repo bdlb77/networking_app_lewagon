@@ -34,9 +34,9 @@ Rails.application.routes.draw do
   # resources :milestones do
   #   resources :locations, except: :destroy
   # end
- require "sidekiq/web"
-  authenticate :user, lambda { |u| u.admin } do
-    mount Sidekiq::Web => '/sidekiq'
-  end
+ # require "sidekiq/web"
+ #  authenticate :user, lambda { |u| u.admin } do
+ #    mount Sidekiq::Web => '/sidekiq'
+ #  end
 
 end

@@ -9,9 +9,9 @@
 body {
   font: normal 16px/1.5 "Helvetica Neue", sans-serif;
   background: white;
-  color: #fff;
   overflow-x: hidden;
   padding-bottom: 50px;
+  color: black;
 }  /* INTRO SECTION
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -25,6 +25,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
+  color: #ccc;
 }
 
 h1 {
@@ -38,6 +39,7 @@ h1 {
 .timeline ul {
   background: white;
   padding: 50px 0;
+  color: #ccc;
 }
 
 .timeline ul li {
@@ -166,4 +168,11 @@ time {
     border-width: 8px 16px 8px 0;
     border-color: transparent #256e79 transparent transparent;
   }
+}
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: gray;
 }

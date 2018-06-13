@@ -2,6 +2,14 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
   before_action :set_contacts, only: [:home]
   def home
+    recent_activity
+    
+    if params[:location_id].present?
+      find_location_for_contact
+    end
+    if params[:tag_id].present?
+      find_tag_for_contact
+    end
     if params[:query].present?
       tag_titles
     else
@@ -11,19 +19,9 @@ class PagesController < ApplicationController
     if params[:query].present?
       location_titles
     else
-      @location_names = Location.all
+      @my_locations = Location.all
     end
   end
-
-
-
-  #   if @contacts.present?
-  #     @locations = @contacts.locations.each { |location| location }
-  #   else
-  #     @locations = Location.all
-  #   end
-  # end
-  
   private 
   
   def set_contacts 
@@ -33,54 +31,48 @@ class PagesController < ApplicationController
   def tag_titles
     @tag_names = []
     @tags = Tag.all
-    @contact_tags = []
-    @milestones = Milestone.all
-    @subjects = Subject.all
-    
-    @contacts.each do |c|  
-      @milestones.each do |m|
-        if c.id == m.contact_id
-          @subjects.each do |s|
-            if m.id == s.milestone_id
-              tag = s.tag_id
-              @contact_tags << tag
-            end
-          end
-        end
-      end
-    end
-    @contact_tags.each do |ct|
-      @tags.each do |t|
-        if ct == t.id
-          @tag_names << t
-        end
+    @tag_names = @tags.map do |tag|
+      if tag.user == current_user
+       tag
       end
     end
   end
 
   def location_titles
-    @location_ids = []
-    @location_names =[]
     @locations = Location.all
-    @milestones = Milestone.all
-    @ubjects = Subject.all
-  
-    @contacts.each do |c|
-      @milestones.each do |m|
-        if c.id == m.contact_id
-          location = m.location_id
-          @location_ids << location
-        end
-      end
-    end
-
-    @location_ids.each do |lt|
-      @locations.each do |l|
-        if lt == l.id
-          @location_names << l
-        end
+    @my_locations = @locations.map do |location|
+      if location.user == current_user
+        location
       end
     end
   end
 
+  def recent_activity
+    @sorted_milestones = Milestone.all
+    @sorted_milestones.sort_by { |milestone| milestone.updated_at }
+    @sorted_milestones.first(3)
+  end
+
+  def find_tag_for_contact
+    @list_of_contacts = []
+    @tag_milestones = []
+    @tag = Tag.find(params[:tag_id])
+    @tag_sub = @tag.subjects
+    @tag_sub.each do |tsub|
+      @tag_milestones << tsub.milestone
+    end
+    @tag_milestones.each do |milestone|
+      @list_of_contacts << milestone.contact
+    end
+    @list_of_contacts
+  end
+  def find_location_for_contact
+    @contacts_for_location = []
+    @location = Location.find(params[:location_id])
+    @milestones_for_location = @location.milestones
+    @milestones_for_location.each do |milestone|
+      @contacts_for_location << milestone.contact
+    end
+    @contacts_for_location
+  end
 end
