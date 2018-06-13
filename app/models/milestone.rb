@@ -1,7 +1,7 @@
 class Milestone < ApplicationRecord
   belongs_to :contact
+  belongs_to :location
   has_many :subjects
-  has_one :location
   has_many :tags , through: :subjects
 
   accepts_nested_attributes_for :subjects, reject_if: :all_blank, allow_destroy: true

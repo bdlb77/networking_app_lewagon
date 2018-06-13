@@ -53,7 +53,7 @@
       <div id="contacts">
         <% if params[:query].present? %>
           <% @contacts.each do |contact|  %>
-            <h4><%= contact.first_name %></h4>
+            <h4><%= link_to contact.first_name, contact_milestones_path(contact) %></h4>
           <% end %>
         <% end %>
       </div>
@@ -70,6 +70,24 @@
       <div id="tags" style="display: none;">
         <% @tag_names.each do |tag|  %>
           <h4><%= tag.title %></h4>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div id="tags-contacts">
+         <% @list_of_contacts.each do |contact| %>
+          <h4><%= contact.first_name %></h4>
+          <h4><%= contact.email %></h4>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div id="location-contacts">
+         <% @contacts_for_location.each do |contact| %>
+          <h4><%= contact.first_name %></h4>
+          <h4><%= contact.email %></h4>
         <% end %>
       </div>
     </div>
