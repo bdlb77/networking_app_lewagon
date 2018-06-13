@@ -29,13 +29,13 @@ class Contact < ApplicationRecord
    #  using: {
    #    tsearch: { prefix: true }
    #   }
-  after_save :async_update # Run on create & update
+  # after_save :async_update # Run on create & update
 
-  private
+  # private
 
-  def async_update
-    UpdateContactJob.perform_later(self.email) if self.email
-  end
+  # def async_update
+  #   UpdateContactJob.perform_later(self.email) if self.email
+  # end
 end
 
 
