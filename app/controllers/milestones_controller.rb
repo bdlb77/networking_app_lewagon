@@ -3,6 +3,9 @@ class MilestonesController < ApplicationController
     # before_action :find_contact, only: [:create]
   def index
     @milestones = Milestone.all
+    @contacts = Contact.all
+    @tags = Tag.all
+    @locations = Location.all
   end
 
   def new
