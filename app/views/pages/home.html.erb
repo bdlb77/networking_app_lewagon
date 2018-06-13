@@ -103,7 +103,7 @@
       <div id="tags-contacts" style="display: block;">
          <% if params[:tag_id].present? %>
             <%  @list_of_contacts.each   do |contact| %>
-              <h4><%= contact.first_name %></h4>
+              <h4><%= link_to contact.first_name, contact_milestones_path(contact) %></h4>
               <h4><%= contact.email %></h4>
             <% end %>
         <% end %>
@@ -113,7 +113,8 @@
       <div id="contact-location" style="display: block;">
          <%if params[:location_id].present? %>
             <% @contacts_for_location.each do |contact| %>
-              <h4><%= contact.first_name %></h4>
+              <!-- Rooted Back To Home until cards installed -->
+              <h4><%=link_to contact.first_name, contact_milestones_path(contact.id) %></h4>
               <h4><%= contact.email %></h4>
             <% end %>
         <% end %>
