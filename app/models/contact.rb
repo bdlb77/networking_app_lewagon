@@ -31,7 +31,7 @@ class Contact < ApplicationRecord
    #   }
   # after_save :async_update # Run on create & update
 
-  private
+  # private
 
   # def async_update
   #   UpdateContactJob.perform_later(self.email) if self.email

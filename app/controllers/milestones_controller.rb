@@ -94,6 +94,8 @@ before_action :find_contact
 
   def update
     if @milestone.update(milestone_params)
+      render "locations/update"
+      render "tags/update"
       flash[:alert] = " Your Milestone has been updated!"
       redirect_to user_milestones_path
     else
