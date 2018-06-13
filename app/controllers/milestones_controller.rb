@@ -3,10 +3,8 @@ before_action :find_milestone, only: [:show, :update, :destroy, :edit]
 before_action :find_contact
 
   def index
-    @milestones = Milestone.all
-    @contacts = Contact.all
-    @tags = Tag.all
-    @locations = Location.all
+    @milestones = Milestone.where(contact_id: find_contact.id )
+    @contact = find_contact
   end
 
   def new
