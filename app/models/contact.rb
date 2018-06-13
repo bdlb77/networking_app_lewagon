@@ -1,12 +1,12 @@
 class Contact < ApplicationRecord
-  include PgSearch  
- 
+  include PgSearch
+
   pg_search_scope :search_by_first_name_and_last_name,
     against: [:first_name, :last_name],
     using: {
       tsearch:  { prefix: true }
     }
-  
+
   belongs_to :user
   has_many :milestones
   has_many :locations , through: :milestones
@@ -29,13 +29,13 @@ class Contact < ApplicationRecord
    #  using: {
    #    tsearch: { prefix: true }
    #   }
-  after_save :async_update # Run on create & update
+  # after_save :async_update # Run on create & update
 
   private
 
-  def async_update
-    UpdateContactJob.perform_later(self.email) if self.email
-  end
+  # def async_update
+  #   UpdateContactJob.perform_later(self.email) if self.email
+  # end
 end
 
 

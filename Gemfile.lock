@@ -260,7 +260,6 @@ DEPENDENCIES
   pry-rails
   puma
   rails (= 5.2.0)
-  redis
   sass-rails
   sidekiq
   sidekiq-failures (~> 1.0)

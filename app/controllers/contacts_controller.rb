@@ -75,7 +75,7 @@ class ContactsController < ApplicationController
       @have_location = false
         @locations.each do |l|
           if l.title == @contact.first_location
-            @milestone = Milestone.new(contact_id:@contact.id, contact_type: @contact.first_contact_type, location_id:l.id)
+            @milestone = Milestone.new(contact_id:@contact.id, contact_type: @contact.first_contact_type, location_id:l.id, note:@contact.one_note)
             @have_location = true
             @milestone.save!
           end
@@ -83,7 +83,7 @@ class ContactsController < ApplicationController
         if @have_location == false
           @location = Location.new(title:@contact.first_location, user_id:@contact.user_id)
           if @location.save!
-            @milestone = Milestone.new(contact_id:@contact.id, contact_type: @contact.first_contact_type, location_id:@location.id)
+            @milestone = Milestone.new(contact_id:@contact.id, contact_type: @contact.first_contact_type, location_id:@location.id, note:@contact.one_note)
             @milestone.save!
           end
         end
@@ -208,7 +208,7 @@ private
   # end
 
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :user_id, :date_of_birth, :first_contact_type, :first_location, :first_tag, :second_tag)
+    params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :user_id, :date_of_birth, :first_contact_type, :first_location, :first_tag, :second_tag, :note)
     # milstone_attributes: [:id, :notes, :_destroy, subjects_attributes: [:id, :_destroy, :tag_id, tag_attributes: [:id, :_destroy, :title]], location_attributes: [:id, :_destroy, :title]]
     # user_attributes: [:id, :email]
     # )
