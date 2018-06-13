@@ -2,28 +2,25 @@
 
 <section class="intro">
   <div class="container">
-    <h1>My Timeline &darr;</h1>
+    <h1><%= @contact.first_name%><%= @contact.last_name%> &darr;</h1>
   </div>
 </section>
 
+
 <section class="timeline">
   <ul>
+    <% @milestones.each do |milestone| %>
+            <li>
+            <div>
+               <% milestone.tags.each do |tag| %>
+                <p><%= tag.title %></p>
+               <% end %>
+              <br>
+              <p><%= milestone.location.title %></p>
 
-      <% @milestones.each do |milestone| %>
-
-    <li>
-      <div>
-        <%= milestone.contact.first_name%> <div class="avatar"></div>
-        <br>
-        <% milestone.tags.each do |tag| %>
-          <%= tag.title %>
-        <% end %>
-          <time style="font-size: 13px"><%= milestone.created_at.strftime "%B %e %G" %></time>
-          <% @locations.each do |location|%>
-            <%= location.title %>
-          <% end %>
-      </div>
-    </li>
-<% end %>
+      <time style="font-size: 13px"><%= milestone.created_at.strftime "%B %e %G" %></time>
+         </div>
+          </li>
+    <% end %>
   </ul>
 </section>
