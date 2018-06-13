@@ -2,9 +2,14 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
   before_action :set_contacts, only: [:home]
   def home
-    find_location_for_contact
-    find_tag_for_contact
     recent_activity
+    
+    if params[:location_id].present?
+      find_location_for_contact
+    end
+    if params[:tag_id].present?
+      find_tag_for_contact
+    end
     if params[:query].present?
       tag_titles
     else
@@ -51,21 +56,20 @@ class PagesController < ApplicationController
   def find_tag_for_contact
     @list_of_contacts = []
     @tag_milestones = []
-
-    @tag_sub = Tag.first.subjects
+    @tag = Tag.find(params[:tag_id])
+    @tag_sub = @tag.subjects
     @tag_sub.each do |tsub|
       @tag_milestones << tsub.milestone
     end
-
     @tag_milestones.each do |milestone|
       @list_of_contacts << milestone.contact
     end
     @list_of_contacts
   end
-
   def find_location_for_contact
     @contacts_for_location = []
-    @milestones_for_location = Location.first.milestones
+    @location = Location.find(params[:location_id])
+    @milestones_for_location = @location.milestones
     @milestones_for_location.each do |milestone|
       @contacts_for_location << milestone.contact
     end
