@@ -10,16 +10,17 @@
 <section class="timeline">
   <ul>
     <% @milestones.each do |milestone| %>
-      <li>
-        <div>
-          <p>test</p>
-          <br>
-          <% milestone.tags.each do |tag| %>
-            <%= tag.title %>
-          <% end %>
-          <time style="font-size: 13px"><%= milestone.created_at.strftime "%B %e %G" %></time>
-        </div>
-      </li>
+            <li>
+            <div>
+               <% milestone.tags.each do |tag| %>
+                <p><%= tag.title %></p>
+               <% end %>
+              <br>
+              <p><%= milestone.location.title %></p>
+
+      <time style="font-size: 13px"><%= milestone.created_at.strftime "%B %e %G" %></time>
+         </div>
+          </li>
     <% end %>
   </ul>
 </section>
