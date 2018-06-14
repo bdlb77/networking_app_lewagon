@@ -2,8 +2,14 @@
 
 <section class="intro">
   <div class="container">
-    <h1><%= @contact.first_name%><%= @contact.last_name%> &darr;</h1>
+  <div class="dropdownn">
+  <button class="dropbtn"><h1 class="dropbtn"><%= @contact.first_name%><%= @contact.last_name%> &darr;</h1></button>
+  <div class="dropdown-content">
+    <a href="#"><%= @contact.email %></a>
+    <a href="#"><%= @contact.position %></a>
+    <a href="#"><%= @contact.company %></a>
   </div>
+</div>
 </section>
 
 
