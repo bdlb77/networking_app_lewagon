@@ -1,5 +1,24 @@
 
+<style>
+#location_dropdown{
+  display: none
+};
+.hidden{
+  display: none
+};
+
+.newbutton{
+  height: 50px;
+  width: 50px;
+  background-color: blue;
+};
+ </style>
+
+
+
+
 <div class="sign-up-modal form-w">
+
 <% @user = current_user%>
 <% @tags = [] %>
 <% @alltags = Tag.all %>
@@ -11,14 +30,54 @@
 
 
 
+<div class="container text-center">
+  <div class="row">
+    <div class="form col-sm-offset-4 col-sm-4"> -->
+      <%= simple_form_for @contact do |f| %>
+      <%= f.input :first_name, label: 'First name', placeholder: 'Mark' %>
+      <%= f.input :last_name, label: 'Last_name', placeholder: 'Zuckerberg' %>
+      <%= f.input :position, label: 'Positions', placeholder: 'CEO at Facebook' %>
+      <%= f.input :company, label: 'Company', placeholder: 'facebook' %>
+      <%= f.input :username, label: 'Linkedin username', placeholder: 'mark123' %>
+      <%= f.input :email, label: 'Email', placeholder: 'markz@gmail.com' %>
+      <%= f.input :phone_number, label: 'Phone-number', placeholder: '050-7654768' %>
+      <%= f.input :date_of_birth, label: 'Date of birth', placeholder: 'may 14 1984' %>
+
+      <%= f.input :first_contact_type, label: 'Contact point:', placeholder: 'Physical/Virtual/Phone' %>
 
 
 
-  <%= simple_form_for @contact do |f| %>
-    <div class="logo-container">
-            <%= link_to root_path, class: "navbar-wagon-brand logo-reg" do %>
-    <%= image_tag "rememberme.png", height: 50 %>
-            <% end %>
+      <% location_array = @user.locations.map {|l| l.title} %>
+      <%#= f.input :first_location, label: 'Location:', as: :select, collection:  location_array, placeholder: 'Fintach confrence' %>
+
+       <%="Location:"%>
+       <select name="form_s" id="form_s">
+         <option value="show">Add location not from list</option>
+         <% location_array.each do |la|%>
+         <option value='<%=la%>'><%=la%></option>
+         <% end %>
+
+       </select>
+      <%= f.input :first_location, label: 'Location:', placeholder: 'Add another location', input_html: { id: 'location_dropdown'}, label: false  %>
+
+      <%= f.input :one_note, label: 'Notes:', placeholder: 'Have a common interest in...' %>
+      <%= f.input :first_tag, label: 'Tag', placeholder: 'Fintech' %>
+      <%= f.input :second_tag, label: 'Tag', placeholder: 'Fintech' %>
+      <%#= f.input :photo %>
+      <%#= f.input :photo_cache, as: :hidden %>
+      <%= f.submit 'Submit contact', class: 'hidden', id: 'submit_button' %>
+       <% end %>
+           <div class="newbutton" id="newbutton" style=" height: 50px;
+  width: 50px;
+  background-color: blue;
+};"></div>
+
+
+
+
+
+
+  
     </div>
 
     <form class="details">
@@ -71,5 +130,8 @@
           <% end %>
     </form>
 </div>
+
+
+
 
 
