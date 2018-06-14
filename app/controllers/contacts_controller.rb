@@ -88,7 +88,10 @@ class ContactsController < ApplicationController
           end
         end
       if @milestone.save!
+
         @tags = Tag.all
+
+      if not @contact.first_tag.empty?
         @have_first_tag = false
         @tags.each do |t|
           if t.title == @contact.first_tag
@@ -103,7 +106,9 @@ class ContactsController < ApplicationController
           @subject1 = Subject.new(milestone_id:@milestone.id, tag_id:@tag1.id)
           @subject1.save!
         end
+      end
 
+      if not @contact.second_tag.empty?
         @have_second_tag = false
         @tags.each do |t|
           if t.title == @contact.second_tag
@@ -118,6 +123,7 @@ class ContactsController < ApplicationController
           @subject2 = Subject.new(milestone_id:@milestone.id, tag_id:@tag2.id)
           @subject2.save!
         end
+      end
       else
         render :edit
       end
@@ -181,12 +187,12 @@ private
     @user = User.find(params[:id])
   end
 
-  # def contact_params
-  #   params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :date_of_birth)
-  # end
+  def contact_params
+    params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :date_of_birth, :first_contact_type, :first_location, :first_tag, :second_tag, :one_note)
+  end
 
   def milestone_params
-    params.require(:milestone).permit(:notes, :contact_type)
+    params.require(:milestone).permit(:note, :contact_type, :last_location, :last_tag_two, :last_tag)
   end
 
   def tag_params
@@ -207,11 +213,11 @@ private
   #   params.require(:location_params).permit(:title)
   # end
 
-  def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :user_id, :date_of_birth, :first_contact_type, :first_location, :first_tag, :second_tag, :note)
-    # milstone_attributes: [:id, :notes, :_destroy, subjects_attributes: [:id, :_destroy, :tag_id, tag_attributes: [:id, :_destroy, :title]], location_attributes: [:id, :_destroy, :title]]
-    # user_attributes: [:id, :email]
-    # )
-  end
+  # def contact_params
+  #   params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :user_id, :date_of_birth, :first_contact_type, :first_location, :first_tag, :second_tag, :note)
+  #   # milstone_attributes: [:id, :notes, :_destroy, subjects_attributes: [:id, :_destroy, :tag_id, tag_attributes: [:id, :_destroy, :title]], location_attributes: [:id, :_destroy, :title]]
+  #   # user_attributes: [:id, :email]
+  #   # )
+  # end
 
 end
