@@ -14,22 +14,6 @@ before_action :find_contact
     @location = Location.new
     @subject = Subject.new
     @tag = Tag.new
-    # @locations = Location.all
-    # @location = Location.new
-    # @milestone.location_id = @location.id
-
-    # @subject = Subject.new
-    # subject.milestone_id = milestone.id
-
-    # @tags = Tag.all
-    # @tags.each do |t|
-    #   if t == @subject
-    #     @subject.tag_id = t.id
-    #   else
-    #     @tag = Tag.new
-    #     @tag.title = @subject.name
-    #     @subject.tag_id = @tag.id
-    #   end
   end
 
 
@@ -105,7 +89,6 @@ before_action :find_contact
       @milestone.update(milestone_params)
         flash[:alert] = "Your milestone has been set!"
         @locations = Location.all
-        # @past_location = @milestone.location
         if @milestone.last_location != @milestone.location.title
           @have_location = false
           @locations.each do |l|
@@ -122,16 +105,8 @@ before_action :find_contact
               @milestone.save!
             end
           end
-          # @location_empty = true
           @milestones = Milestone.all
-          # @milestones.each do |m|
-          #   if @past_location == m.location
-          #     # @location_empty = false
-          #   end
-          # end
-          # if @location_empty == true
-          #    @location.destroy
-          # end
+
         end
       if @milestone.save!
         @subject1 = @milestone.subjects[0]
@@ -200,7 +175,6 @@ before_action :find_contact
       else
         render :edit
       end
-
     end
 
   def destroy
@@ -220,11 +194,6 @@ before_action :find_contact
   def find_milestone
    @milestone = Milestone.find(params[:contact_id])
   end
-
-  #  def find_contact
-  #   @contact = Contact.find(params[:id])
-  # end
-
 
   def milestone_params
     params.require(:milestone).permit(:note, :last_location, :last_tag_two, :last_tag, :contact_type, :contact_id)

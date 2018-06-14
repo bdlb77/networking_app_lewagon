@@ -1,3 +1,19 @@
+<style>
+#location_dropdown{
+  display: none
+};
+.hidden{
+  display: none
+};
+
+.newbutton{
+  height: 50px;
+  width: 50px;
+  background-color: blue;
+};
+ </style>
+
+
 <% @user = current_user%>
 <% @tags = [] %>
 <% @alltags = Tag.all %>
@@ -23,19 +39,38 @@
 
       <%= f.input :first_contact_type, label: 'Contact point:', placeholder: 'Physical/Virtual/Phone' %>
 
-      <%= f.input :first_location, label: 'Location:', placeholder: 'Fintach confrence' %>
+
+
+      <% location_array = @user.locations.map {|l| l.title} %>
+      <%#= f.input :first_location, label: 'Location:', as: :select, collection:  location_array, placeholder: 'Fintach confrence' %>
+
+       <%="Location:"%>
+       <select name="form_s" id="form_s">
+         <option value="show">Add location not from list</option>
+         <% location_array.each do |la|%>
+         <option value='<%=la%>'><%=la%></option>
+         <% end %>
+
+       </select>
+      <%= f.input :first_location, label: 'Location:', placeholder: 'Add another location', input_html: { id: 'location_dropdown'}, label: false  %>
+
       <%= f.input :one_note, label: 'Notes:', placeholder: 'Have a common interest in...' %>
-      <%# if @tags.any? %>
-        <%#= f.input @tags.title, as: :select, collection: @tags, prompt: 'Select tag', label: false %>
-      <%# end %>
       <%= f.input :first_tag, label: 'Tag', placeholder: 'Fintech' %>
       <%= f.input :second_tag, label: 'Tag', placeholder: 'Fintech' %>
       <%#= f.input :photo %>
       <%#= f.input :photo_cache, as: :hidden %>
-      <%= f.submit 'Submit contact'%>
+      <%= f.submit 'Submit contact', class: 'hidden', id: 'submit_button' %>
        <% end %>
+           <div class="newbutton" id="newbutton" style=" height: 50px;
+  width: 50px;
+  background-color: blue;
+};"></div>
+
     </div>
   </div>
 </div>
+
+
+
 
 
