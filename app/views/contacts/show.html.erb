@@ -1,24 +1,46 @@
-<div class="grid">
- <div class="text">
-  <div class="name">
-    <h1> Contact name: <%= "#{@contact.first_name} #{@contact.last_name}" %></h1>
+<div class="container-fluid">
+  <div class="cover" style="background:url('https://78.media.tumblr.com/bb6fa5fbdedea5be08bfaca08a853c93/tumblr_nwn7shUcQP1qa763mo1_500.gif') no-repeat;">
+    <button class="glyphicon glyphicon-edit edit_cover_btn" title="edit cover photo"></button>
   </div>
-  <div class="work">
-    <h2> Company: <%= @contact.company%></h2>
-    <h2> Position: <%= @contact.position%></h2>
+  <div class="row loggedin_user">
+    <div class="col-sm-3 col-md-3">
+      <div class="user_profile">
+        <img src="https://scontent-sin6-2.xx.fbcdn.net/v/t1.0-1/p160x160/19665692_840999699399230_1883861812456879924_n.jpg?oh=03ae7453a7a04d849eee5568cf97f25e&oe=5A0C8763">
+        <div class="user_name" title="dinesh kumar sisodiya">
+         <%= "#{@contact.first_name} #{@contact.last_name}" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-9 col-md-9">
+      <div class="user_options">
+        <ul class="user_menu">
+          <li class="glyphicon glyphicon-earphone" title="call"></li>
+          <li class="glyphicon glyphicon-send" title="message"></li>
+          <li class="glyphicon glyphicon-heart" title="be friend"></li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="contact">
-    <h2> Linkinn username: <%= @contact.username%></h2>
-    <h2> Email: <%= @contact.email%></h2>
-    <h2> Phone number: <%= @contact.phone_number%></h2>
+  <div class="row user_details">
+          <table>
+            <tr>
+              <h3><%= "#{@contact.first_name} #{@contact.last_name}" %></h3>
+            </tr>
+            <tr>
+              <td>
+                <h5> Company: <%= @contact.company%></h5>
+                <br>
+                <h5> Position: <%= @contact.position%></h5>
+                <br>
+                <h5> Email: <%= @contact.email%></h5>
+                <br>
+                <h5> Linkinn username: <%= @contact.username%></h5>
+                <br>
+                <h5> Phone number: <%= @contact.phone_number%></h5>
+                <br>
+              </td>
+            </tr>
+          </table>
   </div>
-
-
-
-
-
-
-
-
-
-
+</div>
+<hr>
