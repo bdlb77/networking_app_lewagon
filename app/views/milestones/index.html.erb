@@ -10,6 +10,11 @@
     <a href="#"><%= @contact.company %></a>
   </div>
 </div>
+<div class="m-buttons">
+  <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium" %>
+  <%= link_to "Contact Details", contact_path(@contact), class: "btn-medium" %>
+
+</div>
 </section>
 
 
