@@ -1,6 +1,8 @@
 <div class="container-fluid">
   <div class="cover" style="background:url('https://78.media.tumblr.com/bb6fa5fbdedea5be08bfaca08a853c93/tumblr_nwn7shUcQP1qa763mo1_500.gif') no-repeat;">
-    <button class="glyphicon glyphicon-edit edit_cover_btn" title="edit cover photo"></button>
+    <%= link_to edit_contact_path(@contact.id) do %>
+    <button class="glyphicon glyphicon-edit edit_cover_btn" title="Edit Contact"></button>
+    <% end %>
   </div>
   <div class="row loggedin_user">
     <div class="col-sm-3 col-md-3">
@@ -14,9 +16,12 @@
     <div class="col-sm-9 col-md-9">
       <div class="user_options">
         <ul class="user_menu">
-          <li class="glyphicon glyphicon-earphone" title="call"></li>
-          <li class="glyphicon glyphicon-send" title="message"></li>
-          <li class="glyphicon glyphicon-heart" title="be friend"></li>
+          <%= link_to  new_contact_milestone_path(@contact) do %>
+          <li class="fas fa-hourglass-half" title="Add New Milestone"></li>
+         <% end %>
+            <%= link_to contact_milestones_path(@contact) do %>
+          <li class="far fa-calendar-alt" title="Time-line"></li>
+         <% end %>
         </ul>
       </div>
     </div>
@@ -28,16 +33,36 @@
             </tr>
             <tr>
               <td>
-                <h5> Company: <%= @contact.company%></h5>
-                <br>
-                <h5> Position: <%= @contact.position%></h5>
-                <br>
-                <h5> Email: <%= @contact.email%></h5>
-                <br>
-                <h5> Linkinn username: <%= @contact.username%></h5>
-                <br>
-                <h5> Phone number: <%= @contact.phone_number%></h5>
-                <br>
+          <% if  @contact.company.blank? %>
+                <h5><%= link_to "Add Company", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
+                <% else %>
+                <h5>Company: <%= @contact.company %></h5>
+                <% end %>
+               <br>
+          <% if @contact.position.blank? %>
+                <h5><%= link_to "Add Position", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
+                <% else %>
+                <h5>Position: <%= @contact.position %></h5>
+         <% end %>
+         <br>
+          <% if @contact.email.blank?%>
+                <h5><%= link_to "Add Email", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
+                <% else %>
+                <h5>Email: <%= @contact.email %></h5>
+          <% end %>
+         <br>
+          <% if @contact.username.blank? %>
+                <h5><%= link_to "Add Linkedin Username", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
+                <% else %>
+                <h5>Username: <%= @contact.username %></h5>
+          <% end %>
+         <br>
+          <% if @contact.phone_number.blank?%>
+                <h5><%= link_to "Add Phone number", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
+                <% else %>
+                <h5>Phone-number: <%= @contact.phone_number %></h5>
+          <% end %>
+         <br>
               </td>
             </tr>
           </table>
