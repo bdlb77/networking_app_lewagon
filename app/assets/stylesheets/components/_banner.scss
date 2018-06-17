@@ -23,8 +23,9 @@
 }
 
 .btn {
-  background: #486190;
+  font-family: Raleway;
 }
+
 .banner-content{
   display: flex;
   flex-direction: column;
@@ -50,6 +51,7 @@
 .search-button{
   margin: 15px;
 }
+
 @media  only screen and  (max-width: 600px){
   .search-banner{
     display: block;
@@ -61,7 +63,4 @@
     justify-content: space-between;
   }
 }
-body{
-  background: radial-gradient(#bdc3c7, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-}

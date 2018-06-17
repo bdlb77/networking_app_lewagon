@@ -1,4 +1,9 @@
 <%= render "shared/banner" %>
+<div class="container most-relevant">
+  <div class="row">
+    <%= render "shared/milestone_cards" %>
+  </div>
+</div>
 <div class="container gradiant-background-home">
   <div class=" row searches">
     <div class="col-md-4">
@@ -22,7 +27,7 @@
     <div class="buttons-filter">
       <div class="col-md-4">
         <div class="location-search">
-          <%= button_tag 'Location', class: "btn btn-outline-dark", onclick: "buttonDisappear()" %>
+          <%= button_tag 'Location', class: "btn btn-secondary", onclick: "buttonDisappear()" %>
           <script>
             function buttonDisappear(){
               var button = document.getElementById('location');

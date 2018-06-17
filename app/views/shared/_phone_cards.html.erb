@@ -1,0 +1,30 @@
+<% @contacts.each do |contact|  %>
+  <div class="col-md-2">  
+  <%= link_to contact_milestones_path(contact), class: 'phone-link' do  %>
+    <div class="phone-container">    
+      <div class="contact-info">
+        <div class="contact-name">
+          <%= contact.first_name.upcase %>
+        </div>
+        <div class="contact-email">
+          <%= contact.email %>
+        </div>
+      </div>
+      <div class="associations">
+        <div class="tags">
+          <p><i class="fas fa-tags"></i></p>
+          <% contact.tags.each do |tag| %>
+          <p class="badge badge-danger badge-sm badge-tag"><%= tag.title %></p>
+          <% end %>        
+        </div>
+        <div class="locations">
+          <p><i class="fas fa-globe"></i></p>
+          <% contact.locations.each do |location| %>
+            <p class="badge  badge-danger location-badge"><%= location.title %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+<% end %>

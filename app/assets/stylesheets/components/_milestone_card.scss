@@ -1,0 +1,41 @@
+.milestone-container{  
+  width:300px;
+  height:200px;
+  margin : 45px  auto;
+  box-shadow:1px 1px 6px gray;
+  border-radius: 4px;
+  padding: 20px;
+  background-color: white;
+}
+.contact-email{
+  font-weight: lighter;
+  color: gray;
+  font-size: 16px;
+}
+.milestone-title{
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  margin-top: 20px;
+}
+.phone-link{
+  color: black;
+  &:hover{
+    text-decoration: none;
+    color: black;
+  }
+}
+.contact-info{
+  padding: 12px 0;
+  text-align: justify;
+}
+
+.badge-recent{
+  border-radius: 5px;
+  background: white;
+  color: $wine;
+  font-weight: lighter;
+  border: 1px solid $wine;
+  padding: 5px;
+}
+
