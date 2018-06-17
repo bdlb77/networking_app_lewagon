@@ -1,12 +1,17 @@
 
+
+if(document.location.pathname == "/contacts/new"){
+  console.log("IT worked!");
 Array.from(document.getElementById('form_s').children).forEach(function(option){
   if(option.value == 'show'){
     option.addEventListener('click', function(){
+      console.log("1");
       document.getElementById('location_dropdown').style.display = 'block';
     })
 
   } else{
      option.addEventListener('click', function(){
+      console.log("2");
       document.getElementById('location_dropdown').style.display = 'none';
     })
 
@@ -23,3 +28,6 @@ document.getElementById('newbutton').addEventListener('click', function(){
   }
   document.getElementById('submit_button').click()
 });
+
+
+}

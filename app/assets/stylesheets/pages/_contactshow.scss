@@ -107,12 +107,21 @@
   .loggedin_user { width:174px; }
   .user_profile { float:none;margin:0 auto; }
   .user_options { float:none;width:170px; margin-top:30px;padding:0; }
-  .user_menu { width:180px; margin:0 auto !important;padding-left:8%;box-shadow:0.5px 0.5px 1px #999; }
+  .user_menu { width:132px; margin:0 auto !important;padding-left:8%;box-shadow:0.5px 0.5px 1px #999; }
   .user_menu li:hover { background:#256e79;color: white; }
 }
 
 @media only screen and (max-width:710px) {
   .user_details { margin:0 10%;float:left; }
   .user_details table { width:100%;margin:20px 0; }
+  .edit_cover_btn {margin-top: 70px;}
 }
 
+.fa-plus {
+  color: #8c0000;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #256e79;
+}
