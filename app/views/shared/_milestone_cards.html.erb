@@ -1,0 +1,18 @@
+<% @new_milestones.each do |milestone|  %>
+  <div class="col-md-4">  
+    <%= link_to contact_milestones_path(milestone.contact), class: 'phone-link' do  %>
+      <div class="milestone-container">    
+        <div class="milestone-info">
+          <div class="milestone-title">
+            <%= milestone.location.title.upcase %>
+          </div>          
+          <%= milestone.contact.first_name.capitalize + " " + milestone.contact.last_name.capitalize %>
+          <div class="contact-email">
+            <%= milestone.contact.email %>
+          </div>
+          <h5><span class="badge badge-primary badge-recent">Most Recent</span></h5>
+        </div>              
+      </div>
+    <% end %>
+  </div>
+<% end %>

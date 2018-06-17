@@ -1,18 +1,5 @@
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font: normal 16px/1.5 "Helvetica Neue", sans-serif;
-  background: white;
-  overflow-x: hidden;
-  padding-bottom: 50px;
-  color: black;
-}  /* INTRO SECTION
+  /* INTRO SECTION
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .intro {
@@ -210,7 +197,7 @@ time {
 
 
 
-.dropdownn:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {display: block;}
 
 .btn-medium {
   color: #8c0000;
