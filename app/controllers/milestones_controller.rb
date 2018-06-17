@@ -3,7 +3,7 @@ before_action :find_milestone, only: [:show, :update, :destroy, :edit]
 before_action :find_contact
 
   def index
-    @milestones = Milestone.where(contact_id: find_contact.id )
+    @milestones = Milestone.where(contact_id: find_contact.id ).order("created_at DESC")
     @contact = find_contact
     @locations = Location.all
   end
