@@ -6,25 +6,47 @@
 
 
 
-<div class="container text-center">
-  <div class="row">
-    <div class="form col-sm-offset-4 col-sm-4">
+<div class=" text-center wrapper-form">
+  <div class="row col-sm-offset-4">
+    <div class ="form-title" ><%= 'Contact Details' %></div>
+    <div class="contact-form col-sm-4">
       <%= simple_form_for @contact do |f| %>
-      <%= f.input :first_name, label: 'First name', placeholder: 'Mark' %>
-      <%= f.input :last_name, label: 'Last_name', placeholder: 'Zuckerberg' %>
-      <%= f.input :position, label: 'Positions', placeholder: 'CEO at Facebook' %>
-      <%= f.input :company, label: 'Company', placeholder: 'facebook' %>
-      <%= f.input :username, label: 'Linkedin username', placeholder: 'mark123' %>
-      <%= f.input :email, label: 'Email', placeholder: 'markz@gmail.com' %>
-      <%= f.input :phone_number, label: 'Phone-number', placeholder: '050-7654768' %>
-      <%= f.input :date_of_birth, label: 'Date of birth', placeholder: 'may 14 1984' %>
+      <div class=" col-md-6">
+      <%= f.input :first_name, label: false, placeholder: 'First name' %>
+      </div>
+      <div class=" col-md-6">
+      <%= f.input :last_name, label: false, placeholder: 'Last_name' %>
+      </div>
+      <div class=" col-md-6">
+      <%= f.input :company, label: false, placeholder: 'Company' %>
+      </div>
+      <div class=" col-md-6">
+      <%= f.input :position, label: false, placeholder: 'Positions' %>
+      </div>
+      <div class=" col-md-6">
+      <%= f.input :username, label: false, placeholder: 'Linkedin username' %>
+      </div>
+      <div class=" col-md-6">
+      <%= f.input :email, label: false, placeholder: 'Email' %>
+      </div>
+      <div class=" col-md-6">
+      <%= f.input :phone_number, label: false, placeholder: 'Phone-number' %>
+      </div>
+      <div class=" col-md-6">
+      <%= f.input :first_contact_type, label: false, placeholder: 'Physical meeting/Virtual/Phone*' %>
+      </div>
 
-      <%= f.input :first_contact_type, label: 'Contact point:', placeholder: 'Physical/Virtual/Phone' %>
+      <div class=" col-md-12">
+      <%= f.input :one_note, label: false, placeholder: 'Notes...' %>
+      </div>
 
+      <div class=" col-md-12">
+      <%= f.input :date_of_birth, as: :date, html5: true, start_year: Date.today.year-90, end_year: Date.today.year - 10, label: 'Date of birth', placeholder: 'Date of birth' %>
+      </div>
 
-
+    <div class="dropdown-text col-md-4">
       <% location_array = @user.locations.map {|l| l.title} %>
-       <%="Location:"%>
+       <%="Location"%>
        <select name="contact_form_location" id="contact_form_location">
          <option value="contact_fake_location">Add new location</option>
          <% location_array.each do |la|%>
@@ -32,11 +54,11 @@
          <% end %>
        </select>
       <%= f.input :first_location, label: 'Location:', placeholder: 'Type new location', input_html: { id: 'contact_location_dropdown'}, label: false  %>
+    </div>
 
-      <%= f.input :one_note, label: 'Notes:', placeholder: 'Have a common interest in...' %>
-
+    <div class="dropdown-text col-md-4">
       <% tags_array = @user.tags.map {|t| t.title} %>
-       <%="tag:"%>
+       <%="Tag"%>
        <select name="contact_form_tag1" id="contact_form_tag1">
          <option value="contact_fake_tag1">Add new tag</option>
          <% tags_array.each do |ta|%>
@@ -44,9 +66,11 @@
          <% end %>
        </select>
       <%= f.input :first_tag, label: 'Tag:', placeholder: 'Type new tag', input_html: { id: 'contact_tag1_dropdown'}, label: false  %>
+    </div>
 
+    <div class="dropdown-text col-md-4">
       <% tags_array = @user.tags.map {|t| t.title} %>
-       <%="tag:"%>
+       <%="Tag:"%>
        <select name="contact_form_tag2" id="contact_form_tag2">
          <option value="contact_fake_tag2">Add new tag</option>
          <% tags_array.each do |ta|%>
@@ -54,13 +78,15 @@
          <% end %>
        </select>
       <%= f.input :second_tag, label: 'Tag:', placeholder: 'Type new tag', input_html: { id: 'contact_tag2_dropdown'}, label: false  %>
+    </div>
 
       <%#= f.input :photo %>
       <%#= f.input :photo_cache, as: :hidden %>
       <%= f.submit 'Submit contact', class: 'hidden', id: 'submit_button' %>
        <% end %>
-           <div class="newbutton" id="newbutton" >Submit contact</div>
       </div>
+           <div class="btn newbutton" id="newbutton" >Submit contact</div>
+
     </div>
   </div>
 
