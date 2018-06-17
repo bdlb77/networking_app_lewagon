@@ -11,6 +11,7 @@
   </div>
 </div>
 <div class="m-buttons">
+
   <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button" %>
   <%= link_to "Contact Details", contact_path(@contact), class: "btn-medium mile-button" %>
 
@@ -24,24 +25,24 @@
     <% @milestones.each do |milestone| %>
             <li>
             <div>
+
               <% blank = 0 %>
                 <p><strong>Tags:</strong></p>
                <% milestone.tags.each do |tag| %>
+                
                 <% if tag.title == " " %>
                 <% blank += 1 %>
                 <% else %>
-                 <p>#<%= tag.title %></p>
+                 <p style="align-items: center;">#<%= tag.title %></p>
                  <% end %>
                 <% end %>
-                <%# raise %>
                  <% if blank == 2 %>
                  <p>No Tags</p>
                 <% end %>
               <br>
-              <p><strong><%= milestone.note %></strong></p>
-              <p><strong>Location:</strong> <%= milestone.location.title %></p>
+                
 
-      <time style="font-size: 13px"><%= milestone.created_at.strftime "%B %e %G" %></time>
+      <time style="font-size: 13px"  class="text-center"><p style="font-size: 17px;"><strong>Location:</strong> <%= milestone.location.title %></p><%= milestone.created_at.strftime "%B %e %G" %></time>
          </div>
           </li>
     <% end %>

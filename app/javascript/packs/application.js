@@ -4,3 +4,6 @@ initUpdateNavbarOnScroll();
 
 import { loadDynamicBannerText } from '../components/banner';
 loadDynamicBannerText();
+
+import { bindSweetAlertButtonDemo } from '../components/note';
+bindSweetAlertButtonDemo();
