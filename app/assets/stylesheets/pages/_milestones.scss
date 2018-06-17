@@ -20,7 +20,7 @@ body {
   padding: 100px 0;
 }
 
-.container {
+.m-container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
@@ -29,9 +29,7 @@ body {
   margin-top: 100px;
 }
 
-h1 {
-  font-size: 2.5rem;
-}
+
 
 
 /* TIMELINE
@@ -192,6 +190,9 @@ time {
   margin-bottom: 30px;
 
 }
+.dropbtn h1 {
+  font-size: 20px;
+}
 
 .dropdown-content {
   display: none;
@@ -214,7 +215,7 @@ time {
 
 .dropdownn:hover .dropdown-content {display: block;}
 
-.btn-medium {
+.mile-button {
   color: #ccc;
   border: 1px solid #ccc;
   padding: 10px 15px;
@@ -222,7 +223,7 @@ time {
   font-weight: lighter;
   opacity: 0.6;
 }
-.btn-medium:hover {
+.mile-button:hover {
   opacity: 1;
   text-decoration: none;
   color: #999999;

@@ -1,7 +1,7 @@
 
 
 <section class="intro">
-  <div class="container">
+  <div class="m-container">
   <div class="dropdownn">
   <button class="dropbtn"><h1 class="dropbtn"><%= @contact.first_name%> <%= @contact.last_name%> &darr;</h1></button>
   <div class="dropdown-content">
@@ -11,8 +11,8 @@
   </div>
 </div>
 <div class="m-buttons">
-  <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium" %>
-  <%= link_to "Contact Details", contact_path(@contact), class: "btn-medium" %>
+  <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button" %>
+  <%= link_to "Contact Details", contact_path(@contact), class: "btn-medium mile-button" %>
 
 </div>
 </section>
@@ -24,14 +24,19 @@
     <% @milestones.each do |milestone| %>
             <li>
             <div>
+              <% blank = 0 %>
                 <p><strong>Tags:</strong></p>
                <% milestone.tags.each do |tag| %>
-                <% if not tag.title.blank? %>
+                <% if tag.title == " " %>
+                <% blank += 1 %>
+                <% else %>
                  <p>#<%= tag.title %></p>
-                 <% else %>
+                 <% end %>
+                <% end %>
+                <%# raise %>
+                 <% if blank == 2 %>
                  <p>No Tags</p>
                 <% end %>
-               <% end %>
               <br>
               <p><strong><%= milestone.note %></strong></p>
               <p><strong>Location:</strong> <%= milestone.location.title %></p>
