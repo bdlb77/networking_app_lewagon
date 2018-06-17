@@ -117,7 +117,7 @@ time {
 }
 
 .timeline ul li.in-view::after {
-  background: #256e79;
+  background: #83040b;
 }
 
 .timeline ul li div {
@@ -138,6 +138,8 @@ time {
   transform: none;
   visibility: visible;
   opacity: 1;
+  border-radius: 3px;
+  box-shadow: -2px 2px 22px 1px;
 }
 
 
@@ -185,9 +187,10 @@ time {
   position: relative;
   display: inline-block;
    border-radius: 50%;
-  border-color: white;
+  border-color: #83040b;
   border-style: dotted;
   margin-bottom: 30px;
+
 }
 
 .dropdown-content {
@@ -212,8 +215,8 @@ time {
 .dropdownn:hover .dropdown-content {display: block;}
 
 .btn-medium {
-  color: #8c0000;
-  border: 1px solid #8c0000;
+  color: #ccc;
+  border: 1px solid #ccc;
   padding: 10px 15px;
   border-radius: 50px;
   font-weight: lighter;

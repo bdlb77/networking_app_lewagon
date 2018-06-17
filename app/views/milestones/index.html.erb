@@ -24,11 +24,17 @@
     <% @milestones.each do |milestone| %>
             <li>
             <div>
+                <p><strong>Tags:</strong></p>
                <% milestone.tags.each do |tag| %>
-                <p><%= tag.title %></p>
+                <% if not tag.title.blank? %>
+                 <p>#<%= tag.title %></p>
+                 <% else %>
+                 <p>No Tags</p>
+                <% end %>
                <% end %>
               <br>
-              <p><%= milestone.location.title %></p>
+              <p><strong><%= milestone.note %></strong></p>
+              <p><strong>Location:</strong> <%= milestone.location.title %></p>
 
       <time style="font-size: 13px"><%= milestone.created_at.strftime "%B %e %G" %></time>
          </div>
