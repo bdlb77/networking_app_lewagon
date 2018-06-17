@@ -1,9 +1,58 @@
+.wrapper-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-
-.wrapper-form  {
-  margin-top: -30px;
-  background: #aaa;
+.row  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+  background: #ccc;
   padding-bottom: 55px;
+  min-width: 350px;
+  max-width: 700px;
+  text-align: center;
+  color: white;
+  font-weight: 200;
+  position: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 4px;
+  box-shadow: 2px 3px 0 #eee;
+  border-color: #256e79;
+}
+
+.form-title {
+  padding-top: 30px;
+  color: #83040b;
+  font-weight: 400;
+}
+
+
+.form-control-label {
+ font-weight: 200;
+ font-size: 15px;
+ padding-bottom: 2px;
+ color: #404040;
+}
+
+.contact-form {
+  width: 100%;
+  padding-top: 30px;
+}
+
+#contact_form_tag1 {
+width: 100%;
+}
+
+#contact_form_tag2 {
+width: 100%;
+}
+#contact_form_location {
+width: 100%;
 }
 
 #contact_location_dropdown{
@@ -14,26 +63,113 @@
 };
 
 .newbutton{
-  height: 50px;
-  width: 200px;
-  background-color: #eee;
+  height: 45px;
+  width: 180px;
+  background-color: #256e79;
   border: 2px;
   border-color: #256e79;
-  border-radius: 2px;
-  box-shadow: 2px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 0px 0px #ddd;
   text-align: center;
+  position: center;
+  margin: 30px 0 15px 0;
+  padding-top: 11px;
+  color: white;
+  font-weight: 450;
+  font-size: 17px;
 };
+
+
+#contact_first_name {
+   font-size: 15px;
+    color: #404040;
+}
+
+#contact_last_name {
+   font-size: 15px;
+    color: #404040;
+}
+
+#contact_position {
+   font-size: 15px;
+    color: #404040;
+  }
+
+#contact_company {
+   font-size: 15px;
+    color: #404040;
+}
+
+#contact_username {
+   font-size: 15px;
+    color: #404040;
+}
+
+#contact_email {
+   font-size: 15px;
+    color: #404040;
+}
+
+#contact_one_note {
+   font-size: 15px;
+    color: #404040;
+}
+
+#contact_phone_number {
+   font-size: 15px;
+    color: #404040;
+}
+
+#contact_date_of_birth_1i {
+   font-size: 15px;
+    color: #404040;
+}
+
+#contact_date_of_birth_2i {
+   font-size: 15px;
+    color: #404040;
+}
+
+#contact_date_of_birth_3i {
+   font-size: 15px;
+    color: #404040;
+}
+
+#contact_first_contact_type {
+   font-size: 15px;
+    color: #404040;
+}
 
 #contact_tag1_dropdown{
   display: none
-};
+}
 
 #contact_tag2_dropdown{
   display: none
-};
+}
+
+#contact_form_location{
+ font-size: 15px;
+ height:42px;
+ color: #404040;
+}
+
+#contact_form_tag1{
+font-size: 15px;
+ height:42px;
+  color: #404040;
+}
+
+#contact_form_tag2{
+font-size: 15px;
+ height:42px;
+  color: #404040;
+}
 
 
-
+.dropdown-text {
+  color: #404040;
+}
 
 
 
@@ -42,13 +178,13 @@
 
 #milestone_location_dropdown{
   display: none
-};
+}
 
 
 #milestone_tag1_dropdown{
   display: none
-};
+}
 
 #milestone_tag2_dropdown{
   display: none
-};
+}
