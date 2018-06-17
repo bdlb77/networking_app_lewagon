@@ -24,24 +24,26 @@ before_action :find_contact
       flash[:alert] = "Your milestone has been set!"
       @locations = Location.all
       @have_location = false
-      @locations.each do |l|
-        if l.title == @milestone.last_location
-          @milestone.location= l
-          @have_location = true
-          @milestone.save!
+      if not @milestone.last_location.blank?
+        @locations.each do |l|
+          if l.title == @milestone.last_location
+            @milestone.location= l
+            @have_location = true
+            @milestone.save!
+          end
         end
-      end
-      if @have_location == false
-        @location = Location.new(title:@milestone.last_location, user_id:@contact.user_id)
-        if @location.save!
-          @milestone.location = @location
-          @milestone.save!
+        if @have_location == false
+          @location = Location.new(title:@milestone.last_location, user_id:@contact.user_id)
+          if @location.save!
+            @milestone.location = @location
+            @milestone.save!
+          end
         end
       end
     if @milestone.save!
       @tags = Tag.all
 
-    if not @milestone.last_tag.empty?
+    if not @milestone.last_tag.blank?
       @have_first_tag = false
       @tags.each do |t|
         if t.title == @milestone.last_tag
@@ -59,7 +61,7 @@ before_action :find_contact
     end
 
     # binding.pry
-    if not @milestone.last_tag_two.empty?
+    if not @milestone.last_tag_two.blank?
       @have_second_tag = false
       @tags.each do |t|
         if t.title == @milestone.last_tag_two
@@ -83,38 +85,40 @@ before_action :find_contact
 
 
   def edit
+    @user = current_user
   end
 
     def update
       @milestone.update(milestone_params)
         flash[:alert] = "Your milestone has been set!"
         @locations = Location.all
-        if @milestone.last_location != @milestone.location.title
-          @have_location = false
-          @locations.each do |l|
-            if l.title == @milestone.last_location
-              @milestone.location = l
-              @have_location = true
-              @milestone.save!
+        if not @milestone.last_location.blank?
+          if @milestone.last_location != @milestone.location.title
+            @have_location = false
+            @locations.each do |l|
+              if l.title == @milestone.last_location
+                @milestone.location = l
+                @have_location = true
+                @milestone.save!
+              end
+            end
+            if @have_location == false
+              @location = Location.new(title:@milestone.last_location, user_id:@contact.user_id)
+              if @location.save!
+                @milestone.location = @location
+                @milestone.save!
+              end
             end
           end
-          if @have_location == false
-            @location = Location.new(title:@milestone.last_location, user_id:@contact.user_id)
-            if @location.save!
-              @milestone.location = @location
-              @milestone.save!
-            end
-          end
-          @milestones = Milestone.all
-
         end
+      @milestones = Milestone.all
       if @milestone.save!
-        @subject1 = @milestone.subjects[0]
-        @subject2 = @milestone.subjects[1]
+        # @subject1 = @milestone.subjects[0]
+        # @subject2 = @milestone.subjects[1]
         @subjects = Subject.all
         @tags = Tag.all
 
-      if not @milestone.last_tag.empty?
+      if not @milestone.last_tag.blank?
         @first_tag_exist = false
         @has_first_tag = false
         @tags.each do |t|
@@ -142,7 +146,7 @@ before_action :find_contact
         end
       end
 
-      if not @milestone.last_tag.empty?
+      if not @milestone.last_tag_two.blank?
         @seconed_tag_exist = false
         @has_second_tag = false
         @tags.each do |t|
@@ -164,14 +168,14 @@ before_action :find_contact
         if @seconed_tag_exist == false
           @tag2 = Tag.new(title:@milestone.last_tag_two, user_id:@contact.user_id)
           @tag2.save!
-          @subject2 = Subject.new(milestone_id:@milestone.id, tag_id:@tag2.id)
-          @subject2.save!
+          @new_subject2 = Subject.new(milestone_id:@milestone.id, tag_id:@tag2.id)
+          @new_subject2.save!
           @milestone.subjects[1].destroy
         end
       end
 
         flash[:alert] = " Your Milestone has been updated!"
-        redirect_to contact_milestone_path(@contact, @milestone)
+        redirect_to contact_milestones_path(@contact, @milestone)
       else
         render :edit
       end

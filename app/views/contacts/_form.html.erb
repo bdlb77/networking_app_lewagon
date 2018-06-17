@@ -1,28 +1,8 @@
 
-<style>
-#location_dropdown{
-  display: none
-};
-.hidden{
-  display: none
-};
-
-.newbutton{
-  height: 50px;
-  width: 50px;
-  background-color: blue;
-};
- </style>
-
-
 <% @user = current_user%>
 <% @tags = [] %>
 <% @alltags = Tag.all %>
-<% @alltags.each do |t|%>
-  <% if t.user_id = @user.id %>
-  <% @tags << t %>
-  <% end %>
-<% end %>
+
 
 
 
@@ -44,29 +24,45 @@
 
 
       <% location_array = @user.locations.map {|l| l.title} %>
-      <%#= f.input :first_location, label: 'Location:', as: :select, collection:  location_array, placeholder: 'Fintach confrence' %>
-
        <%="Location:"%>
-       <select name="form_s" id="form_s">
-         <option value="show">Add location not from list</option>
+       <select name="contact_form_location" id="contact_form_location">
+         <option value="contact_fake_location">Add new location</option>
          <% location_array.each do |la|%>
          <option value='<%=la%>'><%=la%></option>
          <% end %>
-
        </select>
-      <%= f.input :first_location, label: 'Location:', placeholder: 'Add another location', input_html: { id: 'location_dropdown'}, label: false  %>
+      <%= f.input :first_location, label: 'Location:', placeholder: 'Type new location', input_html: { id: 'contact_location_dropdown'}, label: false  %>
 
       <%= f.input :one_note, label: 'Notes:', placeholder: 'Have a common interest in...' %>
-      <%= f.input :first_tag, label: 'Tag', placeholder: 'Fintech' %>
-      <%= f.input :second_tag, label: 'Tag', placeholder: 'Fintech' %>
+
+      <% tags_array = @user.tags.map {|t| t.title} %>
+       <%="tag:"%>
+       <select name="contact_form_tag1" id="contact_form_tag1">
+         <option value="contact_fake_tag1">Add new tag</option>
+         <% tags_array.each do |ta|%>
+         <option value='<%=ta%>'><%=ta%></option>
+         <% end %>
+       </select>
+      <%= f.input :first_tag, label: 'Tag:', placeholder: 'Type new tag', input_html: { id: 'contact_tag1_dropdown'}, label: false  %>
+
+      <% tags_array = @user.tags.map {|t| t.title} %>
+       <%="tag:"%>
+       <select name="contact_form_tag2" id="contact_form_tag2">
+         <option value="contact_fake_tag2">Add new tag</option>
+         <% tags_array.each do |ta|%>
+         <option value='<%=ta%>'><%=ta%></option>
+         <% end %>
+       </select>
+      <%= f.input :second_tag, label: 'Tag:', placeholder: 'Type new tag', input_html: { id: 'contact_tag2_dropdown'}, label: false  %>
+
       <%#= f.input :photo %>
       <%#= f.input :photo_cache, as: :hidden %>
       <%= f.submit 'Submit contact', class: 'hidden', id: 'submit_button' %>
        <% end %>
-           <div class="newbutton" id="newbutton" style=" height: 50px;
-  width: 50px;
-  background-color: blue;
-};"></div>
+           <div class="newbutton" id="newbutton" >Submit contact</div>
+      </div>
+    </div>
+  </div>
 
 
 
