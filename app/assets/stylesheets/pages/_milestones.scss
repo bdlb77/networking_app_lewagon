@@ -20,7 +20,7 @@ body {
   padding: 100px 0;
 }
 
-.container {
+.m-container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
@@ -29,9 +29,7 @@ body {
   margin-top: 100px;
 }
 
-h1 {
-  font-size: 2.5rem;
-}
+
 
 
 /* TIMELINE
@@ -188,6 +186,9 @@ time {
   border-color: white;
   border-style: dotted;
   margin-bottom: 30px;
+}
+.dropbtn h1 {
+  font-size: 20px;
 }
 
 .dropdown-content {
