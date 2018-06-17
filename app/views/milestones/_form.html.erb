@@ -1,18 +1,25 @@
-<div class="sign-up-modal">
+<div class="text-center wrapper-form">
+  <div class="row col-sm-offset-4">
+    <div class ="form-title" ><%= 'Milestone Details' %></div>
      <%= simple_form_for @milestone, url: contact_milestones_path do |f| %>
-    <div class="logo-container">
-            <%= link_to root_path, class: "navbar-wagon-brand logo-reg" do %>
-    <%= image_tag "rememberme.png", height: 50 %>
-            <% end %>
-    </div>
+    <!-- <div class="logo-container">
+            <%#= link_to root_path, class: "navbar-wagon-brand logo-reg" do %>
+    <%#= image_tag "rememberme.png", height: 50 %>
+            <%# end %>
+    </div> -->
 
-    <form class="details">
+    <!-- <form class="details">
         <div class="input-container">
-          <div class="input-container">
-          <%= f.input :contact_type, label: 'Contact point:', placeholder: 'Physical/Virtual/Phone', class: "col-sm-5 username-input with-placeholder", id: "username" %>
-           </div>
+          <div class="input-container"> -->
+        <div class=" col-md-4">
+        <%= f.input :contact_type, label: false, placeholder: 'Physical meeting/Virtual/Phone', class: "col-sm-5 username-input with-placeholder", id: "username" %>
+        </div>
 
-       <div class="input-container">
+         <div class="dropdown-text col-md-8">
+          <%= f.input :note, label: false, placeholder: 'Notes...',class: "col-sm-5 username-input with-placeholder", id: "username" %>
+        </div>
+
+       <div class="dropdown-text col-md-4">
         <% location_array = @user.locations.map {|l| l.title} %>
        <%="Location:"%>
        <select name="milestone_form_location" id="milestone_form_location">
@@ -24,11 +31,9 @@
       <%= f.input :last_location, label: 'Location:', placeholder: 'Type new location', input_html: { id: 'milestone_location_dropdown'}, label: false  %>
        </div>
 
-      <div class="input-container">
-          <%= f.input :note, label: 'Notes:', placeholder: 'Have a common interest in...',class: "col-sm-5 username-input with-placeholder", id: "username" %>
-        </div>
 
-      <div class="input-container">
+
+      <div class="dropdown-text col-md-4">
       <% tags_array = @user.tags.map {|t| t.title} %>
        <%="tag:"%>
        <select name="milestone_form_tag1" id="milestone_form_tag1">
@@ -41,7 +46,7 @@
       </div>
 
 
-      <div class="input-container">
+      <div class="dropdown-text col-md-4">
       <% tags_array = @user.tags.map {|t| t.title} %>
        <%="tag:"%>
        <select name="milestone_form_tag2" id="milestone_form_tag2">
@@ -53,16 +58,10 @@
       <%= f.input :last_tag_two, label: 'Tag:', placeholder: 'Type new tag', input_html: { id: 'milestone_tag2_dropdown'}, label: false  %>
       </div>
 
-        <div class="input-container">
-          <%= f.input :note, label: 'Notes:', placeholder: 'Have a common interest in...',class: "col-sm-5 username-input with-placeholder", id: "username" %>
-        </div>
-
         <%= f.submit 'Submit contact', class: 'hidden', id: 'submit_button' %>
        <% end %>
-           <div class="newbutton form-actions m-submit" id="newbutton" >Submit contact</div>
-      </div>
-
-    </form>
+           <div class="newbutton" id="newbutton" >Submit contact</div>
+   </div>
 </div>
 
 

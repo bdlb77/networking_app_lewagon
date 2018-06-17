@@ -29,6 +29,7 @@
   padding-top: 30px;
   color: #83040b;
   font-weight: 400;
+  padding-bottom:20px;
 }
 
 
@@ -44,20 +45,10 @@
   padding-top: 30px;
 }
 
-#contact_form_tag1 {
-width: 100%;
+.dropdown-text {
+  color: #404040;
 }
 
-#contact_form_tag2 {
-width: 100%;
-}
-#contact_form_location {
-width: 100%;
-}
-
-#contact_location_dropdown{
-  display: none
-};
 .hidden{
   display: none
 };
@@ -79,6 +70,14 @@ width: 100%;
   font-size: 17px;
 };
 
+
+
+
+
+
+#contact_location_dropdown{
+  display: none
+};
 
 #contact_first_name {
    font-size: 15px;
@@ -149,32 +148,59 @@ width: 100%;
 }
 
 #contact_form_location{
+ width: 100%;
  font-size: 15px;
  height:42px;
  color: #404040;
 }
 
 #contact_form_tag1{
-font-size: 15px;
+ width: 100%;
+ font-size: 15px;
  height:42px;
   color: #404040;
 }
 
 #contact_form_tag2{
-font-size: 15px;
+ width: 100%;
+ font-size: 15px;
  height:42px;
   color: #404040;
 }
 
 
-.dropdown-text {
-  color: #404040;
+
+
+
+
+
+
+
+#milestone_form_location{
+ width: 100%;
+ font-size: 15px;
+ height:42px;
+ color: #404040;
 }
 
+#milestone_form_tag1{
+ width: 100%;
+ font-size: 15px;
+ height:42px;
+ color: #404040;
+}
 
+#milestone_form_tag2{
+ width: 100%;
+ font-size: 15px;
+ height:42px;
+ color: #404040;
+}
 
-
-
+#milestone_contact_type {
+   font-size: 15px;
+    color: #404040;
+}
 
 #milestone_location_dropdown{
   display: none
@@ -187,4 +213,9 @@ font-size: 15px;
 
 #milestone_tag2_dropdown{
   display: none
+}
+
+#milestone_note {
+   font-size: 15px;
+    color: #404040;
 }
