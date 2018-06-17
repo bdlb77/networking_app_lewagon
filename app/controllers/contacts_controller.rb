@@ -2,9 +2,20 @@ class ContactsController < ApplicationController
 
   before_action :find_contact, only: [:show, :edit, :update, :destroy]
   # before_action :find_user, only: [:create]
+  before_action :set_contacts, only: [:index]
 
   def index
-    @contacts = Contact.all
+    if params[:query].present?
+      set_contacts
+    end
+    
+    if params[:location_id].present?
+      find_location_for_contact
+    end
+
+    if params[:tag_id].present?
+      find_tag_for_contact
+    end
   end
 
 
@@ -107,6 +118,34 @@ class ContactsController < ApplicationController
   end
 
 private
+  def set_contacts 
+    @contacts = Contact.search_by_first_name_and_last_name(params[:query])
+  end
+
+  def find_location_for_contact
+    @contacts_for_location = []
+    @location = Location.find(params[:location_id])
+    @milestones_for_location = @location.milestones
+    @milestones_for_location.each do |milestone|
+      @contacts_for_location << milestone.contact
+    end
+    @contacts_for_location
+  end
+
+  def find_tag_for_contact
+    @list_of_contacts = []
+    @tag_milestones = []
+    @tag = Tag.find(params[:tag_id])
+    @tag_sub = @tag.subjects
+    @tag_sub.each do |tsub|
+      @tag_milestones << tsub.milestone
+    end
+    @tag_milestones.each do |milestone|
+      @list_of_contacts << milestone.contact
+    end
+    @list_of_contacts
+  end
+
 
   def find_contact
     @contact = Contact.find(params[:id])
