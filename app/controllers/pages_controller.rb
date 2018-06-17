@@ -31,18 +31,19 @@ class PagesController < ApplicationController
   def tag_titles
     @tag_names = []
     @tags = Tag.all
-    @tag_names = @tags.map do |tag|
+    @tags.each do |tag|
       if tag.user == current_user
-       tag
+        @tag_names << tag
       end
     end
   end
 
   def location_titles
+    @my_locations = []
     @locations = Location.all
-    @my_locations = @locations.map do |location|
+    @locations.each do |location|
       if location.user == current_user
-        location
+        @my_locations << location 
       end
     end
   end

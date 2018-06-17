@@ -1,20 +1,30 @@
- <% if user_signed_in? %>
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('.https://www.photobox.co.uk/my/photo/full?photo_id=500832708547');">
-  <div class="banner-content">
-    <h1>Remember me?</h1>
-    <p>Remember the people you met.</p>
-    <a class="btn btn-primary btn-lg">Add Contact</a>
-    <a class="btn btn-primary btn-lg">My Contacts</a>
+<% if user_signed_in? %>
+  <div class="banner banner-signed-in" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url(<%= image_path 'banner-home.jpg'%>);">
+    <div class="banner-content">
+      <div class="banner-info">
+        <h1>Remember me?</h1>
+        <p>Remember the people you met.</p>
+        <div class="button-banner">
+          <div class="search-button">
+            <%= link_to 'Create a Contact!', new_contact_path, method: :get, class: "btn btn-primary btn-lg" %>
+          </div>
+          <div class="search-button">
+            <%= link_to 'Add a Milestone!', root_path, class: "btn  btn-primary btn-lg", method: :get %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 <% else %>
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.photobox.co.uk/my/photo/full?photo_id=500832708547');">
-  <div class="banner-content">
-    <h1>Remember me?</h1>
-    <p>
-  <span id="banner-typed-text"></span>
-</p>
-    <%= link_to 'Start now',  new_user_registration_path, class: "btn btn-primary btn-lg" %>
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('assets/images/banner-home.jpg');">
+    <div class="banner-content">
+      <h1>Remember me?</h1>
+      <p>
+        <span id="banner-typed-text"></span>
+      </p>
+      <div class="button-banner">
+        <%= link_to 'Start Remembering', new_contact_path, class: "btn btn-secondary btn-lg", method: :get %>
+      </div>
+    </div>    
   </div>
-</div>
-  <% end %>
+<% end %>

@@ -4,6 +4,7 @@
   height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
+  background-position: center center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,4 +24,44 @@
 
 .btn {
   background: #486190;
+}
+.banner-content{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0;
+  justify-content: space-between;
+
+}
+.button-banner{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+ .search-banner{
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  align-self: baseline;
+}
+.buttons-filter{
+  display: flex;
+}
+.search-button{
+  margin: 15px;
+}
+@media  only screen and  (max-width: 600px){
+  .search-banner{
+    display: block;
+    margin: 0 auto;
+
+  }
+  .buttons-filter{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+body{
+  background: radial-gradient(#bdc3c7, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
