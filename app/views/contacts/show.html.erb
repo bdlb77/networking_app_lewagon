@@ -27,54 +27,55 @@
     </div>
   </div>
   <div class="row user_details">
-          <table>
-            <tr>
-              <h3><%= "#{@contact.first_name.capitalize} #{@contact.last_name.capitalize}" %></h3>
-            </tr>
-            <tr>
-              <td>
+    <h3><%= "#{@contact.first_name.capitalize} #{@contact.last_name.capitalize}" %></h3>
 
-           <% if  @contact.first_name.blank? %>
-                <h5><%= link_to "Add first name", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
-                <% end %>
-               <br>
-           <% if  @contact.last_name.blank? %>
-                <h5><%= link_to "Add last name", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
-                <% end %>
-               <br>
-          <% if  @contact.company.blank? %>
-                <h5><%= link_to "Add Company", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
-                <% else %>
-                <h5>Company: <%= @contact.company.capitalize %></h5>
-                <% end %>
-               <br>
-          <% if @contact.position.blank? %>
-                <h5><%= link_to "Add Position", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
-                <% else %>
-                <h5>Position: <%= @contact.position %></h5>
-         <% end %>
-         <br>
-          <% if @contact.email.blank?%>
-                <h5><%= link_to "Add Email", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
-                <% else %>
-                <h5>Email: <%= @contact.email %></h5>
-          <% end %>
-         <br>
-          <% if @contact.username.blank? %>
-                <h5><%= link_to "Add Linkedin Username", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
-                <% else %>
-                <h5>Username: <%= @contact.username %></h5>
-          <% end %>
-         <br>
-          <% if @contact.phone_number.blank?%>
-                <h5><%= link_to "Add Phone number", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
-                <% else %>
-                <h5>Phone-number: <%= @contact.phone_number %></h5>
-          <% end %>
-         <br>
-              </td>
-            </tr>
-          </table>
+    <% if  @contact.first_name.blank? || @contact.last_name.blank? %>
+        <h5><%= link_to "Add first name or last name", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
+    <% end %>
+      
+    <br>
+    
+    <% if @contact.position.blank? %>
+      <h5><%= link_to "Add Position", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
+    <% else %>
+      <h3><%= @contact.position.capitalize %></h3>
+    <% end %>
+    
+    <br>
+    
+    <% if  @contact.company.blank? %>
+      <h5><%= link_to "Add Company", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
+    <% else %>
+      <h4><%= @contact.company.capitalize %></h4>
+    <% end %>
+    
+    <br>
+    
+    <% if @contact.email.blank?%>
+      <h5><%= link_to "Add Email", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
+    <% else %>
+      <h5><%= @contact.email %></h5>
+    <% end %>
+    
+    <br>
+    
+    <% if @contact.username.blank? %>
+      <h5>
+        <%= link_to "Add Linkedin Username", edit_contact_path(@contact.id), class: "fas fa-plus"%>   
+      </h5>
+    <% else %>
+      <h5>Username: <%= @contact.username %></h5>
+    <% end %>
+
+    <br>
+    
+    <% if @contact.phone_number.blank?%>
+      <h5><%= link_to "Add Phone number", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
+    <% else %>
+      <h5>Phone-number: <%= @contact.phone_number %></h5>
+    <% end %>
+  
+    <br>
   </div>
 </div>
 <hr>
