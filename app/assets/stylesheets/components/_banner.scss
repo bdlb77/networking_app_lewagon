@@ -39,25 +39,10 @@
   flex-wrap: wrap;
   justify-content: center;
 }
- .search-banner{
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  align-self: baseline;
-}
-.buttons-filter{
-  display: flex;
-}
-.search-button{
-  margin: 15px;
-}
+
 
 @media  only screen and  (max-width: 600px){
-  .search-banner{
-    display: block;
-    margin: 0 auto;
 
-  }
   .buttons-filter{
     display: flex;
     justify-content: space-between;
