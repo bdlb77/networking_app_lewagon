@@ -191,6 +191,7 @@ before_action :find_contact
 
   def destroy
     @milestone.destroy
+    redirect_to contact_milestones_path(@contact)
     flash[:alert] = "Your Milestone has been deleted!"
   end
 
