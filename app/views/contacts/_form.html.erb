@@ -33,7 +33,7 @@
       <%= f.input :phone_number, label: false, placeholder: 'Phone-number' %>
       </div>
       <div class=" col-md-6">
-      <%= f.input :first_contact_type, label: false, placeholder: 'Physical meeting/Virtual/Phone*' %>
+      <%= f.input :first_contact_type, label: false, placeholder: 'Physical meeting/Virtual/Phone' %>
       </div>
 
       <div class=" col-md-12">
@@ -44,24 +44,34 @@
       <%= f.input :date_of_birth, as: :date, html5: true, start_year: Date.today.year-90, end_year: Date.today.year - 10, label: 'Date of birth', placeholder: 'Date of birth' %>
       </div>
 
+
+      <% @locations_array = @user.locations.map {|l| l.title}.uniq! %>
+      <% if @locations_array == nil %>
+        <% @locations_array = [] %>
+        <% @locations_array << "office-meeting" %>
+      <%end%>
     <div class="dropdown-text col-md-4">
-      <% location_array = @user.locations.map {|l| l.title}.uniq! %>
        <%="Location"%>
        <select name="contact_form_location" id="contact_form_location">
          <option value="contact_fake_location">Add new location</option>
-         <% location_array.each do |la|%>
-         <option value='<%=la%>'><%=la%></option>
-         <% end %>
+          <% @locations_array.each do |la|%>
+          <option value='<%=la%>'><%=la%></option>
+        <% end %>
        </select>
       <%= f.input :first_location, label: 'Location:', placeholder: 'Type new location', input_html: { id: 'contact_location_dropdown'}, label: false  %>
     </div>
 
+     <% @tags_array = @user.tags.map {|t| t.title}.uniq! %>
+       <% if @tags_array == nil %>
+        <% @tags_array = [] %>
+        <% @tags_array << "work" %>
+        <% @tags_array << "social" %>
+        <%end%>
     <div class="dropdown-text col-md-4">
-      <% tags_array = @user.tags.map {|t| t.title}.uniq! %>
        <%="Tag"%>
        <select name="contact_form_tag1" id="contact_form_tag1">
          <option value="contact_fake_tag1">Add new tag</option>
-         <% tags_array.each do |ta|%>
+         <% @tags_array.each do |ta|%>
          <option value='<%=ta%>'><%=ta%></option>
          <% end %>
        </select>
@@ -69,11 +79,10 @@
     </div>
 
     <div class="dropdown-text col-md-4">
-      <% tags_array = @user.tags.map {|t| t.title}.uniq! %>
        <%="Tag:"%>
        <select name="contact_form_tag2" id="contact_form_tag2">
          <option value="contact_fake_tag2">Add new tag</option>
-         <% tags_array.each do |ta|%>
+         <% @tags_array.each do |ta|%>
          <option value='<%=ta%>'><%=ta%></option>
          <% end %>
        </select>
