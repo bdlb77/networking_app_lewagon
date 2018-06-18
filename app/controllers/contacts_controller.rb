@@ -55,41 +55,46 @@ class ContactsController < ApplicationController
             @milestone.save!
           end
         end
+
       if @milestone.save!
 
-        @tags = Tag.all
+      @tags = Tag.all
 
       if not @contact.first_tag.empty?
         @have_first_tag = false
-        @tags.each do |t|
-          if t.title == @contact.first_tag
-            @subject1 = Subject.new(milestone_id:@milestone.id, tag_id:t.id)
-            @have_first_tag = true
+        if @contact.first_tag != "Choose_tag"
+          @tags.each do |t|
+            if t.title == @contact.first_tag
+              @subject1 = Subject.new(milestone_id:@milestone.id, tag_id:t.id)
+              @have_first_tag = true
+              @subject1.save!
+            end
+          end
+          if @have_first_tag == false
+            @tag1 = Tag.new(title:@contact.first_tag, user_id:@contact.user_id)
+            @tag1.save!
+            @subject1 = Subject.new(milestone_id:@milestone.id, tag_id:@tag1.id)
             @subject1.save!
           end
-        end
-        if @have_first_tag == false
-          @tag1 = Tag.new(title:@contact.first_tag, user_id:@contact.user_id)
-          @tag1.save!
-          @subject1 = Subject.new(milestone_id:@milestone.id, tag_id:@tag1.id)
-          @subject1.save!
         end
       end
 
       if not @contact.second_tag.empty?
         @have_second_tag = false
-        @tags.each do |t|
-          if t.title == @contact.second_tag
-            @subject2 = Subject.new(milestone_id:@milestone.id, tag_id:t.id)
-            @have_second_tag = true
+        if @contact.second_tag != "Choose_tag"
+          @tags.each do |t|
+            if t.title == @contact.second_tag
+              @subject2 = Subject.new(milestone_id:@milestone.id, tag_id:t.id)
+              @have_second_tag = true
+              @subject2.save!
+            end
+          end
+          if @have_second_tag == false
+            @tag2 = Tag.new(title:@contact.second_tag, user_id:@contact.user_id)
+            @tag2.save!
+            @subject2 = Subject.new(milestone_id:@milestone.id, tag_id:@tag2.id)
             @subject2.save!
           end
-        end
-        if @have_second_tag == false
-          @tag2 = Tag.new(title:@contact.second_tag, user_id:@contact.user_id)
-          @tag2.save!
-          @subject2 = Subject.new(milestone_id:@milestone.id, tag_id:@tag2.id)
-          @subject2.save!
         end
       end
       else

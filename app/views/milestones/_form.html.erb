@@ -28,6 +28,7 @@
         <% @locations_array.uniq! %>
        <%="Location:"%>
        <select name="milestone_form_location" id="milestone_form_location">
+        <option value="Choose_location">Choose location</option>
          <option value="milestone_fake_location">Add new location</option>
          <% @locations_array.each do |la|%>
          <option value='<%=la%>'><%=la%></option>
@@ -46,6 +47,7 @@
       <div class="dropdown-text col-md-4">
        <%="tag:"%>
        <select name="milestone_form_tag1" id="milestone_form_tag1">
+        <option value="Choose_tag">Choose tag</option>
          <option value="milestone_fake_tag1">Add new tag</option>
          <% @tags_array.each do |ta|%>
          <option value='<%=ta%>'><%=ta%></option>
@@ -58,6 +60,7 @@
       <div class="dropdown-text col-md-4">
        <%="tag:"%>
        <select name="milestone_form_tag2" id="milestone_form_tag2">
+        <option value="Choose_tag">Choose tag</option>
          <option value="milestone_fake_tag2">Add new tag</option>
          <% @tags_array.each do |ta|%>
          <option value='<%=ta%>'><%=ta%></option>
