@@ -28,16 +28,13 @@
     border-width: 10px;
     border-color: rgb(254, 254, 254);
     border-radius: 10px 10px 10px 10px;
-    background-image: -moz-linear-gradient( -90deg, rgb(236, 111, 102) 0%, rgb(243, 161, 131) 100%);
-    background-image: -webkit-linear-gradient( -90deg, rgb(236, 111, 102) 0%, rgb(243, 161, 131) 100%);
-    background-image: -ms-linear-gradient( -90deg, rgb(236, 111, 102) 0%, rgb(243, 161, 131) 100%);
     width: 90%;
     min-width: 400px;
     max-width: 700px;
     margin: 0 auto;
     padding: 25px;
     margin-top: 100px;
-    background-color: #256e79;
+    background: linear-gradient(#aaa, $torq);
 }
 
 .sign-up-modal form {
