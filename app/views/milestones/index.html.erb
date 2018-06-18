@@ -25,7 +25,11 @@
     <% @milestones.each do |milestone| %>
             <li>
             <div>
-                <i class="fas fa-tags" style="color: black;"></i>
+                <i class="fas fa-tags" style="color: black;"><h5>
+          <%= link_to edit_contact_milestone_path(@contact, milestone) do %>
+            <i class="fas fa-edit" style="color: black;"></i>
+          <% end %>
+          </h5></i>
 
                <p class="milestone-tags">
                 <% milestone.tags.each do |tag| %>
@@ -39,9 +43,21 @@
 
        <br>
       <p style="font-size: 17px;" class="location-badge badge text-center"><%= milestone.location.title %></p>
-      <time style="font-size: 13px"  class="text-center"><%= milestone.created_at.strftime "%B %e %G" %></time>
+      <time style="font-size: 13px"  class="text-center"><%= milestone.created_at.strftime "%B %e %G" %>
+
+
+          <h5>
+          <%= link_to contact_milestone_path(@contact, milestone),
+          method: :delete,
+          data: { confirm: "Are you sure?" }, class: 'link'  do %>
+            <i class="fas fa-trash-alt" style="color: red;"></i>
+          <% end %>
+        </h5>
+
+      </time>
          </div>
           </li>
+
     <% end %>
   </ul>
 </section>

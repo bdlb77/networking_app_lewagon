@@ -196,7 +196,7 @@ before_action :find_contact
   end
 
   def find_milestone
-   @milestone = Milestone.find(params[:contact_id])
+   @milestone = Milestone.find(params[:id])
   end
 
   def milestone_params
