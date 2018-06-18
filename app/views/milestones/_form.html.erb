@@ -21,7 +21,7 @@
         </div>
 
        <div class="dropdown-text col-md-4">
-        <% location_array = @user.locations.map {|l| l.title} %>
+        <% location_array = @user.locations.map {|l| l.title}.uniq! %>
        <%="Location:"%>
        <select name="milestone_form_location" id="milestone_form_location">
          <option value="milestone_fake_location">Add new location</option>
@@ -35,7 +35,7 @@
 
 
       <div class="dropdown-text col-md-4">
-      <% tags_array = @user.tags.map {|t| t.title} %>
+      <% tags_array = @user.tags.map {|t| t.title}.uniq! %>
        <%="tag:"%>
        <select name="milestone_form_tag1" id="milestone_form_tag1">
          <option value="milestone_fake_tag1">Add new tag</option>
@@ -48,7 +48,7 @@
 
 
       <div class="dropdown-text col-md-4">
-      <% tags_array = @user.tags.map {|t| t.title} %>
+      <% tags_array = @user.tags.map {|t| t.title}.uniq! %>
        <%="tag:"%>
        <select name="milestone_form_tag2" id="milestone_form_tag2">
          <option value="milestone_fake_tag2">Add new tag</option>
