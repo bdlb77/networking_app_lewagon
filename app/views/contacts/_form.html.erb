@@ -45,7 +45,7 @@
       </div>
 
     <div class="dropdown-text col-md-4">
-      <% location_array = @user.locations.map {|l| l.title} %>
+      <% location_array = @user.locations.map {|l| l.title}.uniq! %>
        <%="Location"%>
        <select name="contact_form_location" id="contact_form_location">
          <option value="contact_fake_location">Add new location</option>
@@ -57,7 +57,7 @@
     </div>
 
     <div class="dropdown-text col-md-4">
-      <% tags_array = @user.tags.map {|t| t.title} %>
+      <% tags_array = @user.tags.map {|t| t.title}.uniq! %>
        <%="Tag"%>
        <select name="contact_form_tag1" id="contact_form_tag1">
          <option value="contact_fake_tag1">Add new tag</option>
@@ -69,7 +69,7 @@
     </div>
 
     <div class="dropdown-text col-md-4">
-      <% tags_array = @user.tags.map {|t| t.title} %>
+      <% tags_array = @user.tags.map {|t| t.title}.uniq! %>
        <%="Tag:"%>
        <select name="contact_form_tag2" id="contact_form_tag2">
          <option value="contact_fake_tag2">Add new tag</option>

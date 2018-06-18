@@ -19,20 +19,6 @@ if(window.location.href.indexOf("contacts") > -1) {
 });
 
 
-document.getElementById('newbutton').addEventListener('click', function(){
-  if(document.getElementById('milestone_form_location').options[document.getElementById('milestone_form_location').selectedIndex].value == 'milestone_fake_location'){
-
-  }
-  else{
-    document.getElementById('milestone_location_dropdown').value = document.getElementById('milestone_form_location').options[document.getElementById('milestone_form_location').selectedIndex].value
-  }
-  document.getElementById('submit_button').click()
-});
-
-
-
-
-
 
 
   console.log("IT worked!");
@@ -51,21 +37,6 @@ Array.from(document.getElementById('milestone_form_tag1').children).forEach(func
 
   }
 });
-
-
-document.getElementById('newbutton').addEventListener('click', function(){
-  if(document.getElementById('milestone_form_tag1').options[document.getElementById('milestone_form_tag1').selectedIndex].value == 'milestone_fake_tag1'){
-
-  }
-  else{
-    document.getElementById('milestone_tag1_dropdown').value = document.getElementById('milestone_form_tag1').options[document.getElementById('milestone_form_tag1').selectedIndex].value
-  }
-  document.getElementById('submit_button').click()
-});
-
-
-
-
 
 
 
@@ -93,6 +64,18 @@ document.getElementById('newbutton').addEventListener('click', function(){
   }
   else{
     document.getElementById('milestone_tag2_dropdown').value = document.getElementById('milestone_form_tag2').options[document.getElementById('milestone_form_tag2').selectedIndex].value
+  }
+   if(document.getElementById('milestone_form_tag1').options[document.getElementById('milestone_form_tag1').selectedIndex].value == 'milestone_fake_tag1'){
+
+  }
+  else{
+    document.getElementById('milestone_tag1_dropdown').value = document.getElementById('milestone_form_tag1').options[document.getElementById('milestone_form_tag1').selectedIndex].value
+  }
+   if(document.getElementById('milestone_form_location').options[document.getElementById('milestone_form_location').selectedIndex].value == 'milestone_fake_location'){
+
+  }
+  else{
+    document.getElementById('milestone_location_dropdown').value = document.getElementById('milestone_form_location').options[document.getElementById('milestone_form_location').selectedIndex].value
   }
   document.getElementById('submit_button').click()
 });

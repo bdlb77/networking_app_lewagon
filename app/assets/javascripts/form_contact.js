@@ -18,18 +18,6 @@ Array.from(document.getElementById('contact_form_location').children).forEach(fu
   }
 });
 
-
-document.getElementById('newbutton').addEventListener('click', function(){
-  if(document.getElementById('contact_form_location').options[document.getElementById('contact_form_location').selectedIndex].value == 'contact_fake_location'){
-
-  }
-  else{
-    document.getElementById('contact_location_dropdown').value = document.getElementById('contact_form_location').options[document.getElementById('contact_form_location').selectedIndex].value
-  }
-  document.getElementById('submit_button').click()
-});
-
-
 }
 
 
@@ -51,18 +39,6 @@ Array.from(document.getElementById('contact_form_tag1').children).forEach(functi
 
   }
 });
-
-
-document.getElementById('newbutton').addEventListener('click', function(){
-  if(document.getElementById('contact_form_tag1').options[document.getElementById('contact_form_tag1').selectedIndex].value == 'contact_fake_tag1'){
-
-  }
-  else{
-    document.getElementById('contact_tag1_dropdown').value = document.getElementById('contact_form_tag1').options[document.getElementById('contact_form_tag1').selectedIndex].value
-  }
-  document.getElementById('submit_button').click()
-});
-
 
 }
 
@@ -94,6 +70,18 @@ document.getElementById('newbutton').addEventListener('click', function(){
   }
   else{
     document.getElementById('contact_tag2_dropdown').value = document.getElementById('contact_form_tag2').options[document.getElementById('contact_form_tag2').selectedIndex].value
+  }
+   if(document.getElementById('contact_form_location').options[document.getElementById('contact_form_location').selectedIndex].value == 'contact_fake_location'){
+
+  }
+  else{
+    document.getElementById('contact_location_dropdown').value = document.getElementById('contact_form_location').options[document.getElementById('contact_form_location').selectedIndex].value
+  }
+  if(document.getElementById('contact_form_tag1').options[document.getElementById('contact_form_tag1').selectedIndex].value == 'contact_fake_tag1'){
+
+  }
+  else{
+    document.getElementById('contact_tag1_dropdown').value = document.getElementById('contact_form_tag1').options[document.getElementById('contact_form_tag1').selectedIndex].value
   }
   document.getElementById('submit_button').click()
 });

@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
     if params[:query].present?
       set_contacts
     end
-    
+
     if params[:location_id].present?
       find_location_for_contact
     end
@@ -26,6 +26,7 @@ class ContactsController < ApplicationController
     @location = Location.new
     @subject = Subject.new
     @tag = Tag.new
+    @user = current_user
   end
 
 
@@ -119,7 +120,7 @@ class ContactsController < ApplicationController
   end
 
 private
-  def set_contacts 
+  def set_contacts
     @contacts = Contact.search_by_first_name_and_last_name(params[:query])
   end
 

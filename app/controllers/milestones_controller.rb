@@ -113,8 +113,8 @@ before_action :find_contact
         end
       @milestones = Milestone.all
       if @milestone.save!
-        # @subject1 = @milestone.subjects[0]
-        # @subject2 = @milestone.subjects[1]
+        @subject1 = @milestone.subjects[0]
+        @subject2 = @milestone.subjects[1]
         @subjects = Subject.all
         @tags = Tag.all
 
