@@ -11,7 +11,7 @@
       <div class="name-search">
         <%= form_tag contacts_path, method: :get  do %>
           <%= text_field_tag :query, params[:query], type: "search", size: "15", class: "form-control search-input-home", 
-          placeholder: "Find Your Contact", onsearch: "toggleDisplay()" %>
+          placeholder: "Find a Contact", onsearch: "toggleDisplay()" %>
         <%  end %>
         <script>
           function toggleDisplay(){
@@ -29,12 +29,12 @@
 <% else %>
   <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('assets/images/banner-home.jpg');">
     <div class="banner-content">
-      <h1>Remember me?</h1>
+      <h1>Forget Me Not</h1>
       <p>
         <span id="banner-typed-text"></span>
       </p>
       <div class="button-banner">
-        <%= link_to 'Start Remembering', new_contact_path, class: "btn btn-secondary btn-lg", method: :get %>
+        <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-info btn-lg", method: :get %>
       </div>
     </div>    
   </div>

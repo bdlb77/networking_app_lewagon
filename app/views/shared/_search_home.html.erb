@@ -1,0 +1,76 @@
+<% if user_signed_in? %>
+	<div class="container gradiant-background-home">
+    <div class=" row home-row-searches">
+      <div class="col-md-6 location-column">
+        <div class="location-search text-center ">
+          <%= button_tag 'Location', class: "btn btn-info", onclick: "buttonDisappear()" %>
+        <div id="location" style="display: none;">
+          <script>
+            function buttonDisappear(){
+              var button = document.getElementById('location');
+              if (button.style.display === "none"){
+                button.style.display = "block";
+              } else {
+                button.style.display = "none";
+              }
+            }
+          </script>
+            <% @my_locations.each do |location|  %>
+                <%= link_to location.title, contacts_path(location_id: location.id), onclick: "showLocation()", class: "badge badge-danger location-badge"  %>
+            <%  end  %>
+          </div>
+          <script>
+            function showLocation(){
+              var button = document.getElementById('contact-location');
+              if (button.style.display === "block"){
+                button.style.display = "none";
+              } else {
+                button.style.display = "block";
+              }
+            }
+          </script>
+        </div>
+      </div>
+      <div class="col-md-6 tag-column">
+        <div class="tag-search text-center">
+          <%= button_tag'Tags', class: "tags-search btn btn-info", onclick: "toggleFunction()"  %>
+          <script>
+            function toggleFunction(){
+              var button = document.getElementById('tags');
+              if (button.style.display === "none"){
+                button.style.display = "block";
+              } else {
+                button.style.display = "none";
+              }
+            }
+          </script>
+        </div>
+        <div id="tags" style="display: none;">
+          <% @tag_names.each do |tag|  %>
+              <%= link_to tag.title, contacts_path(tag_id: tag.id), onclick:"showTags()", class: "badge badge-danger badge-sm badge-tag" %>
+          <% end %>
+          <script>
+            function showTags(){
+              var button = document.getElementById('tags-contacts');
+              if (button.style.display === "block"){
+                button.style.display = "none";
+              } else {
+                button.style.display = "block";
+              }
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="container most-relevant">
+  <div class="row">
+    <%= render "shared/milestone_cards" %>
+  </div>
+<% else %>
+	<div class="container home-no-user">
+		<h1 class="text-center">How It Works</h1>
+		<h1 class="text-center">About Us</h1>
+	</div>
+<% end %>
+</div>
