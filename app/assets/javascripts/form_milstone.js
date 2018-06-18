@@ -6,8 +6,9 @@ if(window.location.href.indexOf("contacts") > -1) {
 
     function update_location(e){
       let option = document.getElementById('milestone_form_location')[document.getElementById('milestone_form_location').selectedIndex];
+      if (option.value == 'Choose_tag'){
 
-      if(option.value == 'milestone_fake_location'){
+    } else if(option.value == 'milestone_fake_location'){
           console.log("1");
           document.getElementById('milestone_location_dropdown').style.display = 'block';
     } else{
@@ -23,7 +24,9 @@ if(window.location.href.indexOf("contacts") > -1) {
 
   function update_tag1(e){
     let option = document.getElementById('milestone_form_tag1')[document.getElementById('milestone_form_tag1').selectedIndex];
-  if(option.value == 'milestone_fake_tag1'){
+  if (option.value == 'Choose_tag'){
+
+  } else if(option.value == 'milestone_fake_tag1'){
       console.log("1");
       document.getElementById('milestone_tag1_dropdown').style.display = 'block';
 
@@ -41,7 +44,9 @@ if(window.location.href.indexOf("contacts") > -1) {
 
   function update_tag2(e){
     let option = document.getElementById('milestone_form_tag2')[document.getElementById('milestone_form_tag2').selectedIndex];
-  if(option.value == 'milestone_fake_tag2'){
+  if (option.value == 'Choose_tag'){
+
+  } else if(option.value == 'milestone_fake_tag2'){
       console.log("1");
       document.getElementById('milestone_tag2_dropdown').style.display = 'block';
 
