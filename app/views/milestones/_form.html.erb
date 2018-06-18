@@ -1,6 +1,7 @@
 <div class="text-center wrapper-form">
-  <div class="row col-sm-offset-4">
+  <div class="form-row col-sm-offset-4">
     <div class ="form-title" ><%= 'Milestone Details' %></div>
+    <div class="contact-form col-sm-4">
      <%= simple_form_for @milestone, url: contact_milestones_path do |f| %>
     <!-- <div class="logo-container">
             <%#= link_to root_path, class: "navbar-wagon-brand logo-reg" do %>
@@ -60,6 +61,7 @@
 
         <%= f.submit 'Submit contact', class: 'hidden', id: 'submit_button' %>
        <% end %>
+     </div>
            <div class="newbutton" id="newbutton" >Submit contact</div>
    </div>
 </div>
