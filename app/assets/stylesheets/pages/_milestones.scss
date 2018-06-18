@@ -1,10 +1,4 @@
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
   /* INTRO SECTION
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -209,7 +203,7 @@ time {
 
 
 
-.dropdownn:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {display: block;}
 
 .mile-button {
   color: #ccc;

@@ -40,9 +40,11 @@ class PagesController < ApplicationController
   end
 
   def recent_activity
-    @sorted_milestones = Milestone.all
-    @sorted_milestones.sort_by { |milestone| milestone.updated_at }
-    @sorted_milestones.first(3)
+    @milestones = Milestone.all
+    @sorted_milestones = []
+    @sorted_milestones = @milestones.sort_by{ |milestone| milestone.updated_at }
+    
+    @new_milestones = @sorted_milestones.first(3) 
   end
 
 end

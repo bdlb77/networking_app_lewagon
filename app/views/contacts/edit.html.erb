@@ -1,19 +1,35 @@
-<div class="wrapper-form">
-  <div class="container text-center">
-    <div class="row">
-      <div class="form col-sm-offset-4 col-sm-4"> -->
+<div class=" text-center wrapper-form">
+  <div class="form-row col-sm-offset-4">
+     <div class ="form-title" ><%= 'Contact Details' %></div>
+      <div class="contact-form col-sm-4">
         <%= simple_form_for @contact do |f| %>
-        <%= f.input :first_name, label: 'First name', placeholder: 'Mark' %>
-        <%= f.input :last_name, label: 'Last_name', placeholder: 'Zuckerberg' %>
-        <%= f.input :position, label: 'Positions', placeholder: 'CEO at Facebook' %>
-        <%= f.input :company, label: 'Company', placeholder: 'facebook' %>
-        <%= f.input :username, label: 'Linkedin username', placeholder: 'mark123' %>
-        <%= f.input :email, label: 'Email', placeholder: 'markz@gmail.com' %>
-        <%= f.input :phone_number, label: 'Phone-number', placeholder: '050-7654768' %>
-        <%= f.input :date_of_birth, label: 'Date of birth', placeholder: 'may 14 1984' %>
-         <%= f.submit 'Submit contact'%>
+        <div class=" col-md-6">
+        <%= f.input :first_name, label: false, placeholder: 'First name' %>
+        </div>
+        <div class=" col-md-6">
+        <%= f.input :last_name, label: false, placeholder: 'Last name' %>
+        </div>
+        <div class=" col-md-6">
+        <%= f.input :company, label: false, placeholder: 'Company' %>
+        </div>
+         <div class=" col-md-6">
+        <%= f.input :position, label: false, placeholder: 'Positions' %>
+        </div>
+         <div class=" col-md-6">
+        <%= f.input :username, label: false, placeholder: 'Linkedin username' %>
+        </div>
+        <div class=" col-md-6">
+        <%= f.input :email, label: false, placeholder: 'Email' %>
+        </div>
+        <div class=" col-md-6">
+        <%= f.input :phone_number, label: false, placeholder: 'Phone-number' %>
+        </div>
+        <div class=" col-md-6">
+        <%= f.input :date_of_birth, label: false, as: :date, html5: true, start_year: Date.today.year-90, end_year: Date.today.year - 10, placeholder: 'Date of birth' %>
+        </div>
+         <div class = 'newbutton btn'><%= f.submit 'Submit contact'%></div>
        <% end %>
      </div>
     </div>
   </div>
-</div>
+
