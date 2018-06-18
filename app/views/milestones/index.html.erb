@@ -1,16 +1,21 @@
 
-
 <section class="intro">
-  <div class="m-container">
-  <div class="dropdownn">
-  <h1 class="dropbtn"><%= @contact.first_name.capitalize%> <%= @contact.last_name.capitalize%> &darr;</h1>
-</div>
-<div class="m-buttons">
 
-  <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button" %>
-  <%= link_to "Contact Details", contact_path(@contact), class: "btn-medium mile-button" %>
+   <div class="m-container">
+    <div class="dropdownn">
+      <button class="dropbtn"><h1><%= @contact.first_name.capitalize%> <%= @contact.last_name.capitalize%></h1></button>
+      <div class="dropdown-content">
+         <a href="#"><%= @contact.email %></a>
+         <a href="#"><%= @contact.position %></a>
+         <a href="#"><%= @contact.company %></a>
+      </div>
+    </div>
+    <div class="m-buttons">
+      <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button" %>
+      <%= link_to "Contact Details", contact_path(@contact), class: "btn-medium mile-button" %>
+    </div>
+  </div>
 
-</div>
 </section>
 
 
@@ -20,17 +25,21 @@
     <% @milestones.each do |milestone| %>
             <li>
             <div>
-                <p class="text-center"><strong>Tags:</strong></p>
+                <i class="fas fa-tags" style="color: black;"></i>
+
                <p class="milestone-tags">
                 <% milestone.tags.each do |tag| %>
 
-                #<%= tag.title %>
+                <p class="badge-tag badge"><%= tag.title %></p>
                 <% end %>
                 </p>
               <br>
 
+       <i class="fas fa-globe" style="color: black;"></i>
 
-      <time style="font-size: 13px"  class="text-center"><p style="font-size: 17px;"><strong>Location:</strong> <%= milestone.location.title %></p><%= milestone.created_at.strftime "%B %e %G" %></time>
+       <br>
+      <p style="font-size: 17px;" class="location-badge badge text-center"><%= milestone.location.title %></p>
+      <time style="font-size: 13px"  class="text-center"><%= milestone.created_at.strftime "%B %e %G" %></time>
          </div>
           </li>
     <% end %>

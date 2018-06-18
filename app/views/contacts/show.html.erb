@@ -45,7 +45,7 @@
           <% if  @contact.company.blank? %>
                 <h5><%= link_to "Add Company", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
                 <% else %>
-                <h5>Company: <%= @contact.compa.capitalize %></h5>
+                <h5>Company: <%= @contact.company.capitalize %></h5>
                 <% end %>
                <br>
           <% if @contact.position.blank? %>
