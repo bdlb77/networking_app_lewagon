@@ -17,7 +17,7 @@ class Contact < ApplicationRecord
   accepts_nested_attributes_for :milestones, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :tags, reject_if: :all_blank, allow_destroy: true
 
-  validates :first_name, presence: true
+  # validates :first_name, presence: true
   validates :username, uniqueness: true, allow_blank: true
 
   validates :email, uniqueness: true, allow_blank: true, presence: true

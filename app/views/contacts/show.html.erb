@@ -9,7 +9,7 @@
       <div class="user_profile">
         <img src="https://scontent-sin6-2.xx.fbcdn.net/v/t1.0-1/p160x160/19665692_840999699399230_1883861812456879924_n.jpg?oh=03ae7453a7a04d849eee5568cf97f25e&oe=5A0C8763">
         <div class="user_name" title="dinesh kumar sisodiya">
-         <%= "#{@contact.first_name} #{@contact.last_name}" %>
+         <%= "#{@contact.first_name.capitalize} #{@contact.last_name.capitalize}" %>
         </div>
       </div>
     </div>
@@ -33,10 +33,23 @@
             </tr>
             <tr>
               <td>
+
+           <% if  @contact.first_name.blank? %>
+                <h5><%= link_to "Add first name", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
+                <% else %>
+                <h5>Company: <%= @contact.first_name.capitalize %></h5>
+                <% end %>
+               <br>
+           <% if  @contact.last_name.blank? %>
+                <h5><%= link_to "Add last name", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
+                <% else %>
+                <h5>Company: <%= @contact.last_name.capitalize %></h5>
+                <% end %>
+               <br>
           <% if  @contact.company.blank? %>
                 <h5><%= link_to "Add Company", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
                 <% else %>
-                <h5>Company: <%= @contact.company %></h5>
+                <h5>Company: <%= @contact.compa.capitalize %></h5>
                 <% end %>
                <br>
           <% if @contact.position.blank? %>
