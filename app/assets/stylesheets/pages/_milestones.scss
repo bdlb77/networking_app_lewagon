@@ -3,7 +3,8 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .intro {
-  background: #256e79;
+  background: linear-gradient(#aaa, white);
+  color: white;
   padding: 100px 0;
 }
 
@@ -54,7 +55,8 @@
   bottom: 0;
   width: 400px;
   padding: 15px;
-  background: #256e79;
+  background: linear-gradient(#256e79, $wine);
+  color: white;
 }
 
 .timeline ul li div::before {
@@ -160,21 +162,23 @@ time {
 
 
 .dropbtn {
-  background-color: #256e79;
+  background: linear-gradient(#ccc, $wine);
   color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
   border-radius: 50%;
+  height: 50px;
 }
 
 .dropdownn {
   position: relative;
   display: inline-block;
    border-radius: 50%;
-  border-color: #83040b;
+  border-color: #ccc;
   border-style: dotted;
   margin-bottom: 30px;
+  height: 50px;
 
 }
 .dropbtn h1 {
@@ -206,8 +210,8 @@ time {
 .dropdown:hover .dropdown-content {display: block;}
 
 .mile-button {
-  color: #ccc;
-  border: 1px solid #ccc;
+  color: mix(#ccc, $wine);
+  border: 1px solid #256e79;
   padding: 10px 15px;
   border-radius: 50px;
   font-weight: lighter;
@@ -225,3 +229,7 @@ time {
   margin-top: 20px;
 }
 
+.milestone-tags {
+  display: flex;
+  justify-content: space-around;
+}
