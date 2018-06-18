@@ -1,29 +1,6 @@
 <%= render "shared/banner" %>
-<div class="container- most-relevant">
-  <div class="row">
-    <%= render "shared/milestone_cards" %>
-  </div>
-</div>
 <div class="container gradiant-background-home">
   <div class=" row home-row-searches">
-    <div class="col-md-4">
-      <div class="name-search">
-        <%= form_tag contacts_path, method: :get  do %>
-          <%= text_field_tag :query, params[:query], type: "search", size: "15", class: "form-control search-input-home", 
-          placeholder: "search by name", onsearch: "toggleDisplay()" %>
-        <%  end %>
-        <script>
-          function toggleDisplay(){
-            var button = document.getElementById('location');
-            if (button.style.display === "block"){
-              button.style.display = "none";
-            }else{
-              button.style.display = "block";    
-            }
-          }
-        </script>
-      </div>
-    </div>
     <div class="col-md-4">
       <div class="location-search">
         <%= button_tag 'Location', class: "btn btn-info", onclick: "buttonDisappear()" %>
@@ -94,6 +71,11 @@
         }
       </script>
     </div>
+  </div>
+</div>
+<div class="container- most-relevant">
+  <div class="row">
+    <%= render "shared/milestone_cards" %>
   </div>
 </div>
 
