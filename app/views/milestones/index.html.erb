@@ -3,12 +3,7 @@
 <section class="intro">
   <div class="m-container">
   <div class="dropdownn">
-  <button class="dropbtn"><h1 class="dropbtn"><%= @contact.first_name%> <%= @contact.last_name%> &darr;</h1></button>
-  <div class="dropdown-content">
-    <a href="#"><%= @contact.email %></a>
-    <a href="#"><%= @contact.position %></a>
-    <a href="#"><%= @contact.company %></a>
-  </div>
+  <h1 class="dropbtn"><%= @contact.first_name%> <%= @contact.last_name%> &darr;</h1>
 </div>
 <div class="m-buttons">
 
@@ -25,22 +20,15 @@
     <% @milestones.each do |milestone| %>
             <li>
             <div>
+                <p class="text-center"><strong>Tags:</strong></p>
+               <p class="milestone-tags">
+                <% milestone.tags.each do |tag| %>
 
-              <% blank = 0 %>
-                <p><strong>Tags:</strong></p>
-               <% milestone.tags.each do |tag| %>
-                
-                <% if tag.title == " " %>
-                <% blank += 1 %>
-                <% else %>
-                 <p style="align-items: center;">#<%= tag.title %></p>
-                 <% end %>
+                #<%= tag.title %>
                 <% end %>
-                 <% if blank == 2 %>
-                 <p>No Tags</p>
-                <% end %>
+                </p>
               <br>
-                
+
 
       <time style="font-size: 13px"  class="text-center"><p style="font-size: 17px;"><strong>Location:</strong> <%= milestone.location.title %></p><%= milestone.created_at.strftime "%B %e %G" %></time>
          </div>
