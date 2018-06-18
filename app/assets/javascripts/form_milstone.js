@@ -2,60 +2,55 @@ if(window.location.href.indexOf("contacts") > -1) {
   if(window.location.toString().includes("new") || window.location.toString().includes("edit")){
     console.log('heyyyy')
     console.log("IT worked!");
-    Array.from(document.getElementById('milestone_form_location').children).forEach(function(option){
-    if(option.value == 'milestone_fake_location'){
-        option.addEventListener('click', function(){
+    document.getElementById('milestone_form_location').addEventListener("change", function(e) {update_location(e);});
+
+    function update_location(e){
+      let option = document.getElementById('milestone_form_location')[document.getElementById('milestone_form_location').selectedIndex];
+
+      if(option.value == 'milestone_fake_location'){
           console.log("1");
           document.getElementById('milestone_location_dropdown').style.display = 'block';
-      })
-
     } else{
-     option.addEventListener('click', function(){
+
         console.log("2");
         document.getElementById('milestone_location_dropdown').style.display = 'none';
-      })
-
   }
-});
-
-
+}
 
 
   console.log("IT worked!");
-Array.from(document.getElementById('milestone_form_tag1').children).forEach(function(option){
+  document.getElementById('milestone_form_tag1').addEventListener("change", function(e) {update_tag1(e);});
+
+  function update_tag1(e){
+    let option = document.getElementById('milestone_form_tag1')[document.getElementById('milestone_form_tag1').selectedIndex];
   if(option.value == 'milestone_fake_tag1'){
-    option.addEventListener('click', function(){
       console.log("1");
       document.getElementById('milestone_tag1_dropdown').style.display = 'block';
-    })
 
   } else{
-     option.addEventListener('click', function(){
       console.log("2");
       document.getElementById('milestone_tag1_dropdown').style.display = 'none';
-    })
-
   }
-});
+}
+
 
 
 
   console.log("IT worked!");
-Array.from(document.getElementById('milestone_form_tag2').children).forEach(function(option){
+  document.getElementById('milestone_form_tag2').addEventListener("change", function(e) {update_tag2(e);});
+
+  function update_tag2(e){
+    let option = document.getElementById('milestone_form_tag2')[document.getElementById('milestone_form_tag2').selectedIndex];
   if(option.value == 'milestone_fake_tag2'){
-    option.addEventListener('click', function(){
       console.log("1");
       document.getElementById('milestone_tag2_dropdown').style.display = 'block';
-    })
 
   } else{
-     option.addEventListener('click', function(){
       console.log("2");
       document.getElementById('milestone_tag2_dropdown').style.display = 'none';
-    })
 
   }
-});
+}
 
 
 document.getElementById('newbutton').addEventListener('click', function(){
