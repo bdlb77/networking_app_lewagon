@@ -1,21 +1,21 @@
 
-
 <section class="intro">
+
    <div class="m-container">
-   <div class="dropdownn">
--  <button class="dropbtn"><h1><%= @contact.first_name%> <%= @contact.last_name%></h1></button>
--  <div class="dropdown-content">
--    <a href="#"><%= @contact.email %></a>
--    <a href="#"><%= @contact.position %></a>
--    <a href="#"><%= @contact.company %></a>
--  </div>
- </div>
-<div class="m-buttons">
+    <div class="dropdownn">
+      <button class="dropbtn"><h1><%= @contact.first_name.capitalize%> <%= @contact.last_name.capitalize%></h1></button>
+      <div class="dropdown-content">
+         <a href="#"><%= @contact.email %></a>
+         <a href="#"><%= @contact.position %></a>
+         <a href="#"><%= @contact.company %></a>
+      </div>
+    </div>
+    <div class="m-buttons">
+      <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button" %>
+      <%= link_to "Contact Details", contact_path(@contact), class: "btn-medium mile-button" %>
+    </div>
+  </div>
 
-  <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button" %>
-  <%= link_to "Contact Details", contact_path(@contact), class: "btn-medium mile-button" %>
-
-</div>
 </section>
 
 
