@@ -29,21 +29,17 @@
   <div class="row user_details">
           <table>
             <tr>
-              <h3><%= "#{@contact.first_name} #{@contact.last_name}" %></h3>
+              <h3><%= "#{@contact.first_name.capitalize} #{@contact.last_name.capitalize}" %></h3>
             </tr>
             <tr>
               <td>
 
            <% if  @contact.first_name.blank? %>
                 <h5><%= link_to "Add first name", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
-                <% else %>
-                <h5>Company: <%= @contact.first_name.capitalize %></h5>
                 <% end %>
                <br>
            <% if  @contact.last_name.blank? %>
                 <h5><%= link_to "Add last name", edit_contact_path(@contact.id), class: "fas fa-plus"%></h5>
-                <% else %>
-                <h5>Company: <%= @contact.last_name.capitalize %></h5>
                 <% end %>
                <br>
           <% if  @contact.company.blank? %>
