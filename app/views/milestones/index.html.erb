@@ -2,6 +2,12 @@
 <section class="intro">
 
  <div class="m-container">
+  <script class="chart">
+    var milestoneChartData = {
+  labels: ['Physical', 'Virtual', 'Phone'],
+  series: [ 2, 3 , 2 ]
+  };
+  </script>
   <div class="ct-chart">
 
   </div>
@@ -25,7 +31,17 @@
 <section class="timeline">
   <ul>
 
+    <% phy = 0 %>
+    <% virt = 0 %>
+    <% pho = 0 %>
     <% @milestones.each do |milestone| %>
+    <% if milestone.contact_type == "Physical meeting"%>
+      <% phy += 1 %>
+    <% elsif  milestone.contact_type == "Virtual (Email etc)"%>
+      <% virt += 1 %>
+    <% elsif  milestone.contact_type == "Phone call"%>
+      <% pho += 1 %>
+    <% end %>
     <li>
       <div class="stone">
         <div>
