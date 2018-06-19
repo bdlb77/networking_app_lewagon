@@ -2,10 +2,11 @@
   width:300px;
   height:200px;
   margin : 45px  auto;
-  box-shadow:1px 1px 6px gray;
+  box-shadow:1px 1px 6px gray !important;
   border-radius: 4px;
   padding: 20px;
   background-color: white;
+  position: relative;
 }
 .contact-email{
   font-weight: lighter;
@@ -18,6 +19,7 @@
   letter-spacing: 2.5px;
   margin-top: 20px;
 }
+
 .phone-link{
   color: black;
   &:hover{
@@ -30,12 +32,13 @@
   text-align: justify;
 }
 
-.badge-recent{
-  border-radius: 5px;
-  background: white;
-  color: $wine;
-  font-weight: lighter;
-  border: 1px solid $wine;
-  padding: 5px;
+.milestone-date{
+  position: absolute;
+  font-size: 16px;
+  font-weight: normal;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 2px $turquoise solid;
+  bottom: 10px;
 }
 

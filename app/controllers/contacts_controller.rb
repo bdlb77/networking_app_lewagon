@@ -11,6 +11,7 @@ class ContactsController < ApplicationController
 
     if params[:location_id].present?
       find_location_for_contact
+      # @location = Location.find(params[:location_id])
     end
 
     if params[:tag_id].present?
@@ -163,7 +164,7 @@ private
   def find_user
     @user = User.find(params[:id])
   end
-
+  
   def contact_params
     params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :date_of_birth, :first_contact_type, :first_location, :first_tag, :second_tag, :one_note, :first_assigment, :second_assigment )
   end
