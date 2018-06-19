@@ -125,7 +125,7 @@ before_action :find_contact
       if not @milestone.last_tag.blank?
         @first_tag_exist = false
         @has_first_tag = false
-        if @@milestone.last_tag != "Choose_tag"
+        if @milestone.last_tag != "Choose_tag"
           @tags.each do |t|
             if t.title == @milestone.last_tag
               @first_tag_exist = true

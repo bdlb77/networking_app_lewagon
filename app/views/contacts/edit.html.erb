@@ -1,13 +1,14 @@
 <div class=" text-center wrapper-form">
   <div class="form-row col-sm-offset-4">
      <div class ="form-title" ><%= 'Contact Details' %></div>
+     <div class = "mandatory" ><%='*Mandatory fields'%></div>
       <div class="contact-form col-sm-4">
         <%= simple_form_for @contact do |f| %>
         <div class=" col-md-6">
-        <%= f.input :first_name, label: false, placeholder: 'First name' %>
+        <%= f.input :first_name, label: false, placeholder: 'First name*' %>
         </div>
         <div class=" col-md-6">
-        <%= f.input :last_name, label: false, placeholder: 'Last name' %>
+        <%= f.input :last_name, label: false, placeholder: 'Last name*' %>
         </div>
         <div class=" col-md-6">
         <%= f.input :company, label: false, placeholder: 'Company' %>
@@ -22,7 +23,7 @@
         <%= f.input :email, label: false, placeholder: 'Email' %>
         </div>
         <div class=" col-md-6">
-        <%= f.input :phone_number, label: false, placeholder: 'Phone-number' %>
+        <%= f.input :phone_number, label: false, placeholder: 'Phone number' %>
         </div>
         <div class=" col-md-6">
         <%= f.input :date_of_birth, label: false, as: :date, html5: true, start_year: Date.today.year-90, end_year: Date.today.year - 10, placeholder: 'Date of birth' %>

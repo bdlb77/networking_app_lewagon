@@ -37,6 +37,8 @@ class ContactsController < ApplicationController
     # @contact.user_id = current_user
     @contact = Contact.new(contact_params)
     @contact.user = current_user
+    # if (@contact_first_name.blank? && @contact_last_name.blank?)
+
     if @contact.save!
       flash[:alert] = "Your contact has been set!"
       @locations = Location.all

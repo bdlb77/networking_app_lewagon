@@ -59,6 +59,11 @@ if(window.location.href.indexOf("contacts") > -1) {
 
 
 document.getElementById('newbutton').addEventListener('click', function(){
+  if(document.getElementById('milestone_form_location').options[document.getElementById('milestone_form_location').selectedIndex].value == 'Choose_location'){
+  alert("Please choose a location")
+  } else if (document.getElementById('milestone_contact_type').value == "" || document.getElementById('milestone_contact_type').value == 'Choose contact point*'){
+  alert("Please choose contact point ")
+  }else{
   if(document.getElementById('milestone_form_tag2').options[document.getElementById('milestone_form_tag2').selectedIndex].value == 'milestone_fake_tag2'){
 
   }
@@ -78,6 +83,7 @@ document.getElementById('newbutton').addEventListener('click', function(){
     document.getElementById('milestone_location_dropdown').value = document.getElementById('milestone_form_location').options[document.getElementById('milestone_form_location').selectedIndex].value
   }
   document.getElementById('submit_button').click()
+}
 });
 
 //

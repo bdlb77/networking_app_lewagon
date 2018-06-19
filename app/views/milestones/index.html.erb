@@ -45,7 +45,6 @@
       <p style="font-size: 17px;" class="location-badge badge text-center"><%= milestone.location.title %></p>
       <time style="font-size: 13px"  class="text-center"><%= milestone.created_at.strftime "%B %e %G" %>
 
-
           <h5>
           <%= link_to contact_milestone_path(@contact, milestone),
           method: :delete,
