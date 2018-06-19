@@ -125,7 +125,7 @@ before_action :find_contact
       if not @milestone.last_tag.blank?
         @first_tag_exist = false
         @has_first_tag = false
-        if @@milestone.last_tag != "Choose_tag"
+        if @milestone.last_tag != "Choose_tag"
           @tags.each do |t|
             if t.title == @milestone.last_tag
               @first_tag_exist = true
@@ -170,7 +170,9 @@ before_action :find_contact
           if (@seconed_tag_exist == true && @has_second_tag == false)
             @new_subject2 = Subject.new(milestone_id:@milestone.id, tag_id:@tag_id2)
             @new_subject2.save!
-            @milestone.subjects[1].destroy
+            if !@milestone.subjects.nil?
+              @milestone.subjects[1].destroy
+            end
           end
           if @seconed_tag_exist == false
             @tag2 = Tag.new(title:@milestone.last_tag_two, user_id:@contact.user_id)
