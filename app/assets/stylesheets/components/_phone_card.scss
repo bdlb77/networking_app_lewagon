@@ -1,7 +1,7 @@
 .phone-container{  
   width:300px;
   height:450px;
-  margin : 90px auto 0 auto;
+  margin : 50px auto 0 auto;
   box-shadow:1px 1px 6px gray;
   border-radius: 4px;
   padding: 20px;
@@ -11,6 +11,10 @@
   font-weight: lighter;
   color: gray;
   font-size: 16px;
+}
+
+.result-title{
+  margin-top: 40px;
 }
 .contact-name{
   font-size: 36px;

@@ -3,22 +3,22 @@
 	<div class="row">
     <div id="contacts">
       <% if params[:query].present? %>
+             <h4 class="text-left result-title"><%= "Results for '" + params[:query] +  "'"%></h4>
             <%= render "shared/phone_cards" %>
       <% end %>
     </div>
     <div id="location-contacts">
       <% if params[:location_id].present?  %>
-        <% @contacts_for_location.each do |contact| %>
+      <% @location = Location.find(params[:location_id]) %>
+      <h4 class="text-left result-title"><%= "Results for " +  @location.title + ":"%></h4>
           <%= render "shared/location_cards" %>
-        <% end %>
       <% end %>
     </div> 
     <div id="tag-contacts">
       <% if params[:tag_id].present? %>
-        <% @list_of_contacts.each do |contact| %>
+        <h4 class="text-left result-title"><%= "Results for " +  @tag.title + ":"%></h4>    
           <%=   render "shared/tag_cards" %>
-        <% end %>
-      <% end %>
+      <%  raise end %>
     </div>
   </div>
 </div>
