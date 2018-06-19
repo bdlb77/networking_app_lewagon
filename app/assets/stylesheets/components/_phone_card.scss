@@ -1,16 +1,36 @@
 .phone-container{  
   width:300px;
-  height:450px;
+  min-height:450px;
   margin : 50px auto 0 auto;
   box-shadow:1px 1px 6px gray;
   border-radius: 4px;
   padding: 20px;
   background-color: white;
+  position: relative;
+}
+.contact-go-timeline{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.fa-hourglass-half{
+  color: $turquoise;
+}
+.fa-calendar-alt{
+  color: $turquoise;
+}
+.contact-go-milestone{
+  position: absolute;
+  right: 40px;
+  top: 10px;
+  color: $turquoise;
+  text-decoration: none;
 }
 .contact-email{
   font-weight: lighter;
   color: gray;
   font-size: 16px;
+  text-decoration: none;
 }
 
 .result-title{

@@ -1,8 +1,18 @@
 <% @contacts.each do |contact|  %>
   <div class="col-md-4">  
-  <%= link_to contact_milestones_path(contact), class: 'phone-link' do  %>
+  
     <div class="phone-container">    
       <div class="contact-info">
+        <div class="contact-go-timeline">
+          <%=link_to new_contact_milestone_path(contact) do %> 
+            <i class="fas fa-hourglass-half"></i>
+          <% end %>
+        </div>
+        <div class="contact-go-milestone">
+          <%= link_to contact_milestones_path(contact) do %>
+           <i class="far fa-calendar-alt"></i>
+          <% end %>
+        </div>
         <div class="contact-name">
           <%= contact.first_name.upcase %>
         </div>
@@ -27,4 +37,3 @@
     </div>
   <% end %>
   </div>
-<% end %>
