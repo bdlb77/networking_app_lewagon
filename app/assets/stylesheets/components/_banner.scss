@@ -16,9 +16,9 @@
 }
 .banner p {
   font-size: 25px;
-  font-weight: lighter;
+  font-weight: 500;
   color: rgb(255, 255, 255);
-  opacity: 0.6;
+  opacity: 0.7;
   margin-bottom: 30px;
 }
 
@@ -37,7 +37,7 @@
 .name-search{
   display: flex;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 50px;
 }
 .button-banner{
   display: flex;
@@ -45,6 +45,16 @@
   justify-content: center;
 }
 
+.fa-search{
+  font-size: 16px;
+  padding: 5px;
+  padding-top: 10px;
+  background: white ;
+  color: $wine
+}
+.search-input-home{
+  width: 250px;
+}
 
 @media  only screen and  (max-width: 600px){
 

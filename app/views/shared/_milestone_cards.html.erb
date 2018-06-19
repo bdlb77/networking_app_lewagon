@@ -4,13 +4,12 @@
       <div class="milestone-container">    
         <div class="milestone-info">
           <div class="milestone-title">
-            <%= milestone.location.title.upcase %>
+            <%=  milestone.location.title.upcase %>
           </div>          
           <%= milestone.contact.first_name.capitalize + " " + milestone.contact.last_name.capitalize %>
           <div class="contact-email">
             <%= milestone.contact.email %>
           </div>
-          <h5><span class="badge badge-primary badge-recent">Most Recent</span></h5>
         </div>              
       </div>
     <% end %>

@@ -1,4 +1,3 @@
-<h1>Contacts#index</h1>
 
 <div class="container">
 	<div class="row">
@@ -10,18 +9,14 @@
     <div id="location-contacts">
       <% if params[:location_id].present?  %>
         <% @contacts_for_location.each do |contact| %>
-          <div class="col-md-2">
-            <%= render "shared/phone_cards" %>
-          </div>
+          <%= render "shared/location_cards" %>
         <% end %>
       <% end %>
     </div> 
     <div id="tag-contacts">
       <% if params[:tag_id].present? %>
         <% @list_of_contacts.each do |contact| %>
-          <div class="col-md-2">
-            <%= render "shared/phone_cards" %>
-          </div>
+          <%=   render "shared/tag_cards" %>
         <% end %>
       <% end %>
     </div>

@@ -24,26 +24,65 @@
 
     <% @milestones.each do |milestone| %>
             <li>
+            <div class="stone">
             <div>
-                <i class="fas fa-tags" style="color: black;"><h5>
-          <%= link_to edit_contact_milestone_path(@contact, milestone) do %>
-            <i class="fas fa-edit" style="color: black;"></i>
-          <% end %>
-          </h5></i>
+              <%= link_to edit_contact_milestone_path(@contact, milestone) do %>
+                <i class="fas fa-edit milestone-edit text-center" style="color: black;"></i>
+              <% end %>
+            </div>
 
-               <p class="milestone-tags">
-                <% milestone.tags.each do |tag| %>
-
+            <div>
+              <time style="font-size: 18px"  class="text-center"><%= milestone.created_at.strftime "%B %e %G" %></time>
+            </div>
+           <div class="locat-tag">
+            <div class="mile-tag text-center">
+              <i class="fas fa-tags " style="color: black;"></i>
+              <p class="milestone-tags">
+              <% milestone.tags.each do |tag| %>
                 <p class="badge-tag badge"><%= tag.title %></p>
-                <% end %>
-                </p>
+              <% end %>
+              </p>
+            </div>
+            <div class="locat text-center">
+              <i class="fas fa-globe globe" style="color: black;"></i>
               <br>
+              <p style="font-size: 17px;" class=" loca"><%= milestone.location.title %></p>
+            </div>
+          </div>
+          <hr class="toq-line" size="pixels">
+          <h5  style="color: #2e242c;, font-weight: bold;">How can I help my contact?</h5>
+          <h5>
+           <%= link_to contact_milestone_path(@contact, milestone),
+           method: :delete,
+           data: { confirm: "Are you sure?" }, class: 'link'  do %>
+            <i class="fas fa-trash-alt delete-milestone"></i>
+           <% end %>
+          </h5>
+    <div>
+      <% if milestone.note.length >= 80%>
+    <p style="color: #ccc;"><%=  truncate(milestone.note, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
+     <% else %>
+     <p style="color: #ccc;"><%= milestone.note %></p>
+     <% end %>
+    </div>
+     </div>
+      </li>
+<% end %>
+</ul>
+</section>
 
-       <i class="fas fa-globe" style="color: black;"></i>
 
-       <br>
-      <p style="font-size: 17px;" class="location-badge badge text-center"><%= milestone.location.title %></p>
-      <time style="font-size: 13px"  class="text-center"><%= milestone.created_at.strftime "%B %e %G" %>
+
+
+
+
+
+
+
+
+
+
+
 
           <h5>
           <%= link_to contact_milestone_path(@contact, milestone),
@@ -60,6 +99,7 @@
     <% end %>
   </ul>
 </section>
+
 
 
 

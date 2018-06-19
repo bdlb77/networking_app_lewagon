@@ -43,6 +43,7 @@ class PagesController < ApplicationController
     @milestones = Milestone.all
     @sorted_milestones = []
     @sorted_milestones = @milestones.sort_by{ |milestone| milestone.updated_at }
+    @sorted_milestones.reverse!
     
     @new_milestones = @sorted_milestones.first(3) 
   end

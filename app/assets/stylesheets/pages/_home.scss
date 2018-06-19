@@ -2,17 +2,23 @@
 	min-height: 100vh;
 }
 
+.home-wrap{
+  background-color: #f0f1f3;
+}
+
 .gradiant-background-home{  
-  min-height: 300px;
+  min-height: 200px;
   border-bottom: 1px  solid gray;
 }
 #location{
   flex-wrap: wrap;
   margin: 15px;
+  margin-bottom: 30px;
 }
 #tags{
   flex-wrap: wrap;
   margin: 15px;
+  margin-bottom: 30px;
 }
 .location-search{
   margin: 15px;
@@ -21,6 +27,13 @@
   display: flex;
   justify-content: center;
 }
+
+.location-column{
+  margin-top: 15px;
+}
+.tag-column{
+  margin-top: 15px;
+}
 .tag-search{
   margin: 15px;
 }
@@ -28,6 +41,12 @@
 .home-row-searches{
   margin-top: 30px;
 
+}
+.relevants{
+  margin-top: 30px;
+}
+.most-relevant{
+  background: #F9F9F9;
 }
 
 // @media only screen and (max-width: 900px){

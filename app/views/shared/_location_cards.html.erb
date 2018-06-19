@@ -1,4 +1,4 @@
-<% @contacts.each do |contact|  %>
+<% @contacts_for_location.each do |contact|  %>
   <div class="col-md-4">  
   <%= link_to contact_milestones_path(contact), class: 'phone-link' do  %>
     <div class="phone-container">    
@@ -28,3 +28,4 @@
   <% end %>
   </div>
 <% end %>
+
