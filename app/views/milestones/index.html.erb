@@ -84,6 +84,21 @@
 
 
 
+          <h5>
+          <%= link_to contact_milestone_path(@contact, milestone),
+          method: :delete,
+          data: { confirm: "Are you sure?" }, class: 'link'  do %>
+            <i class="fas fa-trash-alt" style="color: red;"></i>
+          <% end %>
+        </h5>
+
+      </time>
+         </div>
+          </li>
+
+    <% end %>
+  </ul>
+</section>
 
 
 

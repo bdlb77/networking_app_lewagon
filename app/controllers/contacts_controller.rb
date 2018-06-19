@@ -37,13 +37,15 @@ class ContactsController < ApplicationController
     # @contact.user_id = current_user
     @contact = Contact.new(contact_params)
     @contact.user = current_user
+    # if (@contact_first_name.blank? && @contact_last_name.blank?)
+
     if @contact.save!
       flash[:alert] = "Your contact has been set!"
       @locations = Location.all
       @have_location = false
         @locations.each do |l|
           if l.title == @contact.first_location
-            @milestone = Milestone.new(contact_id:@contact.id, contact_type: @contact.first_contact_type, location_id:l.id, note:@contact.one_note)
+            @milestone = Milestone.new(contact_id:@contact.id, contact_type: @contact.first_contact_type, location_id:l.id, note:@contact.one_note, assigment_one:@contact.first_assigment, assigment_two:@contact.second_assigment)
             @have_location = true
             @milestone.save!
           end
@@ -51,7 +53,7 @@ class ContactsController < ApplicationController
         if @have_location == false
           @location = Location.new(title:@contact.first_location, user_id:@contact.user_id)
           if @location.save!
-            @milestone = Milestone.new(contact_id:@contact.id, contact_type: @contact.first_contact_type, location_id:@location.id, note:@contact.one_note)
+            @milestone = Milestone.new(contact_id:@contact.id, contact_type: @contact.first_contact_type, location_id:@location.id, note:@contact.one_note, assigment_one:@contact.first_assigment, assigment_two:@contact.second_assigment)
             @milestone.save!
           end
         end
@@ -163,11 +165,11 @@ private
   end
 
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :date_of_birth, :first_contact_type, :first_location, :first_tag, :second_tag, :one_note)
+    params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :date_of_birth, :first_contact_type, :first_location, :first_tag, :second_tag, :one_note, :first_assigment, :second_assigment )
   end
 
   def milestone_params
-    params.require(:milestone).permit(:note, :contact_type, :last_location, :last_tag_two, :last_tag)
+    params.require(:milestone).permit(:note, :contact_type, :last_location, :last_tag_two, :last_tag, :assigment_one, :assigment_two, :location_id )
   end
 
   def tag_params

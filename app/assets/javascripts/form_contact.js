@@ -59,7 +59,11 @@ document.getElementById('newbutton').addEventListener('click', function(){
 
   if(document.getElementById('contact_form_location').options[document.getElementById('contact_form_location').selectedIndex].value == 'Choose_location'){
   alert("Please choose a location")
-  } else {
+  } else if (document.getElementById('contact_first_name').value == "" &&  document.getElementById('contact_last_name').value == ""){
+  alert("Please enter first or last name ")
+  } else if (document.getElementById('contact_first_contact_type').value == "" || document.getElementById('contact_first_contact_type').value == 'Choose contact point*'){
+  alert("Please choose contact point ")
+  }else{
   if(document.getElementById('contact_form_tag2').options[document.getElementById('contact_form_tag2').selectedIndex].value == 'contact_fake_tag2'){
 
   }

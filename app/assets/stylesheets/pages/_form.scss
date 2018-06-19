@@ -25,13 +25,24 @@
   border-color: #256e79;
 }
 
+
 .form-title {
   padding-top: 30px;
   color: #83040b;
   font-weight: 400;
-  padding-bottom:20px;
+  padding-bottom:10px;
+  font-size: 25px;
 }
 
+.mandatory {
+  font-size: 18px;
+  color: white;
+  font-weight: 400;
+}
+
+.form-control {
+   font-size: 16px;
+}
 
 .form-control-label {
  font-weight: 200;
