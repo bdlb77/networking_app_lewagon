@@ -3,7 +3,7 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .intro {
-  background: linear-gradient(#aaa, white);
+  background: #ccc;
   color: white;
   padding: 100px 0;
 }
@@ -51,7 +51,7 @@
 
 }
 
-.timeline ul li div {
+.timeline ul li .stone {
   position: relative;
   bottom: 0;
   width: 400px;
@@ -61,7 +61,7 @@
   border: 1px solid black;
 }
 
-.timeline ul li div::before {
+.timeline ul li .stone::before {
   content: '';
   position: absolute;
   bottom: 7px;
@@ -70,21 +70,21 @@
   border-style: solid;
 }
 
-.timeline ul li:nth-child(odd) div {
+.timeline ul li:nth-child(odd) .stone {
   left: 45px;
 }
 
-.timeline ul li:nth-child(odd) div::before {
+.timeline ul li:nth-child(odd) .stone::before {
   left: -15px;
   border-width: 8px 16px 8px 0;
   border-color: transparent $wine transparent transparent;
 }
 
-.timeline ul li:nth-child(even) div {
+.timeline ul li:nth-child(even) .stone {
   left: -439px;
 }
 
-.timeline ul li:nth-child(even) div::before {
+.timeline ul li:nth-child(even) .stone::before {
   right: -15px;
   border-width: 8px 0 8px 16px;
   border-color: transparent transparent transparent #256e79;
@@ -110,21 +110,21 @@
   background: #83040b;
 }
 
-.timeline ul li div {
+.timeline ul li .stone {
   visibility: hidden;
   opacity: 0;
   transition: all .5s ease-in-out;
 }
 
-.timeline ul li:nth-child(odd) div {
+.timeline ul li:nth-child(odd) .stone {
   transform: translate3d(200px, 0, 0);
 }
 
-.timeline ul li:nth-child(even) div {
+.timeline ul li:nth-child(even) .stone {
   transform: translate3d(-200px, 0, 0);
 }
 
-.timeline ul li.in-view div {
+.timeline ul li.in-view .stone {
   transform: none;
   position: relative;
   visibility: visible;
@@ -139,10 +139,10 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 @media screen and (max-width: 900px) {
-  .timeline ul li div {
+  .timeline ul li .stone {
     width: 250px;
   }
-  .timeline ul li:nth-child(even) div {
+  .timeline ul li:nth-child(even) .stone {
     left: -289px;
     /*250+45-6*/
   }
@@ -155,13 +155,13 @@
   .timeline ul li {
     margin-left: 20px;
   }
-  .timeline ul li div {
+  .timeline ul li .stone {
     width: calc(100vw - 91px);
   }
-  .timeline ul li:nth-child(even) div {
+  .timeline ul li:nth-child(even) .stone {
     left: 45px;
   }
-  .timeline ul li:nth-child(even) div::before {
+  .timeline ul li:nth-child(even) .stone::before {
     left: -15px;
     border-width: 8px 16px 8px 0;
     border-color: transparent #256e79 transparent transparent;
@@ -239,10 +239,7 @@
   margin-top: 20px;
 }
 
-.milestone-tags {
-  display: flex;
-  justify-content: space-around;
-}
+
 
 .milestone-edit {
   position: absolute;
@@ -254,4 +251,41 @@
   position: absolute;
   bottom: 10px;
   right: 10px;
+  color: gray;
+}
+
+.delete-milestone:hover {
+  color: #cb2431;
+}
+
+
+
+.loca {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #777777;
+  border-radius: 10px;
+  margin-top: 11px;
+}
+
+.locat-tag {
+  display: flex;
+  justify-content: space-around;
+}
+
+.toq-line  {
+ height: 2px;
+ color: $torq;
+ margin-top: 19px;
+ border: none;
+ background-color: $torq;
+
 }
