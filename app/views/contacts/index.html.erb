@@ -3,7 +3,7 @@
 	<div class="row">
     <div id="contacts">
       <% if params[:query].present? %>
-             <h4 class="text-left result-title"><%= "Results for '" + params[:query] +  "'"%></h4>
+             <h4 class="text-left result-title"><%= "Results for '" + params[:query] +  "':"%></h4>
             <%= render "shared/phone_cards" %>
       <% end %>
     </div>
@@ -18,7 +18,7 @@
       <% if params[:tag_id].present? %>
         <h4 class="text-left result-title"><%= "Results for " +  @tag.title + ":"%></h4>    
           <%=   render "shared/tag_cards" %>
-      <%  raise end %>
+      <%  end %>
     </div>
   </div>
 </div>

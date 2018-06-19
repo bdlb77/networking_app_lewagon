@@ -18,7 +18,7 @@
               }
             </script>
               <% @my_locations.each do |location|  %>
-                  <%= link_to location.title, contacts_path(location_id: location.id), onclick: "showLocation()", class: "badge badge-danger location-badge"  %>
+                  <%= link_to location.title, contacts_path(location_id: location.id), onclick: "showLocation()", class: "badge badge-danger location-badge hover-shadow"  %>
               <%  end  %>
             </div>
             <script>
@@ -49,7 +49,7 @@
           </div>
           <div id="tags" class="text-center" style="display: none;">
             <% @tag_names.each do |tag|  %>
-                <%= link_to tag.title, contacts_path(tag_id: tag.id), onclick:"showTags()", class: "badge badge-danger badge-sm badge-tag" %>
+                <%= link_to tag.title, contacts_path(tag_id: tag.id), onclick:"showTags()", class: "badge badge-danger badge-sm badge-tag hover-shadow" %>
             <% end %>
             <script>
               function showTags(){
