@@ -211,7 +211,7 @@ before_action :find_contact
   end
 
   def milestone_params
-    params.require(:milestone).permit(:note, :last_location, :last_tag_two, :last_tag, :contact_type, :contact_id, , :assigment_one, :assigment_two)
+    params.require(:milestone).permit(:note, :last_location, :last_tag_two, :last_tag, :contact_type, :assigment_one, :assigment_two)
     # subjects_attributes: [:id, :_destroy, :tag_id, tag_attributes: [:id, :_destroy, :title]]
     # location_attributes: [:id, :_destroy, :title]
     # contact_attributes: [:id, :first_name, :last_name, :position, :company, :username, :email, :phone_number]
