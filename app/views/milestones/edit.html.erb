@@ -51,6 +51,13 @@
           <%= f.input :note, label: false, placeholder: 'How can I help my contact?',class: "col-sm-5 username-input with-placeholder", id: "username" %>
         </div>
 
+        <div class=" col-md-6 ">
+      <%= f.input :assigment_one, label: false, placeholder: 'To do' %>
+      </div>
+      <div class=" col-md-6 ">
+      <%= f.input :assigment_two, label: false, placeholder: 'To do' %>
+      </div>
+
 
        <%= f.submit 'Submit contact', class: 'hidden', id: 'submit_button' %>
        <% end %>

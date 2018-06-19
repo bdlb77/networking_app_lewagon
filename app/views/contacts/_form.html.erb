@@ -94,6 +94,13 @@
       <%= f.input :second_tag, label: 'Tag:', placeholder: 'Enter a new tag', input_html: { id: 'contact_tag2_dropdown'}, label: false  %>
     </div>
 
+     <div class=" col-md-6 ">
+      <%= f.input :first_assigment, label: false, placeholder: 'To do' %>
+      </div>
+      <div class=" col-md-6 ">
+      <%= f.input :second_assigment, label: false, placeholder: 'To do' %>
+      </div>
+
       <%#= f.input :photo %>
       <%#= f.input :photo_cache, as: :hidden %>
       <%= f.submit 'Submit contact', class: 'hidden', id: 'submit_button' %>
