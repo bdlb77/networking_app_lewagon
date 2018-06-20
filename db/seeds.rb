@@ -68,7 +68,7 @@
 
     tag9 = Tag.new(
     user_id: 1,
-    title: "vecation",
+    title: "banking",
   )
     tag9.save!
 
@@ -108,9 +108,9 @@
   )
     tag15.save!
 
-     tag16 = Tag.new(
+    tag16 = Tag.new(
     user_id: 1,
-    title: "rich",
+    title: "has money",
   )
     tag16.save!
 
@@ -157,11 +157,11 @@
   )
     tag23.save!
 
-    tag23 = Tag.new(
+    tag24 = Tag.new(
     user_id: 1,
     title: "retail"
   )
-    tag23.save!
+    tag24.save!
 
 
 #_________________________________________________________________________-
@@ -171,7 +171,7 @@
 
     location1 = Location.new(
     user_id: 1,
-    title: "fintech conference",
+    title: "fintech conference 2018",
   )
     location1.save!
 
@@ -183,7 +183,7 @@
 
     location3 = Location.new(
     user_id: 1,
-    title: "real estate conferance",
+    title: "real estate conferance 2017",
   )
     location3.save!
 
@@ -220,14 +220,14 @@
 
     location9 = Location.new(
     user_id: 1,
-    title: " coincidental meeting",
+    title: "coincidental meeting",
   )
     location9.save!
 
 
     location10 = Location.new(
     user_id: 1,
-    title: "work meeting",
+    title: "business meeting",
   )
     location10.save!
 
@@ -258,7 +258,7 @@
 
     location15 = Location.new(
     user_id: 1,
-    title: "eCommerce conference"
+    title: "eCommerce conference 2017"
   )
     location15.save!
 
@@ -268,11 +268,7 @@
   )
     location16.save!
 
-    location16 = Location.new(
-    user_id: 1,
-    title: "business meeting"
-  )
-    location16.save!
+
 
   #____________________________________________________________________
 
@@ -313,7 +309,7 @@
     subject.save!
 
     subject = Subject.new(
-    tag_id: 11,
+    tag_id:22,
     milestone_id: 1,
   )
     subject.save!
@@ -331,7 +327,7 @@
 
 
     subject = Subject.new(
-    tag_id: 8 ,
+    tag_id: 11 ,
     milestone_id: 2,
   )
     subject.save!
@@ -345,7 +341,7 @@
     milestone3 = Milestone.new(
     contact_id: 1,
     contact_type: 'Physical meeting',
-    location_id: 16,
+    location_id: 9,
     note: "checked for a possible mutual invesment in a small appartment building in Berlin",
     assigment_one: "reaserch Berlin real estate market",
     assigment_two: "sceduale a futur meeting with Whitney",
@@ -362,6 +358,77 @@
     subject = Subject.new(
     tag_id: 2,
     milestone_id:3,
+  )
+    subject.save!
+
+    milestone4 = Milestone.new(
+    contact_id: 1,
+    contact_type: 'Physical meeting',
+    location_id:8,
+    note: "help Whitney find an excellent graphic designer for her team",
+    assigment_one: "sceduale lunch together",
+    assigment_two:"",
+  )
+    milestone4.save!
+
+
+    subject = Subject.new(
+    tag_id: 23,
+    milestone_id:4,
+  )
+    subject.save!
+
+    subject = Subject.new(
+    tag_id: 22,
+    milestone_id:4,
+  )
+    subject.save!
+
+    milestone5 = Milestone.new(
+    contact_id: 1,
+    contact_type: 'Physical meeting',
+    location_id: 10,
+    note: "had a great idea for the a baby-album app, need to do some market research",
+    assigment_one: "market reseach and make a draft protfolio",
+    assigment_two: "sceduale a mutual meeting with Robert from Lupa",
+  )
+    milestone5.save!
+
+
+    subject = Subject.new(
+    tag_id: 22,
+    milestone_id:5,
+  )
+    subject.save!
+
+
+    subject = Subject.new(
+    tag_id: 16,
+    milestone_id:5,
+  )
+    subject.save!
+
+    milestone6 = Milestone.new(
+    contact_id: 1,
+    contact_type: 'Virtual (Email etc)',
+    location_id: 16,
+    note: "went through the market reserch, will continue on to some market sizing and financial analysis",
+    assigment_one: "financial analysis",
+    assigment_two: "confirm meeting with shera from Lupa ",
+  )
+    milestone6.save!
+
+
+    subject = Subject.new(
+    tag_id: 22,
+    milestone_id:6,
+  )
+    subject.save!
+
+
+    subject = Subject.new(
+    tag_id: 11,
+    milestone_id:6,
   )
     subject.save!
 
@@ -382,7 +449,7 @@
   )
     contact2.save!
 
-    milestone4 = Milestone.new(
+    milestone7 = Milestone.new(
     contact_id: 2,
     contact_type: 'Physical meeting',
     location_id: 7,
@@ -390,37 +457,37 @@
     assigment_one: "check new virtual coins",
     assigment_two:"",
   )
-    milestone4.save!
+    milestone7.save!
 
 
     subject = Subject.new(
     tag_id: 13,
-    milestone_id:4,
+    milestone_id:7,
   )
     subject.save!
 
 
     subject = Subject.new(
     tag_id: 4,
-    milestone_id:4,
+    milestone_id:7,
   )
     subject.save!
 
 
-    milestone5 = Milestone.new(
+    milestone8 = Milestone.new(
     contact_id: 2,
     contact_type:  'Physical meeting',
-    location_id: 8,
+    location_id: 15,
     note: "connect Keith with Jhoe from new york hospital ",
     assigment_one: "send email to Jhon",
     assigment_two: "foolow up in 3 weeks",
   )
-    milestone5.save!
+    milestone8.save!
 
 
     subject = Subject.new(
     tag_id: 23,
-    milestone_id: 5,
+    milestone_id: 8,
   )
     subject.save!
 
@@ -430,7 +497,7 @@
   # )
   #   subject.save!
 
-    milestone6 = Milestone.new(
+    milestone9 = Milestone.new(
     contact_id: 2,
     contact_type: 'Virtual (Email etc)',
     location_id: 16,
@@ -438,463 +505,465 @@
     assigment_one: "get in touch with Webical and sceduale meeting",
     assigment_two:"",
   )
-    milestone6.save!
+    milestone9.save!
 
 
     subject = Subject.new(
     tag_id: 3,
-    milestone_id:6,
+    milestone_id:9,
   )
     subject.save!
 
 
     subject = Subject.new(
     tag_id:5 ,
-    milestone_id:6,
+    milestone_id:9,
   )
     subject.save!
 
 #_____________________________________________________________________________
 
 
-#     contact3 = Contact.new(
-#     user_id: 1,
-#     # contact_id: 1,
-#     first_name: "Whitney",
-#     last_name: "Wolfe",
-#     position: "CEO",
-#     company: "Bumble",
-#     username:"",
-#     email:"wwolfe@bumble.com",
-#     phone_number:"",
-#   )
-#     contact3.save!
+    contact3 = Contact.new(
+    user_id: 1,
+    # contact_id: 1,
+    first_name: "Whitney",
+    last_name: "Gennys",
+    position: "Product Manager, Mobile Financial Services",
+    company: "facebook",
+    username:"",
+    email:"wwhitnyG@facebook.com",
+    phone_number:"",
+  )
+    contact3.save!
 
 
-#     milestone7 = Milestone.new(
-#     contact_id: 3,
-#     contact_type:
-#     location_id:
-#     note:
-#     assigment_one:
-#     assigment_two:
-#   )
-#     milestone7.save!
+    milestone10 = Milestone.new(
+    contact_id: 3,
+    contact_type: 'Physical meeting',
+    location_id:8,
+    note: "",
+    assigment_one: "",
+    assigment_two:"",
+  )
+    milestone10.save!
 
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    subject = Subject.new(
+    tag_id: 3,
+    milestone_id:10,
+  )
+    subject.save!
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    subject = Subject.new(
+    tag_id: 21,
+    milestone_id:10,
+  )
+    subject.save!
 
-#     milestone8 = Milestone.new(
-#     contact_id: 3,
-#     contact_type:
-#     location_id:
-#     note:
-#     assigment_one:
-#     assigment_two:
-#   )
-#     milestone8.save!
-
-
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    milestone11 = Milestone.new(
+    contact_id: 3,
+    contact_type: 'Physical meeting',
+    location_id: 10,
+    note: "",
+    assigment_one: ".",
+    assigment_two: "",
+  )
+    milestone11.save!
 
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
-
-#     milestone9 = Milestone.new(
-#     contact_id: 3,
-#     contact_type:
-#     location_id:
-#     note:
-#     assigment_one:
-#     assigment_two:
-#   )
-#     milestone9.save!
+    subject = Subject.new(
+    tag_id: 17,
+    milestone_id:11,
+  )
+    subject.save!
 
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    subject = Subject.new(
+    tag_id: 11,
+    milestone_id:11,
+  )
+    subject.save!
+
+    milestone12 = Milestone.new(
+    contact_id: 3,
+    contact_type: 'Virtual (Email etc)',
+    location_id: 16,
+    note: "",
+    assigment_one: "",
+    assigment_two: "",
+  )
+    milestone12.save!
 
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    subject = Subject.new(
+    tag_id: 22,
+    milestone_id:12,
+  )
+    subject.save!
 
 
-# #_________________________________________________________________________
-
-
-#    contact4 = Contact.new(
-#     user_id: 1,
-#     # contact_id: 1,
-#     first_name: "Whitney",
-#     last_name: "Wolfe",
-#     position: "CEO",
-#     company: "Bumble",
-#     username:"",
-#     email:"wwolfe@bumble.com",
-#     phone_number:"",
-#   )
-#     contact4.save!
-
-#     milestone10 = Milestone.new(
-#     contact_id: 4,
-#     contact_type: 'Physical meeting',
-#     location_id: 15,
-#     note: "looking for an amazing public relations master",
-#     assigment_one:"check with Ben if he knows someone relevant for the job",
-#     assigment_two:"send responding email as soon as posible",
-#   )
-#     milestone10.save!
-
-
-#     subject = Subject.new(
-#     tag_id: 5,
-#     milestone_id:1,
-#   )
-#     subject.save!
-
-#     subject = Subject.new(
-#     tag_id: 11,
-#     milestone_id: 1,
-#   )
-#     subject.save!
-
-
-#     milestone11 = Milestone.new(
-#     contact_id:4,
-#     contact_type:'Virtual (Email etc)',
-#     location_id: 16,
-#     note: "sent Whitney a public relations referral",
-#     assigment_one: "follow up in one month to check if the referral was beneficial",
-#     assigment_two:"",
-#   )
-#     milestone11.save!
-
-
-#     subject = Subject.new(
-#     tag_id: 8 ,
-#     milestone_id: 2,
-#   )
-#     subject.save!
-
-#     subject = Subject.new(
-#     tag_id:23 ,
-#     milestone_id: 2,
-#   )
-#     subject.save!
-
-#     milestone12 = Milestone.new(
-#     contact_id: 4,
-#     contact_type: 'Physical meeting',
-#     location_id: 16,
-#     note: "checked for a possible mutual invesment in a small appartment building in Berlin",
-#     assigment_one: "reaserch Berlin real estate market",
-#     assigment_two: "sceduale a futur meeting with Whitney",
-#   )
-#     milestone12.save!
-
-
-#     subject = Subject.new(
-#     tag_id: 10,
-#     milestone_id: 3,
-#   )
-#     subject.save!
-
-#     subject = Subject.new(
-#     tag_id: 2,
-#     milestone_id:3,
-#   )
-#     subject.save!
+    subject = Subject.new(
+    tag_id: 11,
+    milestone_id:12,
+  )
+    subject.save!
 
 
 # #_________________________________________________________________________
 
 
-#     contact5 = Contact.new(
-#     user_id: 1,
-#     # contact_id: 1,
-#     first_name: "Whitney",
-#     last_name: "Wolfe",
-#     position: "CEO",
-#     company: "Bumble",
-#     username:"",
-#     email:"wwolfe@bumble.com",
-#     phone_number:"",
-#   )
-#     contact5.save!
+   contact4 = Contact.new(
+    user_id: 1,
+    # contact_id: 1,
+    first_name: "Arik",
+    last_name: "goldman",
+    position: "investment banker",
+    company: "HSBC",
+    username:"",
+    email:"goldman_a@hsbcbank.com",
+    phone_number:"",
+  )
+    contact4.save!
 
-#     milestone13 = Milestone.new(
-#     contact_id: 5,
-#     contact_type:
-#     location_id:
-#     note:
-#     assigment_one:
-#     assigment_two:
-#   )
-#     milestone13.save!
-
-
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    milestone13 = Milestone.new(
+    contact_id: 4,
+    contact_type: 'Physical meeting',
+    location_id: 15,
+    note: "move some money to Arik's managment"
+    assigment_one:"Decide if i want to invest money with Arik",
+    assigment_two:"",
+  )
+    milestone13.save!
 
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    subject = Subject.new(
+    tag_id: 10,
+    milestone_id:13,
+  )
+    subject.save!
+
+    subject = Subject.new(
+    tag_id: 9,
+    milestone_id: 13,
+  )
+    subject.save!
 
 
-#     milestone14 = Milestone.new(
-#     contact_id: 5,
-#     contact_type:
-#     location_id:
-#     note:
-#     assigment_one:
-#     assigment_two:
-#   )
-#     milestone14.save!
+    milestone14 = Milestone.new(
+    contact_id:4,
+    contact_type:'Virtual (Email etc)',
+    location_id: 16,
+    note: "cecked if Arik can help me to get better terms for a business loan",
+    assigment_one: "send Arik our business plan and financial analysis",
+    assigment_two: "follow up in a 2 weeks",
+  )
+    milestone14.save!
 
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    subject = Subject.new(
+    tag_id: 9,
+    milestone_id: 14,
+  )
+    subject.save!
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    subject = Subject.new(
+    tag_id:1 ,
+    milestone_id: 14,
+  )
+    subject.save!
 
-#     milestone15 = Milestone.new(
-#     contact_id: 5,
-#     contact_type:
-#     location_id:
-#     note:
-#     assigment_one:
-#     assigment_two:
-#   )
-#     milestone15.save!
-
-
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    milestone15 = Milestone.new(
+    contact_id: 4,
+    contact_type: 'Physical meeting',
+    location_id: 9,
+    note: "followed up about me investing some money with him",
+    assigment_one: "",
+    assigment_two: "",
+  )
+    milestone15.save!
 
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    subject = Subject.new(
+    tag_id: 10,
+    milestone_id: 15,
+  )
+    subject.save!
+
+    subject = Subject.new(
+    tag_id: 9,
+    milestone_id:15,
+  )
+    subject.save!
+
+
+# #_________________________________________________________________________
+
+
+    contact5 = Contact.new(
+    user_id: 1,
+    # contact_id: 1,
+    first_name: "Jhon",
+    last_name: "Ortyn",
+    position: "",
+    company: "",
+    username:"",
+    email:"jhonor@gmail.com",
+    phone_number:"",
+  )
+    contact5.save!
+
+    milestone16 = Milestone.new(
+    contact_id: 5,
+    contact_type: 'Physical meeting',
+    location_id: 15,
+    note:"",
+    assigment_one: "",
+    assigment_two: "",
+  )
+    milestone16.save!
+
+
+    subject = Subject.new(
+    tag_id: 22,
+    milestone_id:16,
+  )
+    subject.save!
+
+
+    subject = Subject.new(
+    tag_id: 12,
+    milestone_id:16,
+  )
+    subject.save!
+
+
+    milestone17 = Milestone.new(
+    contact_id: 5,
+    contact_type:'Physical meeting',
+    location_id:16,
+    note:"",
+    assigment_one: "",
+    assigment_two: "",
+  )
+    milestone17.save!
+
+
+    subject = Subject.new(
+    tag_id:13 ,
+    milestone_id:17,
+  )
+    subject.save!
+
+  #   subject = Subject.new(
+  #   tag_id: ,
+  #   milestone_id:
+  # )
+  #   subject.save!
+
 
 # #_____________________________________________________________________________
 
 
-#     contact6 = Contact.new(
-#     user_id: 1,
-#     # contact_id: 1,
-#     first_name: "Whitney",
-#     last_name: "Wolfe",
-#     position: "CEO",
-#     company: "Bumble",
-#     username:"",
-#     email:"wwolfe@bumble.com",
-#     phone_number:"",
-#   )
-#     contact6.save!
+    contact6 = Contact.new(
+    user_id: 1,
+    # contact_id: 1,
+    first_name: "Lisa",
+    last_name: "glinert",
+    position: "",
+    company: "",
+    username:"",
+    email:"glisa@tresyer.com",
+    phone_number:"",
+  )
+    contact6.save!
 
 
-#     milestone16 = Milestone.new(
-#     contact_id: 6,
-#     contact_type:
-#     location_id:
-#     note:
-#     assigment_one:
-#     assigment_two:
-#   )
-#     milestone16.save!
+    milestone18 = Milestone.new(
+    contact_id: 6,
+    contact_type: 'Physical meeting',
+    location_id: 5,
+    note:"",
+    assigment_one:"",
+    assigment_two:"",
+  )
+    milestone18.save!
 
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    subject = Subject.new(
+    tag_id:24 ,
+    milestone_id:18,
+  )
+    subject.save!
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    subject = Subject.new(
+    tag_id: 13,
+    milestone_id:18,
+  )
+    subject.save!
 
-#     milestone17 = Milestone.new(
-#     contact_id: 6,
-#     contact_type:
-#     location_id:
-#     note:
-#     assigment_one:
-#     assigment_two:
-#   )
-#     milestone17.save!
-
-
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    milestone19 = Milestone.new(
+    contact_id: 6,
+    contact_type:'Physical meeting',
+    location_id:15,
+    note:"",
+    assigment_one: "",
+    assigment_two:"",
+  )
+    milestone19.save!
 
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
-
-#     milestone18 = Milestone.new(
-#     contact_id: 6,
-#     contact_type:
-#     location_id:
-#     note:
-#     assigment_one:
-#     assigment_two:
-#   )
-#     milestone18.save!
+    subject = Subject.new(
+    tag_id: 22,
+    milestone_id:19,
+  )
+    subject.save!
 
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+  #   subject = Subject.new(
+  #   tag_id: ,
+  #   milestone_id:
+  # )
+  #   subject.save!
+
+    milestone20 = Milestone.new(
+    contact_id: 6,
+    contact_type:'Physical meeting',
+    location_id: 10,
+    note:"",
+    assigment_one:"",
+    assigment_two:"",
+  )
+    milestone20.save!
 
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    subject = Subject.new(
+    tag_id: 14,
+    milestone_id:20,
+  )
+    subject.save!
+
+
+  #   subject = Subject.new(
+  #   tag_id: ,
+  #   milestone_id:
+  # )
+  #   subject.save!
 
 
 
 # #_____________________________________________________________________________
 
 
-#     contact7 = Contact.new(
-#     user_id: 1,
-#     # contact_id: 1,
-#     first_name: "Whitney",
-#     last_name: "Wolfe",
-#     position: "CEO",
-#     company: "Bumble",
-#     username:"",
-#     email:"wwolfe@bumble.com",
-#     phone_number:"",
-#   )
-#     contact7.save!
+    contact7 = Contact.new(
+    user_id: 1,
+    # contact_id: 1,
+    first_name: "alon",
+    last_name: "asia",
+    position: "",
+    company: "",
+    username:"",
+    email:"alondev@webicon.com",
+    phone_number:"",
+  )
+    contact7.save!
 
 
-#     milestone19 = Milestone.new(
-#     contact_id: 7,
-#     contact_type:
-#     location_id:
-#     note:
-#     assigment_one:
-#     assigment_two:
-#   )
-#     milestone19.save!
+    milestone21 = Milestone.new(
+    contact_id: 7,
+    contact_type: 'Physical meeting',
+    location_id:8,
+    note:"",
+    assigment_one:"",
+    assigment_two:"",
+  )
+    milestone21.save!
 
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    subject = Subject.new(
+    tag_id:4 ,
+    milestone_id:21,
+  )
+    subject.save!
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    subject = Subject.new(
+    tag_id: 23,
+    milestone_id:21,
+  )
+    subject.save!
 
-#     milestone20 = Milestone.new(
-#     contact_id: 7,
-#     contact_type:
-#     location_id:
-#     note:
-#     assigment_one:
-#     assigment_two:
-#   )
-#     milestone20.save!
-
-
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    milestone22 = Milestone.new(
+    contact_id: 7,
+    contact_type:'Physical meeting',
+    location_id: 4,
+    note:"",
+    assigment_one:"",
+    assigment_two:"",
+  )
+    milestone22.save!
 
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
-
-#     milestone21 = Milestone.new(
-#     contact_id: 7,
-#     contact_type:
-#     location_id:
-#     note:
-#     assigment_one:
-#     assigment_two:
-#   )
-#     milestone21.save!
+    subject = Subject.new(
+    tag_id: 10 ,
+    milestone_id:22,
+  )
+    subject.save!
 
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    subject = Subject.new(
+    tag_id: 2,
+    milestone_id:22,
+  )
+    subject.save!
+
+    milestone23 = Milestone.new(
+    contact_id: 7,
+    contact_type:'Physical meeting',
+    location_id: 15,
+    note:"",
+    assigment_one:"",
+    assigment_two:"",
+  )
+    milestone23.save!
 
 
-#     subject = Subject.new(
-#     tag_id: ,
-#     milestone_id:
-#   )
-#     subject.save!
+    subject = Subject.new(
+    tag_id:22 ,
+    milestone_id:23
+  )
+    subject.save!
+
+
+  #   subject = Subject.new(
+  #   tag_id: ,
+  #   milestone_id:
+  # )
+  #   subject.save!
+
+
+    milestone24 = Milestone.new(
+    contact_id: 7,
+    contact_type:'Virtual (Email etc)',
+    location_id:16,
+    note:"",
+    assigment_one:"",
+    assigment_two:"",
+  )
+    milestone24.save!
+
+
+    subject = Subject.new(
+    tag_id:13 ,
+    milestone_id:24,
+  )
+    subject.save!
+
+
+  #   subject = Subject.new(
+  #   tag_id: ,
+  #   milestone_id:24,
+  # )
+  #   subject.save!
 
 
 # #_________________________________________________________________________
