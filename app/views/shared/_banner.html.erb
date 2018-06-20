@@ -28,7 +28,7 @@
     </div>
   </div>
 <% else %>
-  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('assets/images/networking.jpg');">
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path 'world.jpg' %>);">
     <div class="banner-content">
       <h1>Forget Me Not</h1>
       <p>
@@ -36,6 +36,9 @@
       </p>
       <div class="button-banner">
         <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-info btn-lg", method: :get %>
+      </div>
+      <div class="button-banner home-login">
+        <%= link_to 'Log In', new_user_session_path, class: "btn btn-info", method: :get %>
       </div>
     </div>
   </div>
