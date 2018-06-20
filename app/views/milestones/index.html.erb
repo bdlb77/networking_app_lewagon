@@ -1,29 +1,111 @@
 
+<% phy = 0 %>
+<% virt = 0 %>
+<% pho = 0 %>
+<% @milestones.each do |milestone| %>
+<% if  milestone.contact_type == "Phone call"%>
+<% pho += 1 %>
+<% end %>
+<% if milestone.contact_type == "Physical meeting"%>
+<% phy += 1 %>
+<% end %>
+<% if  milestone.contact_type == "Virtual (Email etc)"%>
+<% virt += 1 %>
+<% end %>
+<% end %>
 <section class="intro">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <div class="ct-chart">
+          <script class="chart">
+            var milestoneChartData = {
+              labels: ['Physical', 'Virtual', 'Phone'],
+              series: [5, 2 , 3 ]
+            };
+          </script>
+        </div>
+        <div class="chart-info text-center">
+          <div class="milestones-counter">
+            <% counter = 0 %>
+            <% @milestones.each do |stone| %>
+            <% counter += 1 %>
+            <% end %>
+            <h5><%= counter %> milestones</h5>
+            <h5>last interaction:<%= @milestones.first.created_at.strftime "%B %e %G" %></h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <div class="contact-info-dash">
+          <div class="contact-name">
+            <h2><%= @contact.first_name %> <%= @contact.last_name %></h2>
+          </div>
+          <% unless @contact.email? %>
+          <div class="contact-email-dash">
+            <h4><%= @contact.email %></h4>
+          </div>
+          <% end %>
+          <div class="contact-phone-dash">
+            <h5><%= @contact.phone_number %></h5>
+          </div>
+          <div class="position-c">
+            <h5><%= @contact.position %> at <%= @contact.company%></h5>
+          </div>
+          <div class="linkedin-dash">
+            <h5><i class="fab fa-linkedin" style="color: #096ab6;"></i> Username: <%= @contact.username %></h5>
+          </div>
+          <div class="birth-date-dash">
+            <h5>Date of birth: <%= @contact.date_of_birth %></h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+          <div class="stone">
+            <div class="locat-tag-dash">
+              <div class="row">
+                <div class="col-sm-12">
+              <div class="mile-tag dashboard-scroll text-center">
+                <i class="fas fa-tags " style="color: black;"></i>
+                <p class="milestone-tags">
+                  <% @contact.tags.each do |tag| %>
+                  <p class="badge-tag badge"><%= tag.title %></p>
+                  <% end %>
+                </p>
+              </div>
+              </div>
+              <div class="col-sm-12">
+              <div class="locat text-center dashboard-scroll">
+                <i class="fas fa-globe globe" style="color: black;"></i>
+                <br>
+                <% @contact.locations.each do |location| %>
+                <p style="font-size: 17px;" class="loca"><%= location.title %></p>
+                <% end %>
+              </div>
+            </div>
+            </div>
 
- <div class="m-container">
-  <script class="chart">
-    var milestoneChartData = {
-  labels: ['Physical', 'Virtual', 'Phone'],
-  series: [ 2, 3 , 2 ]
-  };
-  </script>
-  <div class="ct-chart">
+          </div>
+       </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-4 col-md-offset-4 col-sm-12 col-xs-12 text-center">
 
+         <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button" %>
+         <%= link_to "Contact Details", contact_path(@contact), class: "btn-medium mile-button" %>
+
+      </div>
+    </div>
   </div>
-  <div class="dropdownn">
-    <button class="dropbtn"><h1><%= @contact.first_name.capitalize%> <%= @contact.last_name.capitalize%></h1></button>
-    <div class="dropdown-content">
-     <a href="#"><%= @contact.email %></a>
-     <a href="#"><%= @contact.position %></a>
-     <a href="#"><%= @contact.company %></a>
-   </div>
- </div>
- <div class="m-buttons">
-  <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button" %>
-  <%= link_to "Contact Details", contact_path(@contact), class: "btn-medium mile-button" %>
-</div>
-</div>
+
+
+
+
+
+
+
+
 
 </section>
 
@@ -31,17 +113,7 @@
 <section class="timeline">
   <ul>
 
-    <% phy = 0 %>
-    <% virt = 0 %>
-    <% pho = 0 %>
     <% @milestones.each do |milestone| %>
-    <% if milestone.contact_type == "Physical meeting"%>
-      <% phy += 1 %>
-    <% elsif  milestone.contact_type == "Virtual (Email etc)"%>
-      <% virt += 1 %>
-    <% elsif  milestone.contact_type == "Phone call"%>
-      <% pho += 1 %>
-    <% end %>
     <li>
       <div class="stone">
         <div>
@@ -69,7 +141,9 @@
           </div>
         </div>
         <hr class="toq-line" size="pixels">
-        <h5  style="color: #2e242c;, font-weight: bold;">How can I help my contact?</h5>
+        <% unless @contact.first_assigment.nil? && @contact.second_assigment.nil? %>
+          <h5  style="color: #2e242c;, font-weight: bold;">How can I help my contact?</h5>
+        <% end %>
         <h5>
          <%= link_to contact_milestone_path(@contact, milestone),
          method: :delete,
@@ -77,17 +151,20 @@
          <i class="fas fa-trash-alt delete-milestone"></i>
          <% end %>
        </h5>
-        <div>
-          <% unless milestone.note.nil? %>
-            <% if milestone.note.length >= 80%>
-              <p style="color: #ccc;"><%=  truncate(milestone.note, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
-            <% else %>
-              <p style="color: #ccc;"><%= milestone.note %></p>
-            <% end %>
+       <div>
+        <% unless @contact.first_assigment.nil? && @contact.second_assigment.nil? %>
+        <% if @contact.first_assigment.length >= 80 ||  @contact.second_assigment.length >= 80%>
+        <p style="color: #ccc;"><%=  truncate(@contact.first_assigment, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
+        <p style="color: #ccc;"><%=  truncate(@contact.second_assigment, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
+        <% else %>
+        <p style="color: #ccc;"><%= @contact.first_assigment %></p>
+         <p style="color: #ccc;"><%= @contact.second_assigment %></p>
           <% end %>
-        </div>
+
+        <% end %>
       </div>
-    </li>
+    </div>
+  </li>
   <% end %>
 </ul>
 </section>

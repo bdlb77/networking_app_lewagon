@@ -48,7 +48,7 @@ var responsiveOptions = [
 }
 }],
 ['screen and (min-width: 1024px)', {
-labelOffset: 40,
+labelOffset: 42,
 chartPadding: 20
 }]
 ];
