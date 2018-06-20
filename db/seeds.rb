@@ -9,12 +9,19 @@
 
 # require 'faker'
 # puts "Start"
-
-    user =User.new (
+Milestone.destroy_all
+Subject.destroy_all
+Tag.destroy_all
+Location.destroy_all
+Contact.destroy_all
+User.destroy_all
+  p "destroyed everything!"
+  sleep(3)  
+    user = User.new(
         email: "hi@gmail.com",
         password: "hihihihi"
     )
-    current_user.save!
+    user.save!
     
 
 
