@@ -5,7 +5,65 @@
 .intro {
   background: #ccc;
   color: white;
-  padding: 100px 0;
+  padding: 65px 8px;
+
+
+}
+
+.contact-info-dash {
+  margin-bottom: 12px;
+  text-align: center;
+ }
+
+ .contact-info-dash h2 {
+  color: black;
+  font-weight: bold;
+ }
+.chart-info h5 {
+  font-size: 13px;
+  color: black;
+  margin-left: 26px;
+}
+.milestones-counter {
+  margin-left: 5px;
+}
+
+.dashboard-scroll{
+  overflow: auto;
+  max-height: 600px;
+
+}
+.contact-phone-dash {
+  margin-bottom: 30px;
+}
+
+.contact-email-dash {
+  margin-bottom: 30px;
+
+}
+
+.contact-info-dash h4 {
+  font-size: 18px;
+}
+.contact-info-dash h5 {
+  font-size: 20px;
+  color: black;
+}
+.position-c {
+  margin-bottom: 30px;
+}
+
+.locat-tag-dash {
+  margin: 43px 173px;
+   display: flex;
+  justify-content: space-around;
+}
+.linkedin-dash {
+  margin-bottom: 30px;
+}
+
+.birth-date-dash {
+  margin-bottom: 30px;
 }
 
 .m-container {
@@ -236,7 +294,8 @@
 
 
 .m-buttons {
-  margin-top: 20px;
+  margin: 20px auto 0;
+  display: inline-block;
 }
 
 
@@ -288,4 +347,12 @@
  border: none;
  background-color: $torq;
 
+}
+
+.contact-info {
+  color: black;
+}
+
+.milestones-counter {
+  color: black;
 }

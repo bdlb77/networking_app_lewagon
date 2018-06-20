@@ -30,4 +30,28 @@
   window.addEventListener("resize", callbackFunc);
   window.addEventListener("scroll", callbackFunc);
 
+// pie chart
+
+var options = {
+  labelInterpolationFnc: function(value) {
+  return value[0]
+}
+};
+
+var responsiveOptions = [
+  ['screen and (min-width: 640px)', {
+  chartPadding: 50,
+  labelOffset: 20,
+  labelDirection: 'explode',
+  labelInterpolationFnc: function(value) {
+  return value;
+}
+}],
+['screen and (min-width: 1024px)', {
+labelOffset: 42,
+chartPadding: 20
+}]
+];
+
+new Chartist.Pie('.ct-chart', milestoneChartData, options, responsiveOptions);
 })();
