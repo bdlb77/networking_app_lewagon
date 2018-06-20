@@ -14,7 +14,7 @@
         <% location_array = @user.locations.map {|l| l.title} %>
        <select name="milestone_form_location" id="milestone_form_location">
         <option value="Choose_location">Choose a location*</option>
-         <option value="milestone_fake_location">Add a new location</option>
+         <option value="milestone_fake_location"><strong>Create a new location<strong></option>
          <% location_array.each do |la|%>
          <option value='<%=la%>'><%=la%></option>
          <% end %>
@@ -26,7 +26,7 @@
       <% tags_array = @user.tags.map {|t| t.title} %>
        <select name="milestone_form_tag1" id="milestone_form_tag1">
         <option value="Choose-tag">Upadate the tag?</option>
-         <option value="milestone_fake_tag1">Create a new tag</option>
+         <option value="milestone_fake_tag1"><strong>Create a new tag<strong></option>
          <% tags_array.each do |ta|%>
          <option value='<%=ta%>'><%=ta%></option>
          <% end %>
@@ -39,7 +39,7 @@
       <% tags_array = @user.tags.map {|t| t.title} %>
        <select name="milestone_form_tag2" id="milestone_form_tag2">
         <option value="Choose-tag">Upadate the tag?</option>
-         <option value="milestone_fake_tag2">Create a new tag</option>
+         <option value="milestone_fake_tag2"><strong>Create a new tag<strong></option>
          <% tags_array.each do |ta|%>
          <option value='<%=ta%>'><%=ta%></option>
          <% end %>

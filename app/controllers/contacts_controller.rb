@@ -100,6 +100,17 @@ class ContactsController < ApplicationController
           end
         end
       end
+
+      if not @contact.first_assigment.empty?
+        @assigment1 = Assigment.new(milestone_id:@milestone.id, title:@contact.first_assigment)
+        @assigment1.save!
+      end
+
+      if not @contact.second_assigment.empty?
+        @assigment2 = Assigment.new(milestone_id:@milestone.id, title:@contact.second_assigment)
+        @assigment2.save!
+      end
+
       else
         render :edit
       end
@@ -164,7 +175,7 @@ private
   def find_user
     @user = User.find(params[:id])
   end
-  
+
   def contact_params
     params.require(:contact).permit(:first_name, :last_name, :position, :company, :username, :email, :phone_number, :date_of_birth, :first_contact_type, :first_location, :first_tag, :second_tag, :one_note, :first_assigment, :second_assigment )
   end
@@ -179,6 +190,10 @@ private
 
    def subject_params
     params.require(:subject).permit(:tag_id, :milestone_id)
+  end
+
+   def assigment_params
+    params.require(:assigment).permit(:title, :milestone_id, :completed)
   end
 
 end
