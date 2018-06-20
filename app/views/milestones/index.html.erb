@@ -157,11 +157,16 @@
             <p style="font-size: 17px;" class=" loca"><%= milestone.location.title %></p>
           </div>
         </div>
-        <hr class="toq-line" size="pixels">
-        <% unless @contact.first_assigment.nil? && @contact.second_assigment.nil? %>
+        <% unless milestone.note.empty? %>
           <h5  style="color: #2e242c;, font-weight: bold;">How can I help my contact?</h5>
+          <% if milestone.note.length >= 80%>
+         <p style="color: #ccc;"><%=  truncate(milestone.note, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
+         <% else %>
+          <h5 style="color: gray;"><%= milestone.note %></h5>
+          <% end %>
         <% end %>
-        <h5>
+        <hr class="toq-line" size="pixels">
+
          <%= link_to contact_milestone_path(@contact, milestone),
          method: :delete,
          data: { confirm: "Are you sure?" }, class: 'link'  do %>
@@ -169,13 +174,16 @@
          <% end %>
        </h5>
        <div>
-        <% unless @contact.first_assigment.nil? && @contact.second_assigment.nil? %>
-        <% if @contact.first_assigment.length >= 80 ||  @contact.second_assigment.length >= 80%>
-        <p style="color: #ccc;"><%=  truncate(@contact.first_assigment, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
-        <p style="color: #ccc;"><%=  truncate(@contact.second_assigment, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
+
+        <% milestone.assigments.each do |assigment|%>
+        <% unless milestone.assigment.nil? %>
+        <% if assigment.title.length >= 80 %>
+        <div class= "assigment-dash"><%= assigment.title%>
+          <p style="color: #ccc;"><%=  truncate(assigment.title, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
         <% else %>
-        <p style="color: #ccc;"><%= @contact.first_assigment %></p>
-         <p style="color: #ccc;"><%= @contact.second_assigment %></p>
+        <p><%= assigment.title %></p>
+
+          <% end %>
           <% end %>
 
         <% end %>
