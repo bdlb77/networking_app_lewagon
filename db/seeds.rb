@@ -10,8 +10,7 @@
 # require 'faker'
 # puts "Start"
 
-    user = {
-        id: 1,
+    curret_user = {
         email: "hi@gmail.com",
         password: "hihihihi"
     }
