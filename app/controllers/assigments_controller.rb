@@ -12,6 +12,9 @@ before_action :set_contact
   end
 
   def edit
+   @assigment = Assigment.find(params[:id])
+   @assigment.completed = true
+   @assigment.save
   end
 
   def index
@@ -19,6 +22,11 @@ before_action :set_contact
   end
 
   def update
+   @assigment = Assigment.find(params[:id])
+   raise
+   @assigment.completed = true
+   @assigment.save
+   redirect_to redirect_to contact_milestones_path(@contact)
   end
 
   def destroy
@@ -30,6 +38,7 @@ before_action :set_contact
    @assigment.completed = true
    @assigment.save
    redirect_to redirect_to contact_milestones_path(@contact)
+ end
 
  def incomplete
   @assigment = Assigment.find(params[:id])
