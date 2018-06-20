@@ -1,0 +1,12 @@
+
+<path xmlns="http://www.w3.org/2000/svg" class="st3" d="M371.9,473.2h-78.1c-7.3,0-13.2,5.9-13.2,13.2v47.3c0,7.3,5.9,13.2,13.2,13.2h78.1c7.3,0,13.2-5.9,13.2-13.2  v-47.3C385.1,479.2,379.1,473.2,371.9,473.2z"/>
+
+<style>
+	.st3 {
+    fill: none;
+    stroke: #2B4EA2;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+}
+</style>

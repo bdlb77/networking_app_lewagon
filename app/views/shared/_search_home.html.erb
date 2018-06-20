@@ -76,49 +76,59 @@
   </div>
 </div>
 <% end %>
-<div class="container why-us text-center">
-  <h1 class="text-center header-why-us">Why Use Forget Me Not?</h1>
-    <div class="row row-why-us">
-      <div class="col-xs-12 col-sm-6 pull-right">
-        <h3 class="text-why-us">Master Networking</h3>
-        <%= image_tag('network-people.png', size: "200") %>
+<% unless user_signed_in? %>
+<div class="container-fluid home-wrap">
+  <div class="container gradiant-background-home">
+    <h4 class="text-center header-why-us"><strong>Why Use Forget Me Not?</strong></h4>
+      <div class="row row-why-us">
+        <div class="col-xs-12 col-sm-3 text-center">
+          <%= image_tag('networking (1).svg', size: "100") %>
+          <h5 class="text-why-us">Master networking</h5>
+        </div>
+        <div class="col-xs-12 col-sm-3 text-center">
+          <%= image_tag('003-worker.svg', size: "100") %>
+          <h5 class="text-why-us">Remember people</h5>
+        </div>
+        <div class="col-xs-12 col-sm-3 text-center">
+          <%= image_tag('001-growth.svg', size: "100") %>
+          <h5 class="text-why-us">Establish beneficial relationships</h5>
+        </div>
+        <div class="col-xs-12 col-sm-3 text-center">
+          <%= image_tag('002-chat-bubble.svg', size: "100") %>
+          <h5 class="text-why-us">Stay current</h5>
+        </div>
       </div>
-    </div>
-    <div class="row row-why-us">  
-      <div class="col-xs-12 col-sm-6">
-        <h3 class="text-why-us">Remember People</h3>
-        <%= image_tag('remember.jpeg', size: "200") %>
-      </div>
-    </div>
-    <div class="row row-why-us">
-      <div class="col-xs-12 col-sm-6 pull-right">
-        <h3 class="text-why-us">Establish Beneficial Relationships</h3>
-        <%= image_tag('relationship.png', size: "200") %>
-      </div>
-    </div>
-    <div class="row row-why-us">
-      <div class="col-xs-12 col-sm-6">
-        <h3 class="text-why-us">Stay Current with Contacts</h3>
-        <%= image_tag('socials.jpeg', size: "200") %>
-      </div>
-    </div>
+  </div>
 </div>
-<div class="container home-no-user">
-  <h1 class="text-center how-works">How It Works</h1>
-  <div class="row ">
-    <h3 class="text-how">Create Contacts</h3>
+<% end %>
+<div class="container-fluid most-relevant">
+  <div class="container relevants">
+    <h4 class="text-center header-why-us"><strong>How It Works</strong></h4>
+    <div class="row-why-us text-center ">
+      <div class="col-xs-12 col-sm-3">
+        <%= image_tag('001-employee.svg', size: "100") %>
+        <h5 class="text-how">Create Contacts</h5>
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        <%= image_tag('002-mountain.svg', size: "100") %>
+        <h5 class="text-how">Add a milestone to a contact</h5>
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        <%= image_tag('003-clipboard.svg', size: "100") %>
+        <h5 class="text-how">Manage Your Contacts</h5>
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        <%= image_tag('megaphone.svg', size: "100") %>
+        <h5 class="text-how"> Get Alerts</h5>
+      </div>
+    </div>
   </div>
-  <div class="row">
-    <h3 class="text-how">Add a Milestone to a Contact</h3>
-  </div>
-  <div class="row">
-    <h3 class="text-how">Manage Your Contacts</h3>
-  </div>
-  <div class="row">
-    <h3 class="text-how"> Get Alerts</h3>
-  </div>
-
 </div>
-<div class="container-about-us">
-  <h1 class="text-center">About Us</h1>
+<% if user_signed_in? %>
+<div class="container-fluid home-wrap">
+  <div class="container about-us gradiant-background-home">
+    <h4 class="text-center"><strong>About Us</strong></h4>
+  </div>
+<% end %>
+          <p>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
 </div>
