@@ -9,7 +9,16 @@
 .gradiant-background-home{  
   min-height: 200px;
   border-bottom: 1px  solid gray;
+  padding-bottom: 30px;
+  margin-top: 30px;
 }
+.relevants{
+  min-height: 200px;
+  border-bottom: 1px  solid gray;
+  padding-bottom: 30px;
+  margin-top: 30px;
+}
+
 #location{
   flex-wrap: wrap;
   margin: 15px;
@@ -42,7 +51,8 @@
   margin-top: 30px;
 
 }
-.relevants{
+.row-why-us{
+  margin: 0 auto;
   margin-top: 30px;
 }
 .most-relevant{
@@ -122,13 +132,9 @@ $shadowColour: rgba(0, 0, 0, .6);
 
 // Search Home Why Us
 .header-why-us{
-  color: $wine;
-  margin-bottom: 30px;
+  margin: 0 auto;
 }
-.row-why-us{
-  margin:  0 auto;
-}
+
 .text-why-us{
-  color: $torq;
 }
 
