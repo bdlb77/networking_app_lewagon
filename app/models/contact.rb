@@ -11,6 +11,7 @@ class Contact < ApplicationRecord
   has_many :milestones
   has_many :locations , through: :milestones
   has_many :tags , through: :milestones
+  has_many :assigments, through: :milestones
 
 
   accepts_nested_attributes_for :locations, reject_if: :all_blank, allow_destroy: true

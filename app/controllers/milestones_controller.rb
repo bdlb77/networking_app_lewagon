@@ -6,6 +6,7 @@ before_action :find_contact
     @milestones = Milestone.where(contact_id: find_contact.id ).order("created_at DESC")
     @contact = find_contact
     @locations = Location.all
+    @assigments = Assigment.all
   end
 
   def new
