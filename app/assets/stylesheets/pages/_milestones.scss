@@ -10,6 +10,7 @@
 
 }
 
+
 .contact-name-dash {
   font-size: 36px;
   font-weight: 700;
@@ -62,7 +63,7 @@
 .contact-phone-dash {
   // margin-top: -20px;
   // text-align: center;
-  line-height: 2.8;
+  line-height: 2.5;
   color: #393E41;
   font-weight: ligher;
 }
@@ -136,6 +137,13 @@
   margin: 10px -36px -30px -36px !important;
   display: flex;
   justify-content: space-between;
+}
+.dash-line {
+  height: 2px;
+  color: #256e79;
+  margin: 31px -40px !important;
+  border: none;
+  background-color: #256e79;
 }
 }
 /* TIMELINE
@@ -255,7 +263,7 @@
 .dash-line {
   height: 2px;
   color: #256e79;
-  margin-top: 22px;
+  margin: 30px -530px;
   border: none;
   background-color: #256e79;
 }

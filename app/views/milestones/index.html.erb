@@ -17,6 +17,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-4 col-sm-12 col-xs-12">
+
         <div class="ct-chart">
           <script class="chart">
             var milestoneChartData = {
@@ -175,14 +176,17 @@
        </h5>
 
        <div>
-
+        <% unless milestone.assigments.empty? %>
+          <h5 style="color: #2e242c;, font-weight: bold;">TO DO:</h5>
+         <% end %>
         <% milestone.assigments.each do |assigment|%>
-        <% unless milestone.assigment.nil? %>
+        <% unless assigment.title.nil? %>
         <% if assigment.title.length >= 80 %>
         <div class= "assigment-dash"><%= assigment.title%>
           <p style="color: #ccc;"><%=  truncate(assigment.title, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
         <% else %>
-        <p><%= assigment.title %></p>
+
+        <p style="color: #ccc;"><%= assigment.title %></p>
 
           <% end %>
           <% end %>
