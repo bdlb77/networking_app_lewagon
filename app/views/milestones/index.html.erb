@@ -151,18 +151,30 @@
          <i class="fas fa-trash-alt delete-milestone"></i>
          <% end %>
        </h5>
-       <div>
-        <% unless @contact.first_assigment.nil? && @contact.second_assigment.nil? %>
-        <% if @contact.first_assigment.length >= 80 ||  @contact.second_assigment.length >= 80%>
-        <p style="color: #ccc;"><%=  truncate(@contact.first_assigment, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
-        <p style="color: #ccc;"><%=  truncate(@contact.second_assigment, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
-        <% else %>
+      <!--  <div>
+        <%# unless @contact.first_assigment.nil? && @contact.second_assigment.nil? %>
+        <%# if @contact.first_assigment.length >= 80 ||  @contact.second_assigment.length >= 80%>
+        <p style="color: #ccc;"><%#=  truncate(@contact.first_assigment, length: 80).gsub(".", " ") %><%#= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
+        <p style="color: #ccc;"><%#=  truncate(@contact.second_assigment, length: 80).gsub(".", " ") %><%#= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
+        <%# else %>
         <p style="color: #ccc;"><%= @contact.first_assigment %></p>
          <p style="color: #ccc;"><%= @contact.second_assigment %></p>
-          <% end %>
+          <%# end %>
 
-        <% end %>
+        <%# end %>
+      </div> -->
+
+      <%= form_for(@milestones.assigments) do |f| %>
+       <div class= "field">
+        <%= f.label :title %><br>
+        <%= f.text :title %>
       </div>
+      <div class= "field">
+        <%= f.label :completed %><br>
+        <%= f.ceck_box :completed %>
+      </div>
+      <%end%>
+
     </div>
   </li>
   <% end %>

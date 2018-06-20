@@ -1,5 +1,6 @@
 class AssigmentsController < ApplicationController
 before_action :set_milestone
+before_action :set_contact
 
   def new
     @assigment = Assigment.new
@@ -24,6 +25,20 @@ before_action :set_milestone
     @assigment.destroy
   end
 
+  def complete
+   @assigment = Assigment.find(params[:id])
+   @assigment.completed = true
+   @assigment.save
+   redirect_to redirect_to contact_milestones_path(@contact)
+
+ def incomplete
+  @assigment = Assigment.find(params[:id])
+  @assigment.completed = false
+  @assigment.save
+  redirect_to redirect_to contact_milestones_path(@contact)
+end
+
+
 
 private
 
@@ -33,6 +48,10 @@ end
 
 def set_milestone
     @milestone = Milestone.find(params[:milestone_id])
+  end
+
+def set_contact
+    @contact = Contact.find(params[:contact_id])
   end
 
 end
