@@ -41,15 +41,15 @@ var options = {
 var responsiveOptions = [
   ['screen and (min-width: 640px)', {
   chartPadding: 50,
-  labelOffset: 20,
+  labelOffset: 30,
   labelDirection: 'explode',
   labelInterpolationFnc: function(value) {
   return value;
 }
 }],
 ['screen and (min-width: 1024px)', {
-labelOffset: 42,
-chartPadding: 20
+labelOffset: 50,
+chartPadding: 30
 }]
 ];
 

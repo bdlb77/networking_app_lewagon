@@ -21,47 +21,63 @@
           <script class="chart">
             var milestoneChartData = {
               labels: ['Physical', 'Virtual', 'Phone'],
-              series: [5, 2 , 3 ]
+              label: "Population (millions)",
+              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+              series: [<%= phy %>, <%= virt %> , <%= pho %> ]
             };
           </script>
         </div>
-        <div class="chart-info text-center">
-          <div class="milestones-counter">
-            <% counter = 0 %>
-            <% @milestones.each do |stone| %>
-            <% counter += 1 %>
-            <% end %>
-            <h5><%= counter %> milestones</h5>
-            <h5>last interaction:<%= @milestones.first.created_at.strftime "%B %e %G" %></h5>
-          </div>
+        <div class="chart-info">
         </div>
       </div>
       <div class="col-md-4 col-sm-12 col-xs-12">
         <div class="contact-info-dash">
-          <div class="contact-name">
+          <div class="dash-first-info">
+          <div class="contact-name-dash" >
             <h2><%= @contact.first_name %> <%= @contact.last_name %></h2>
           </div>
-          <% unless @contact.email? %>
+          <div class="email-phone">
           <div class="contact-email-dash">
-            <h4><%= @contact.email %></h4>
+            <h4 class="far fa-envelope"> <%= @contact.email %></h4>
           </div>
-          <% end %>
           <div class="contact-phone-dash">
-            <h5><%= @contact.phone_number %></h5>
+            <h4 class="fas fa-mobile-alt"> <%= @contact.phone_number %></h4>
           </div>
+          </div>
+          </div>
+         <hr class="dash-line" size="pixels">
+          <div class="dash-secondary-info">
           <div class="position-c">
-            <h5><%= @contact.position %> at <%= @contact.company%></h5>
+            <% unless  @contact.position.nil? && @contact.company.nil? %>
+              <h5><%= @contact.position %> at <%= @contact.company%></h5>
+            <% end %>
           </div>
           <div class="linkedin-dash">
-            <h5><i class="fab fa-linkedin" style="color: #096ab6;"></i> Username: <%= @contact.username %></h5>
+            <% unless  @contact.username.empty? %>
+              <h5><i class="fab fa-linkedin" style="color: #096ab6;"></i> Username: <%= @contact.username %></h5>
+            <% end %>
           </div>
           <div class="birth-date-dash">
-            <h5>Date of birth: <%= @contact.date_of_birth %></h5>
+            <% unless  @contact.date_of_birth.nil? %>
+              <h5>Date of birth: <%= @contact.date_of_birth %></h5>
+            <% end %>
           </div>
+          </div>
+          </div>
+ <div class="milestones-counter chart-info">
+            <% counter = 0 %>
+            <% @milestones.each do |stone| %>
+            <% counter += 1 %>
+            <% end %>
+            <h5>You have <%= counter %> milestones with <%= @contact.first_name %> <%= @contact.last_name %></h5>
+            <h5>Last milestone: <%= @milestones.first.created_at.strftime "%B %e %G" %></h5>
+        </div>
+        <div class="dash-alert">
+          <h5 class="far fa-bell" style="color: #af1822"> Alert contact - Every month</h5>
         </div>
       </div>
       <div class="col-md-4 col-sm-12 col-xs-12">
-          <div class="stone">
+
             <div class="locat-tag-dash">
               <div class="row">
                 <div class="col-sm-12">
@@ -84,20 +100,21 @@
               </div>
             </div>
             </div>
-
-          </div>
        </div>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-md-4 col-md-offset-4 col-sm-12 col-xs-12 text-center">
-
+        <div class="m-buttons">
          <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button" %>
-         <%= link_to "Contact Details", contact_path(@contact), class: "btn-medium mile-button" %>
+         <%= link_to "Edit Contact", edit_contact_path(@contact.id), class: "btn-medium mile-button" %>
+        </div>
 
       </div>
     </div>
   </div>
+
+
 
 
 
