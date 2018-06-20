@@ -9,11 +9,8 @@
 
 # require 'faker'
 # puts "Start"
-    user = User.new(
-    email: "amg@gmail.com",
-    password: "123456",
-    )
-    user.save!
+
+    
 
 
    #Tags:
