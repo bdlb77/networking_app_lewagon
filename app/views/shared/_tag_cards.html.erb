@@ -18,14 +18,24 @@
         <div class="associations">
           <div class="tags">
             <p><i class="fas fa-tags"></i></p>
+            <% tags_array = [] %>
             <% contact.tags.each do |tag| %>
-            <p class="badge badge-danger badge-sm badge-tag"><%= tag.title %></p>
+              <% tags_array << tag.title %>
+            <% end %>
+            <% tags_array.uniq! %>
+            <% tags_array.each do |tag| %>
+              <p class="badge badge-danger badge-sm badge-tag"><%= tag %></p>
             <% end %>        
           </div>
           <div class="locations">
             <p><i class="fas fa-globe"></i></p>
+            <% locations_array = [] %>
             <% contact.locations.each do |location| %>
-              <p class="badge  badge-danger location-badge"><%= location.title %></p>
+              <% locations_array   << location.title %>
+            <%end%>
+            <% locations_array.uniq!  %>
+            <% locations_array.each do |location| %>  
+              <p class="badge  badge-danger location-badge"><%= location %></p>
             <% end %>
           </div>
         </div>
