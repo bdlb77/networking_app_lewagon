@@ -10,6 +10,11 @@
 # require 'faker'
 # puts "Start"
 
+    user = {
+        id: 1,
+        email: "hi@gmail.com",
+        password: "hihihihi"
+    }
     
 
 
