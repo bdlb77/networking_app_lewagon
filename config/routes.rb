@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'assigments/new'
+  get 'assigments/create'
+  get 'assigments/edit'
+  get 'assigments/index'
+  get 'assigments/update'
+  get 'assigments/destroy'
   # get 'subjects/new'
   # get 'subjects/create'
   devise_for :users

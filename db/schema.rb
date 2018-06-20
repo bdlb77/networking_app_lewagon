@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_19_112403) do
+ActiveRecord::Schema.define(version: 2018_06_20_110103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assigments", force: :cascade do |t|
+    t.string "title"
+    t.boolean "completed", default: false
+    t.bigint "milestone_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["milestone_id"], name: "index_assigments_on_milestone_id"
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string "first_name"
@@ -96,6 +105,7 @@ ActiveRecord::Schema.define(version: 2018_06_19_112403) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assigments", "milestones"
   add_foreign_key "contacts", "users"
   add_foreign_key "locations", "users"
   add_foreign_key "milestones", "contacts"

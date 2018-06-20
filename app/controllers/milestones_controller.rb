@@ -81,7 +81,18 @@ before_action :find_contact
         end
       end
     end
-      redirect_to contact_milestones_path(@contact)
+
+    if not @milestone.assigment_one.empty?
+        @assigment1 = Assigment.new(milestone_id:@milestone.id, title:@milestone.assigment_one)
+        @assigment1.save!
+      end
+
+    if not @milestone.assigment_two.empty?
+      @assigment2 = Assigment.new(milestone_id:@milestone.id, title:@milestone.assigment_two)
+      @assigment2.save!
+    end
+
+    redirect_to contact_milestones_path(@contact)
     else
       render :edit
     end
@@ -147,7 +158,9 @@ before_action :find_contact
             @tag1.save!
             @new_subject1 = Subject.new(milestone_id:@milestone.id, tag_id:@tag1.id)
             @new_subject1.save!
-            @milestone.subjects[0].destroy
+            if not @milestone.subjects[0].empty?
+              @milestone.subjects[0].destroy
+            end
           end
         end
       end
@@ -179,9 +192,21 @@ before_action :find_contact
             @tag2.save!
             @new_subject2 = Subject.new(milestone_id:@milestone.id, tag_id:@tag2.id)
             @new_subject2.save!
-            @milestone.subjects[1].destroy
+            if not @milestone.subjects[1].empty?
+              @milestone.subjects[1].destroy
+            end
           end
         end
+      end
+
+      if not @milestone.assigment_one.empty?
+        @assigment1 = Assigment.new(milestone_id:@milestone.id, title:@milestone.assigment_one)
+        @assigment1.save!
+      end
+
+      if not @milestone.assigment_two.empty?
+        @assigment2 = Assigment.new(milestone_id:@milestone.id, title:@milestone.assigment_two)
+        @assigment2.save!
       end
 
         flash[:alert] = " Your Milestone has been updated!"
@@ -216,6 +241,10 @@ before_action :find_contact
     # location_attributes: [:id, :_destroy, :title]
     # contact_attributes: [:id, :first_name, :last_name, :position, :company, :username, :email, :phone_number]
     # )
+  end
+
+  def assigment_params
+    params.require(:assigment).permit(:title, :milestone_id, :completed)
   end
 
 end
