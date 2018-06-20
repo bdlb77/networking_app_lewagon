@@ -630,7 +630,7 @@
     contact_id: 4,
     contact_type: 'Physical meeting',
     location_id: 15,
-    note: "move some money to Arik's managment"
+    note: "move some money to Arik's managment",
     assigment_one:"Decide if i want to invest money with Arik",
     assigment_two:"",
   )
