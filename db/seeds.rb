@@ -9,11 +9,20 @@
 
 # require 'faker'
 # puts "Start"
+Milestone.destroy_all
+Subject.destroy_all
+Tag.destroy_all
+Location.destroy_all
+Contact.destroy_all
+User.destroy_all
+  p "destroyed everything!"
+  sleep(3)  
     user = User.new(
-    email: "amg@gmail.com",
-    password: "123456",
+        email: "hi@gmail.com",
+        password: "hihihihi"
     )
     user.save!
+    
 
 
    #Tags:
@@ -296,10 +305,24 @@
     contact_type: 'Physical meeting',
     location_id: 15,
     note: "looking for an amazing public relations master",
-    assigment_one:"check with Ben if he knows someone relevant for the job",
-    assigment_two:"send responding email as soon as posible",
+    # assigment_one:"check with Ben if he knows someone relevant for the job",
+    # assigment_two:"send responding email as soon as posible",
   )
     milestone1.save!
+
+    assigment1 = Assigment.new(
+    milestone_id:1,
+    title:"check with Ben if he knows someone relevant for the job",
+    completed: false,
+  )
+    assigment1.save!
+
+    assigment2 = Assigment.new(
+    milestone_id:1,
+    title:"send responding email as soon as posible",
+    completed: false,
+  )
+    assigment2.save!
 
 
     subject = Subject.new(
@@ -320,11 +343,18 @@
     contact_type:'Virtual (Email etc)',
     location_id: 16,
     note: "sent Whitney a public relations referral",
-    assigment_one: "follow up in one month to check if the referral was beneficial",
-    assigment_two:"",
+    # assigment_one: "follow up in one month to check if the referral was beneficial",
+    # assigment_two:"",
   )
     milestone2.save!
 
+
+    assigment3 = Assigment.new(
+    milestone_id:2,
+    title:"follow up in one month to check if the referral was beneficial",
+    completed: false,
+  )
+    assigment3.save!
 
     subject = Subject.new(
     tag_id: 11 ,
@@ -343,10 +373,24 @@
     contact_type: 'Physical meeting',
     location_id: 9,
     note: "checked for a possible mutual invesment in a small appartment building in Berlin",
-    assigment_one: "reaserch Berlin real estate market",
-    assigment_two: "sceduale a futur meeting with Whitney",
+    # assigment_one: "reaserch Berlin real estate market",
+    # assigment_two: "sceduale a futur meeting with Whitney",
   )
     milestone3.save!
+
+    assigment4 = Assigment.new(
+    milestone_id:3,
+    title:"reaserch Berlin real estate market",
+    completed: false,
+  )
+    assigment4.save!
+
+    assigment5 = Assigment.new(
+    milestone_id:3,
+    title:"sceduale a futur meeting with Whitney",
+    completed: false,
+  )
+    assigment5.save!
 
 
     subject = Subject.new(
@@ -370,6 +414,13 @@
     assigment_two:"",
   )
     milestone4.save!
+
+    assigment = Assigment.new(
+    milestone_id:4,
+    title:"sceduale lunch together",
+    completed: false,
+  )
+    assigment.save!
 
 
     subject = Subject.new(
@@ -395,6 +446,21 @@
     milestone5.save!
 
 
+    assigment = Assigment.new(
+    milestone_id:5,
+    title:"market reseach and make a draft protfolio",
+    completed: false,
+  )
+    assigment.save!
+
+    assigment = Assigment.new(
+    milestone_id:5,
+    title:"sceduale a mutual meeting with Robert from Lupa",
+    completed: false,
+  )
+    assigment.save!
+
+
     subject = Subject.new(
     tag_id: 22,
     milestone_id:5,
@@ -417,6 +483,21 @@
     assigment_two: "confirm meeting with shera from Lupa ",
   )
     milestone6.save!
+
+
+    assigment = Assigment.new(
+    milestone_id:6,
+    title:"financial analysis",
+    completed: false,
+  )
+    assigment.save!
+
+    assigment = Assigment.new(
+    milestone_id:6,
+    title:"confirm meeting with shera from Lupa",
+    completed: false,
+  )
+    assigment.save!
 
 
     subject = Subject.new(
@@ -459,6 +540,13 @@
   )
     milestone7.save!
 
+    assigment = Assigment.new(
+    milestone_id:7,
+    title:"check new virtual coins",
+    completed: false,
+  )
+    assigment.save!
+
 
     subject = Subject.new(
     tag_id: 13,
@@ -484,6 +572,20 @@
   )
     milestone8.save!
 
+    assigment = Assigment.new(
+    milestone_id:8,
+    title:"send email to Jhon",
+    completed: false,
+  )
+    assigment.save!
+
+    assigment = Assigment.new(
+    milestone_id:8,
+    title:"foolow up in 3 weeks",
+    completed: false,
+  )
+    assigment.save!
+
 
     subject = Subject.new(
     tag_id: 23,
@@ -506,6 +608,13 @@
     assigment_two:"",
   )
     milestone9.save!
+
+    assigment = Assigment.new(
+    milestone_id:9,
+    title:"get in touch with Webical and sceduale meeting",
+    completed: false,
+  )
+    assigment.save!
 
 
     subject = Subject.new(
@@ -636,6 +745,13 @@
   )
     milestone13.save!
 
+    assigment = Assigment.new(
+    milestone_id:13,
+    title:"Decide if i want to invest money with Arik",
+    completed: false,
+  )
+    assigment.save!
+
 
     subject = Subject.new(
     tag_id: 10,
@@ -659,6 +775,20 @@
     assigment_two: "follow up in a 2 weeks",
   )
     milestone14.save!
+
+    assigment = Assigment.new(
+    milestone_id:14,
+    title:"send Arik our business plan and financial analysis",
+    completed: false,
+  )
+    assigment.save!
+
+    assigment = Assigment.new(
+    milestone_id:14,
+    title:"follow up in a 2 weeks",
+    completed: false,
+  )
+    assigment.save!
 
 
     subject = Subject.new(
