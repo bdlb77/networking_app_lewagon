@@ -303,14 +303,14 @@
 
     assigment1 = Assigment.new(
     milestone_id:1,
-    title:"check with Ben if he knows someone relevant for the job"
+    title:"check with Ben if he knows someone relevant for the job",
     completed: false,
   )
     assigment1.save!
 
     assigment2 = Assigment.new(
     milestone_id:1,
-    title:"send responding email as soon as posible"
+    title:"send responding email as soon as posible",
     completed: false,
   )
     assigment2.save!
@@ -342,7 +342,7 @@
 
     assigment3 = Assigment.new(
     milestone_id:2,
-    title:"follow up in one month to check if the referral was beneficial"
+    title:"follow up in one month to check if the referral was beneficial",
     completed: false,
   )
     assigment3.save!
@@ -371,14 +371,14 @@
 
     assigment4 = Assigment.new(
     milestone_id:3,
-    title:"reaserch Berlin real estate market"
+    title:"reaserch Berlin real estate market",
     completed: false,
   )
     assigment4.save!
 
     assigment5 = Assigment.new(
     milestone_id:3,
-    title:"sceduale a futur meeting with Whitney"
+    title:"sceduale a futur meeting with Whitney",
     completed: false,
   )
     assigment5.save!
@@ -408,7 +408,7 @@
 
     assigment = Assigment.new(
     milestone_id:4,
-    title:"sceduale lunch together"
+    title:"sceduale lunch together",
     completed: false,
   )
     assigment.save!
@@ -439,14 +439,14 @@
 
     assigment = Assigment.new(
     milestone_id:5,
-    title:"market reseach and make a draft protfolio"
+    title:"market reseach and make a draft protfolio",
     completed: false,
   )
     assigment.save!
 
     assigment = Assigment.new(
     milestone_id:5,
-    title:"sceduale a mutual meeting with Robert from Lupa"
+    title:"sceduale a mutual meeting with Robert from Lupa",
     completed: false,
   )
     assigment.save!
@@ -478,14 +478,14 @@
 
     assigment = Assigment.new(
     milestone_id:6,
-    title:"financial analysis"
+    title:"financial analysis",
     completed: false,
   )
     assigment.save!
 
     assigment = Assigment.new(
     milestone_id:6,
-    title:"confirm meeting with shera from Lupa"
+    title:"confirm meeting with shera from Lupa",
     completed: false,
   )
     assigment.save!
@@ -533,7 +533,7 @@
 
     assigment = Assigment.new(
     milestone_id:7,
-    title:"check new virtual coins"
+    title:"check new virtual coins",
     completed: false,
   )
     assigment.save!
@@ -565,14 +565,14 @@
 
     assigment = Assigment.new(
     milestone_id:8,
-    title:"send email to Jhon"
+    title:"send email to Jhon",
     completed: false,
   )
     assigment.save!
 
     assigment = Assigment.new(
     milestone_id:8,
-    title:"foolow up in 3 weeks"
+    title:"foolow up in 3 weeks",
     completed: false,
   )
     assigment.save!
@@ -602,7 +602,7 @@
 
     assigment = Assigment.new(
     milestone_id:9,
-    title:"get in touch with Webical and sceduale meeting"
+    title:"get in touch with Webical and sceduale meeting",
     completed: false,
   )
     assigment.save!
@@ -738,7 +738,7 @@
 
     assigment = Assigment.new(
     milestone_id:13,
-    title:"Decide if i want to invest money with Arik"
+    title:"Decide if i want to invest money with Arik",
     completed: false,
   )
     assigment.save!
@@ -769,14 +769,14 @@
 
     assigment = Assigment.new(
     milestone_id:14,
-    title:"send Arik our business plan and financial analysis"
+    title:"send Arik our business plan and financial analysis",
     completed: false,
   )
     assigment.save!
 
     assigment = Assigment.new(
     milestone_id:14,
-    title:"follow up in a 2 weeks"
+    title:"follow up in a 2 weeks",
     completed: false,
   )
     assigment.save!
