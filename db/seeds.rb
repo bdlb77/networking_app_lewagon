@@ -10,10 +10,11 @@
 # require 'faker'
 # puts "Start"
 
-    curret_user = {
+    user =User.new (
         email: "hi@gmail.com",
         password: "hihihihi"
-    }
+    )
+    current_user.save!
     
 
 
