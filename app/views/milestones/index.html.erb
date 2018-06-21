@@ -47,8 +47,8 @@
               <h2><strong><%= @contact.first_name %> <%= @contact.last_name %></strong></h2>
             </div>
             <div class="contact-email-dash contacts-inf">
-              <% unless @contact.email.nil? %>
-              <div><h5><i class="far fa-envelope"></i> <%= @contact.email %></h5></div>
+              <% unless @contact.email.empty? %>
+                <div><h5><i class="far fa-envelope"></i> <%= @contact.email %></h5></div>
               <% end %>
             </div>
             <div class="contact-phone-dash contacts-inf">
@@ -57,8 +57,8 @@
               <% end %>
             </div>
             <div class="position-c contacts-inf">
-              <% unless  @contact.position.nil? && @contact.company.nil? %>
-              <div><h5><%= @contact.position %> at <strong><%= @contact.company%></strong></h5></div>
+              <% unless  @contact.position.empty? && @contact.company.empty? %>
+                <div><h5><%= @contact.position.capitalize %><h5> at <strong><%= @contact.company.capitalize%></strong></div>
               <% end %>
             </div>
             <div class="linkedin-dash contacts-inf">
@@ -81,8 +81,6 @@
       <!-- Right Column... Tags -->
       <div class="col-md-4 col-sm-12">
         <div class="locat-tag-dash">
-          <div class="row">
-            <div class="col-sm-12">
               <div class="mile-tag">
                 <i class="fas fa-tags " style="color: black;"></i>
                 <p class="milestone-tags">
@@ -92,7 +90,6 @@
                 </p>
               </div>
             </div>
-            <div class="col-sm-12">
               <div class="locat dashboard-scroll">
                 <i class="fas fa-globe globe" style="color: black;"></i>
                 <br>
