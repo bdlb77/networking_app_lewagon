@@ -59,6 +59,9 @@
   background: #F9F9F9;
 }
 
+.about-us-wrapper{
+  min-height: 250px;
+}
  // HOVER 
 
  
@@ -136,5 +139,35 @@ $shadowColour: rgba(0, 0, 0, .6);
 }
 
 .text-why-us{
+}
+// ABOUT US
+
+.team-text{
+  opacity: 0;
+  position: absolute;
+}
+.about-us-photo {
+  border-radius: 50%;
+  opacity: 1;
+  position: absolute;
+}
+
+.team-card{
+  width: 100%;
+  height: 150px;
+  position: relative;
+  margin-top: 30px;
+  overflow: scroll;
+  &:hover{
+    transition: all 0.3s;
+    .team-text{
+      opacity: 1;
+      transition: all 0.3s;
+    }
+    .about-us-photo{
+      opacity: 0;
+      transition: all 0.3s;
+    }
+  }
 }
 
