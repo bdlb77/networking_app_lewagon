@@ -17,6 +17,7 @@ Contact.destroy_all
 User.destroy_all
   p "destroyed everything!"
   sleep(3)  
+    
     user = User.new(
         email: "hi@gmail.com",
         password: "hihihihi"

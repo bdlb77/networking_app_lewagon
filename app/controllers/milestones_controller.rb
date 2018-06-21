@@ -22,7 +22,7 @@ before_action :find_contact
     @milestone = Milestone.new(milestone_params)
     @milestone.contact = @contact
 
-      flash[:alert] = "Your milestone has been set!"
+      flash[:success] = "Your milestone has been set!"
       @locations = Location.all
       @have_location = false
       if not @milestone.last_location.blank?
@@ -106,7 +106,7 @@ before_action :find_contact
 
     def update
       @milestone.update(milestone_params)
-        flash[:alert] = "Your milestone has been set!"
+        flash[:success] = "Your milestone has been set!"
         @locations = Location.all
         if not @milestone.last_location.blank?
             if @milestone.last_location != @milestone.location.title
@@ -210,7 +210,7 @@ before_action :find_contact
         @assigment2.save!
       end
 
-        flash[:alert] = " Your Milestone has been updated!"
+        flash[:success] = " Your Milestone has been updated!"
         redirect_to contact_milestones_path(@contact, @milestone)
       else
         render :edit
@@ -220,7 +220,7 @@ before_action :find_contact
   def destroy
     @milestone.destroy
     redirect_to contact_milestones_path(@contact)
-    flash[:alert] = "Your Milestone has been deleted!"
+    flash[:success] = "Your Milestone has been deleted!"
   end
 
   def show
