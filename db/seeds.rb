@@ -9,6 +9,7 @@
 
 # require 'faker'
 # puts "Start"
+Assigment.destroy_all
 Milestone.destroy_all
 Subject.destroy_all
 Tag.destroy_all
@@ -193,7 +194,7 @@ User.destroy_all
 
     location3 = Location.new(
     user_id: 1,
-    title: "real estate conferance 2017",
+    title: "real estate conference 2017",
   )
     location3.save!
 
@@ -268,7 +269,7 @@ User.destroy_all
 
     location15 = Location.new(
     user_id: 1,
-    title: "eCommerce conference 2017"
+    title: "March eCommerce conference"
   )
     location15.save!
 
