@@ -82,15 +82,30 @@ before_action :find_contact
         end
       end
     end
-
+    assignment1_exist = false
     if not @milestone.assigment_one.empty?
+      milestone.assigments.each do |assignment|
+        if assignment == milestone.assigment_one
+          assignment1_exist = true
+        end
+      end
+      if assignment1_exist == false
         @assigment1 = Assigment.new(milestone_id:@milestone.id, title:@milestone.assigment_one)
         @assigment1.save!
       end
-
+    end
+    
+    assignment2_exist = false
     if not @milestone.assigment_two.empty?
-      @assigment2 = Assigment.new(milestone_id:@milestone.id, title:@milestone.assigment_two)
-      @assigment2.save!
+      milestone.assigments.each do |assignment|
+        if assignment == milestone.assigment_two
+          assignment2_exist = true
+        end
+      end
+      if assignment2_exist == false 
+        @assigment2 = Assigment.new(milestone_id:@milestone.id, title:@milestone.assigment_two)
+        @assigment2.save!
+      end
     end
 
     redirect_to contact_milestones_path(@contact)
