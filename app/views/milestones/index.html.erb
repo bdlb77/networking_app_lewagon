@@ -35,7 +35,7 @@
           <% @milestones.each do |stone| %>
           <% counter += 1 %>
           <% end %>
-          <h5>You and <%= @contact.first_name %> have <%= counter %> milestones</h5>
+          <h5>You and <%= @contact.first_name.capitalize %> have <%= counter %> milestones</h5>
           <h5>Last milestone: <strong><%= @milestones.first.created_at.strftime "%B %e %G" %></strong></h5>
         </div>
       </div>
@@ -44,7 +44,7 @@
         <div class="contact-info-dash">
           <div class="dash-first-info">
             <div class="contact-name-dash contacts-inf" >
-              <h2><strong><%= @contact.first_name %> <%= @contact.last_name %></strong></h2>
+              <h2><strong><%= @contact.first_name.capitalize %> <%= @contact.last_name.capitalize %></strong></h2>
             </div>
             <div class="contact-email-dash contacts-inf">
               <% unless @contact.email.empty? %>
