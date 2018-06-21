@@ -30,146 +30,146 @@ User.destroy_all
    #Tags:
 
     tag1 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "finance",
   )
     tag1.save!
 
     tag2 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "real estate",
   )
     tag2.save!
 
     tag3 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "freelance jobs"
   )
     tag3.save!
 
     tag4 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "fintech",
   )
     tag4.save!
 
     tag5 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "high-tech",
   )
     tag5.save!
 
     tag6 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "home design",
   )
     tag6.save!
 
     tag7 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "social",
   )
     tag7.save!
 
     tag8 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "HR",
   )
     tag8.save!
 
     tag9 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "banking",
   )
     tag9.save!
 
     tag10 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "investments",
   )
     tag10.save!
 
     tag11 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "entrepreneur",
   )
     tag11.save!
 
     tag12 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "marketing",
   )
     tag12.save!
 
     tag13 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "international",
   )
     tag13.save!
 
     tag14 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "manufacturer",
   )
     tag14.save!
 
     tag15 = Tag.new(
-    user_id: 1,
+    user: user,
     title:"back-end",
   )
     tag15.save!
 
     tag16 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "has money",
   )
     tag16.save!
 
 
     tag17 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "volunteering",
   )
     tag17.save!
 
     tag18 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "education",
   )
     tag18.save!
 
     tag19 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "coworker",
   )
     tag19.save!
 
     tag20 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "top-contacts"
   )
     tag20.save!
 
     tag21 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "fashion"
   )
     tag21.save!
 
     tag22 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "eCommerce"
   )
     tag22.save!
 
     tag23 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "I helped"
   )
     tag23.save!
 
     tag24 = Tag.new(
-    user_id: 1,
+    user: user,
     title: "retail"
   )
     tag24.save!
@@ -181,100 +181,100 @@ User.destroy_all
 
 
     location1 = Location.new(
-    user_id: 1,
+    user: user,
     title: "fintech conference 2018",
   )
     location1.save!
 
     location2 = Location.new(
-    user_id: 1,
+    user: user,
     title: "bank",
   )
     location2.save!
 
     location3 = Location.new(
-    user_id: 1,
+    user: user,
     title: "real estate conference 2017",
   )
     location3.save!
 
     location4 = Location.new(
-    user_id: 1,
+    user: user,
     title: "new york business travel",
   )
     location4.save!
 
 
     location5 = Location.new(
-    user_id: 1,
+    user: user,
     title: "china business travel",
   )
     location5.save!
 
     location6 = Location.new(
-    user_id: 1,
+    user: user,
     title: "email-referral",
   )
     location6.save!
 
     location7 = Location.new(
-    user_id: 1,
+    user: user,
     title: "Alumni Event",
   )
     location7.save!
 
     location8 = Location.new(
-    user_id: 1,
+    user: user,
     title: "social event",
   )
     location8.save!
 
     location9 = Location.new(
-    user_id: 1,
+    user: user,
     title: "coincidental meeting",
   )
     location9.save!
 
 
     location10 = Location.new(
-    user_id: 1,
+    user: user,
     title: "business meeting",
   )
     location10.save!
 
     location11 = Location.new(
-    user_id: 1,
+    user: user,
     title: "basketball game",
   )
     location11.save!
 
     location12 = Location.new(
-    user_id: 1,
+    user: user,
     title: "social media",
   )
     location12.save!
 
     location13 = Location.new(
-    user_id: 1,
+    user: user,
     title: "school reunion",
   )
     location13.save!
 
 
     location14 = Location.new(
-    user_id: 1,
+    user: user,
     title: "vacation"
   )
     location14.save!
 
     location15 = Location.new(
-    user_id: 1,
+    user: user,
     title: "March eCommerce conference"
   )
     location15.save!
 
     location16 = Location.new(
-    user_id: 1,
+    user: user,
     title: "virtual"
   )
     location16.save!
@@ -290,7 +290,7 @@ User.destroy_all
 
 
     contact1 = Contact.new(
-    user_id: 1,
+    user: user,
     # contact_id: 1,
     first_name: "Whitney",
     last_name: "Wolfe",
@@ -520,7 +520,7 @@ User.destroy_all
 
 
     contact2 = Contact.new(
-    user_id: 1,
+    user: user,
     # contact_id: 1,
     first_name: "Keith",
     last_name: "McCarty",
@@ -636,7 +636,7 @@ User.destroy_all
 
 
     contact3 = Contact.new(
-    user_id: 1,
+    user: user,
     # contact_id: 1,
     first_name: "Whitney",
     last_name: "Gennys",
@@ -725,7 +725,7 @@ User.destroy_all
 
 
    contact4 = Contact.new(
-    user_id: 1,
+    user: user,
     # contact_id: 1,
     first_name: "Arik",
     last_name: "goldman",
@@ -833,7 +833,7 @@ User.destroy_all
 
 
     contact5 = Contact.new(
-    user_id: 1,
+    user: user,
     # contact_id: 1,
     first_name: "Jhon",
     last_name: "Ortyn",
@@ -898,7 +898,7 @@ User.destroy_all
 
 
     contact6 = Contact.new(
-    user_id: 1,
+    user: user,
     # contact_id: 1,
     first_name: "Lisa",
     last_name: "glinert",
@@ -988,7 +988,7 @@ User.destroy_all
 
 
     contact7 = Contact.new(
-    user_id: 1,
+    user: user,
     # contact_id: 1,
     first_name: "alon",
     last_name: "asia",
@@ -1102,7 +1102,7 @@ User.destroy_all
 
 
 #    contact8 = Contact.new(
-#     user_id: 1,
+#     user: user,
 #     # contact_id: 1,
 #     first_name: "Whitney",
 #     last_name: "Wolfe",
