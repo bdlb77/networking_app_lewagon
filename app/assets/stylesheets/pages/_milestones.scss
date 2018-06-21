@@ -1,150 +1,38 @@
 
   /* INTRO SECTION
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.intro {
-  background: #eee;
-  color: white;
-  padding: 60px;
-
-
+.mile-button {
+  color: $wine;
+  border: 1px solid #256e79;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: 400;
+  opacity: 0.6;
+  background-color: white;
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+    color: #999999;
+  }
+}
+.contacts-inf{
+  margin-top: 30px;
+}
+.contact-info-dash{
+  list-style: none;
+  margin-left: 0 !important;
+}
+.m-buttons{
+  margin-top: 80px;
 }
 
-
-.contact-name-dash {
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  margin-bottom: 13px;
-}
-
-.dash-first-info {
-  margin-bottom: -35px;
-  margin-top: -50px;
-}
-
-.contact-info-dash {
-  margin-bottom: 12px;
- }
-
- .contact-info-dash h2 {
-  color: black;
-  font-weight: bold;
-  text-align: center;
- }
-.chart-info h5 {
-  font-size: 16px;
-  color: #393E41;
-  margin-left: 26px;
-}
-.milestones-counter {
-  margin: 50px 0 0px -30px;
-}
-
-.dashboard-scroll{
-  overflow: auto;
-  max-height: 200px;
-  width: 400px;
-  max-width: 500px;
-  margin: 24px 3px 1px 1px
-}
-.dashboard-scroll::-webkit-scrollbar {
-    width: 1em;
-}
-
-.dashboard-scroll::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
-
-.dashboard-scroll::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
-}
-.contact-phone-dash {
-  // margin-top: -20px;
-  // text-align: center;
-  line-height: 2.5;
-  color: #393E41;
-  font-weight: ligher;
-}
-
-.contact-email-dash {
-  // margin-bottom: 30px;
-  // text-align: center;
-}
-.contact-email-dash h4 {
- color: #393E41;
-}
-
-.contact-info-dash h4 {
-  font-size: 18px;
-}
-.contact-info-dash h5 {
-  font-size: 20px;
-  color: #393E41;
-}
-.position-c {
-  margin-bottom: 20px;
-}
-
-.locat-tag-dash {
-  margin: 43px 173px;
-   display: flex;
-  justify-content: space-around;
-}
-.linkedin-dash {
-  margin-bottom: 30px;
-}
-
-.birth-date-dash {
-  margin-bottom: 20px;
-}
-
-.m-container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-  color: #ccc;
-  margin-top: 100px;
-}
-
-.dash-secondary-info {
-  margin-top: 40px;
-}
-@media screen and (max-width: 900px) {
-  .dashboard-scroll{
-  overflow: auto;
-  max-height: 200px;
-  max-width: 250px;
+.locat-tag-dash{
+  margin-top: 30px;
 
 }
- .milestones-counter {
-  margin: 0 auto;
-}
-.contact-name-dash {
-     font-size: 36px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    margin-top: 55px;
-}
-.locat-tag-dash {
-  margin: 0 auto;
-   display: flex;
-  justify-content: space-around;
-}
-.m-buttons {
-  margin: 10px -36px -30px -36px !important;
-  display: flex;
-  justify-content: space-between;
-}
-.dash-line {
-  height: 2px;
-  color: #256e79;
-  margin: 31px -40px !important;
-  border: none;
-  background-color: #256e79;
-}
+
+.intro-milestone{
+  border-bottom: 2px solid $torq;
 }
 /* TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -260,13 +148,7 @@
   box-shadow: 1px 1px 6px gray;
 }
 
-.dash-line {
-  height: 2px;
-  color: #256e79;
-  margin: 30px -530px;
-  border: none;
-  background-color: #256e79;
-}
+
 
 /* GENERAL MEDIA QUERIES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -304,29 +186,6 @@
 
 
 
-.mile-button {
-  color: $wine;
-  border: 1px solid #256e79;
-  padding: 10px 15px;
-  border-radius: 50px;
-  font-weight: 400;
-  opacity: 0.6;
-  background-color: white;
-  width: 200px;
-}
-.mile-button:hover {
-  opacity: 1;
-  text-decoration: none;
-  color: #999999;
-  margin: 0 auto;
-}
-
-
-.m-buttons {
-  margin: 10px -10px -35px;
-  display: flex;
-  justify-content: space-between;
-}
 
 
 
@@ -362,7 +221,6 @@
   text-align: center;
   background-color: #777777;
   border-radius: 10px;
-  margin-top: 11px;
 }
 
 .locat-tag {

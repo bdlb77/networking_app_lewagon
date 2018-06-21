@@ -13,11 +13,11 @@
 <% virt += 1 %>
 <% end %>
 <% end %>
-<section class="intro">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-4 col-sm-12 col-xs-12">
-
+<div class="container-fluid intro-wrapper">
+  <div class="container intro-milestone">
+    <div class="row ">
+      <!-- Chart -->
+      <div class="col-md-4 col-sm-12">
         <div class="ct-chart">
           <script class="chart">
             var milestoneChartData = {
@@ -30,59 +30,60 @@
         </div>
         <div class="chart-info">
         </div>
+        <div class="milestones-counter chart-info">
+          <% counter = 0 %>
+          <% @milestones.each do |stone| %>
+          <% counter += 1 %>
+          <% end %>
+          <h5>You and <%= @contact.first_name %> have <%= counter %> milestones</h5>
+          <h5>Last milestone: <strong><%= @milestones.first.created_at.strftime "%B %e %G" %></strong></h5>
+        </div>
       </div>
-      <div class="col-md-4 col-sm-12 col-xs-12">
+      <!-- Middle Column Info -->
+      <div class="col-md-4 col-sm-12 text-left">
         <div class="contact-info-dash">
           <div class="dash-first-info">
-          <div class="contact-name-dash" >
-            <h2><%= @contact.first_name %> <%= @contact.last_name %></h2>
-          </div>
-          <div class="email-phone">
-          <div class="contact-email-dash">
-            <h4 class="far fa-envelope"> <%= @contact.email %></h4>
-          </div>
-          <div class="contact-phone-dash">
-            <h4 class="fas fa-mobile-alt"> <%= @contact.phone_number %></h4>
-          </div>
-          </div>
-          </div>
-         <hr class="dash-line" size="pixels">
-          <div class="dash-secondary-info">
-          <div class="position-c">
-            <% unless  @contact.position.nil? && @contact.company.nil? %>
-              <h5><%= @contact.position %> at <%= @contact.company%></h5>
-            <% end %>
-          </div>
-          <div class="linkedin-dash">
-            <% unless  @contact.username.empty? %>
-              <h5><i class="fab fa-linkedin" style="color: #096ab6;"></i> Username: <%= @contact.username %></h5>
-            <% end %>
-          </div>
-          <div class="birth-date-dash">
-            <% unless  @contact.date_of_birth.nil? %>
+            <div class="contact-name-dash contacts-inf" >
+              <h2><strong><%= @contact.first_name %> <%= @contact.last_name %></strong></h2>
+            </div>
+            <div class="contact-email-dash contacts-inf">
+              <% unless @contact.email.nil? %>
+              <div><h5><i class="far fa-envelope"></i> <%= @contact.email %></h5></div>
+              <% end %>
+            </div>
+            <div class="contact-phone-dash contacts-inf">
+              <% unless @contact.phone_number.empty? %>
+              <div><h5><i class="fas fa-mobile-alt"></i> <%= @contact.phone_number %></h5></div>
+              <% end %>
+            </div>
+            <div class="position-c contacts-inf">
+              <% unless  @contact.position.nil? && @contact.company.nil? %>
+              <div><h5><%= @contact.position %> at <strong><%= @contact.company%></strong></h5></div>
+              <% end %>
+            </div>
+            <div class="linkedin-dash contacts-inf">
+              <% unless  @contact.username.empty? %>
+              <div><h5><i class="fab fa-linkedin" style="color: #096ab6;"></i> Username: <%= @contact.username %></h5></div>
+              <% end %>
+            </div>
+            <div class="birth-date-dash contacts-inf">
+              <% unless  @contact.date_of_birth.nil? %>
               <h5>Date of birth: <%= @contact.date_of_birth %></h5>
-            <% end %>
+              <% end %>
+            </div>
           </div>
-          </div>
-          </div>
- <div class="milestones-counter chart-info">
-            <% counter = 0 %>
-            <% @milestones.each do |stone| %>
-            <% counter += 1 %>
-            <% end %>
-            <h5>You have <%= counter %> milestones with <%= @contact.first_name %> <%= @contact.last_name %></h5>
-            <h5>Last milestone: <%= @milestones.first.created_at.strftime "%B %e %G" %></h5>
         </div>
-        <div class="dash-alert">
-          <h5 class="far fa-bell" style="color: #af1822"> Alert contact - Every month</h5>
+        <div class="m-buttons text-left contacts-inf">
+         <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button" %>  
+         <%= link_to "Edit Contact", edit_contact_path(@contact.id), class: "btn-medium mile-button" %>
         </div>
       </div>
-      <div class="col-md-4 col-sm-12 col-xs-12">
-
-            <div class="locat-tag-dash">
-              <div class="row">
-                <div class="col-sm-12">
-              <div class="mile-tag dashboard-scroll text-center">
+      <!-- Right Column... Tags -->
+      <div class="col-md-4 col-sm-12">
+        <div class="locat-tag-dash">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="mile-tag">
                 <i class="fas fa-tags " style="color: black;"></i>
                 <p class="milestone-tags">
                   <% @contact.tags.each do |tag| %>
@@ -90,42 +91,25 @@
                   <% end %>
                 </p>
               </div>
-              </div>
-              <div class="col-sm-12">
-              <div class="locat text-center dashboard-scroll">
+            </div>
+            <div class="col-sm-12">
+              <div class="locat dashboard-scroll">
                 <i class="fas fa-globe globe" style="color: black;"></i>
                 <br>
                 <% @contact.locations.each do |location| %>
-                <p style="font-size: 17px;" class="loca"><%= location.title %></p>
+                <p class="loca"><%= location.title %></p>
                 <% end %>
               </div>
             </div>
-            </div>
-       </div>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-md-4 col-md-offset-4 col-sm-12 col-xs-12 text-center">
-        <div class="m-buttons">
-         <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button" %>
-         <%= link_to "Edit Contact", edit_contact_path(@contact.id), class: "btn-medium mile-button" %>
+          </div>
         </div>
-
       </div>
+      <!-- 2nd ROW -->
+    </div>
     </div>
   </div>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-</section>
 
 
 <section class="timeline">
@@ -159,43 +143,43 @@
           </div>
         </div>
         <% unless milestone.note.empty? %>
-          <h5  style="color: #2e242c;, font-weight: bold;">How can I help my contact?</h5>
-          <% if milestone.note.length >= 80%>
-         <p style="color: #ccc;"><%=  truncate(milestone.note, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
-         <% else %>
-          <h5 style="color: gray;"><%= milestone.note %></h5>
-          <% end %>
+        <h5  style="color: #2e242c;, font-weight: bold;">How can I help my contact?</h5>
+        <% if milestone.note.length >= 80%>
+        <p style="color: #ccc;"><%=  truncate(milestone.note, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
+        <% else %>
+        <h5 style="color: gray;"><%= milestone.note %></h5>
+        <% end %>
         <% end %>
         <hr class="toq-line" size="pixels">
 
-         <%= link_to contact_milestone_path(@contact, milestone),
-         method: :delete,
-         data: { confirm: "Are you sure?" }, class: 'link'  do %>
-         <i class="fas fa-trash-alt delete-milestone"></i>
-         <% end %>
-       </h5>
+        <%= link_to contact_milestone_path(@contact, milestone),
+        method: :delete,
+        data: { confirm: "Are you sure?" }, class: 'link'  do %>
+        <i class="fas fa-trash-alt delete-milestone"></i>
+        <% end %>
+      </h5>
 
-       <div>
+      <div>
         <% unless milestone.assigments.empty? %>
-          <h5 style="color: #2e242c;, font-weight: bold;">TO DO:</h5>
-         <% end %>
+        <h5 style="color: #2e242c;, font-weight: bold;">TO DO:</h5>
+        <% end %>
         <% milestone.assigments.each do |assigment|%>
         <% unless assigment.title.nil? %>
         <% if assigment.title.length >= 80 %>
         <div class= "assigment-dash"><%= assigment.title%>
           <p style="color: #ccc;"><%=  truncate(assigment.title, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
-        <% else %>
+          <% else %>
 
-        <p style="color: #ccc;"><%= assigment.title %></p>
+          <p style="color: #ccc;"><%= assigment.title %></p>
 
           <% end %>
           <% end %>
 
-        <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
 
-</div>
+    </div>
 
   </li>
   <% end %>
