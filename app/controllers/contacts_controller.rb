@@ -114,7 +114,7 @@ class ContactsController < ApplicationController
       else
         render :edit
       end
-      redirect_to contact_path(@contact)
+      redirect_to contact_milestones_path(@contact)
     else
       render :edit
     end
