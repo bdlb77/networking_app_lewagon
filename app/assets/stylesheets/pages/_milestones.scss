@@ -5,11 +5,47 @@
 .intro {
   background: #eee;
   color: white;
-  padding: 60px;
+  padding: 50px;
 
 
 }
+// Pie color
+#labels {
+  display: flex;
+  justify-content: center;
+}
 
+#labels ul, #percentage ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: #333333;
+}
+
+#labels li, #percentage li {
+  display: block;
+  margin: 0;
+  padding: 0 0 8px 0;
+}
+
+#labels span{
+  display: block;
+  float: left;
+  width:8px;
+  height: 8px;
+  margin: 5px 5px 0 0 ;
+  background: #FFFFFF;
+}
+
+#labels ul :nth-child(1) span{ background: white; }
+#labels ul :nth-child(2) span{ background: $torq; }
+#labels ul :nth-child(3) span{ background: $wine; }
+// --------------------------------------------------
+.dash-icon {
+  background-image: url("https://cdn4.vectorstock.com/i/1000x1000/81/48/black-mobile-smart-phone-with-app-icon-smartphone-vector-17408148.jpg") !important;
+  background-repeat: no-repeat;
+}
 
 .contact-name-dash {
   font-size: 36px;
@@ -33,12 +69,10 @@
   text-align: center;
  }
 .chart-info h5 {
-  font-size: 16px;
-  color: #393E41;
-  margin-left: 26px;
+
 }
 .milestones-counter {
-  margin: 50px 0 0px -30px;
+
 }
 
 .dashboard-scroll{
@@ -49,7 +83,8 @@
   margin: 24px 3px 1px 1px
 }
 .dashboard-scroll::-webkit-scrollbar {
-    width: 1em;
+    width: 0.1em;
+    height: 0.1em;
 }
 
 .dashboard-scroll::-webkit-scrollbar-track {
@@ -84,7 +119,7 @@
   color: #393E41;
 }
 .position-c {
-  margin-bottom: 20px;
+  margin-bottom: -4px;
 }
 
 .locat-tag-dash {
@@ -93,7 +128,7 @@
   justify-content: space-around;
 }
 .linkedin-dash {
-  margin-bottom: 30px;
+
 }
 
 .birth-date-dash {
@@ -110,7 +145,49 @@
 }
 
 .dash-secondary-info {
-  margin-top: 40px;
+
+}
+.note-dash {
+  overflow: auto;
+  max-height: 100px;
+}
+
+.note-dash  {
+  overflow: auto;
+  max-height: 100px;
+}
+.note-dash::-webkit-scrollbar {
+    width: 0.1em;
+    height: 0.1em;
+}
+
+.note-dash::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.note-dash::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+
+
+.assigment-dash {
+  overflow: auto;
+  max-height: 100px;
+}
+.assigment-dash::-webkit-scrollbar {
+    width: 0.1em;
+    height: 0.1em;
+}
+
+.assigment-dash::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.assigment-dash::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
 }
 @media screen and (max-width: 900px) {
   .dashboard-scroll{
@@ -203,7 +280,7 @@
 .timeline ul li:nth-child(odd) .stone::before {
   left: -15px;
   border-width: 8px 16px 8px 0;
-  border-color: transparent $wine transparent transparent;
+  border-color: transparent gray transparent transparent;
 }
 
 .timeline ul li:nth-child(even) .stone {
@@ -213,7 +290,7 @@
 .timeline ul li:nth-child(even) .stone::before {
   right: -15px;
   border-width: 8px 0 8px 16px;
-  border-color: transparent transparent transparent #256e79;
+  border-color: transparent transparent transparent gray;
 }
 
 .timeline time {

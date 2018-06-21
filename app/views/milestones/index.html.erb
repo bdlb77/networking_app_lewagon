@@ -17,25 +17,29 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-4 col-sm-12 col-xs-12">
-
+        <div class="chart-info">
         <div class="ct-chart">
           <script class="chart">
             var milestoneChartData = {
-              labels: ['Physical', 'Virtual', 'Phone'],
-              label: "Population (millions)",
-              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+              labels: [' ', ' ', ' '],
               series: [<%= phy %>, <%= virt %> , <%= pho %> ]
             };
           </script>
         </div>
-        <div class="chart-info">
-        </div>
-      </div>
+          <div id="labels">
+           <ul>
+             <li><span></span>Phone Call</li>
+             <li><span></span>Physical meeting</li>
+             <li><span></span>Virtual (Email etc)</li>
+           </ul>
+          </div>
+         </div>
+       </div>
       <div class="col-md-4 col-sm-12 col-xs-12">
         <div class="contact-info-dash">
           <div class="dash-first-info">
           <div class="contact-name-dash" >
-            <h2><%= @contact.first_name %> <%= @contact.last_name %></h2>
+            <h2><%= @contact.first_name.capitalize %> <%= @contact.last_name.capitalize %></h2>
           </div>
           <div class="email-phone">
           <div class="contact-email-dash">
@@ -49,7 +53,7 @@
          <hr class="dash-line" size="pixels">
           <div class="dash-secondary-info">
           <div class="position-c">
-            <% unless  @contact.position.nil? && @contact.company.nil? %>
+            <% unless  @contact.position.empty? && @contact.company.empty? %>
               <h5><%= @contact.position %> at <%= @contact.company%></h5>
             <% end %>
           </div>
@@ -60,7 +64,7 @@
           </div>
           <div class="birth-date-dash">
             <% unless  @contact.date_of_birth.nil? %>
-              <h5>Date of birth: <%= @contact.date_of_birth %></h5>
+              <h5>Date of birth: <%= @contact.date_of_birth.strftime('%x') %></h5>
             <% end %>
           </div>
           </div>
@@ -129,10 +133,12 @@
 
 
 <section class="timeline">
-  <ul>
+ <ul>
 
     <% @milestones.each do |milestone| %>
     <li>
+
+
       <div class="stone">
         <div>
           <%= link_to edit_contact_milestone_path(@contact, milestone) do %>
@@ -160,11 +166,9 @@
         </div>
         <% unless milestone.note.empty? %>
           <h5  style="color: #2e242c;, font-weight: bold;">How can I help my contact?</h5>
-          <% if milestone.note.length >= 80%>
-         <p style="color: #ccc;"><%=  truncate(milestone.note, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
-         <% else %>
-          <h5 style="color: gray;"><%= milestone.note %></h5>
-          <% end %>
+          <div class="note-dash">
+            <h5 style="color: gray;"><%= milestone.note %></h5>
+          </div>
         <% end %>
         <hr class="toq-line" size="pixels">
 
@@ -181,22 +185,14 @@
          <% end %>
         <% milestone.assigments.each do |assigment|%>
         <% unless assigment.title.nil? %>
-        <% if assigment.title.length >= 80 %>
-        <div class= "assigment-dash"><%= assigment.title%>
-          <p style="color: #ccc;"><%=  truncate(assigment.title, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
-        <% else %>
-
-        <p style="color: #ccc;"><%= assigment.title %></p>
-
+          <div class= "assigment-dash">
+          <p style="color: #ccc;"><%= assigment.title %></p>
           <% end %>
-          <% end %>
-
         <% end %>
       </div>
     </div>
 
 </div>
-
   </li>
   <% end %>
 </ul>
