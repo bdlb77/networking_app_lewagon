@@ -58,7 +58,7 @@
             </div>
             <div class="position-c contacts-inf">
               <% unless  @contact.position.empty? && @contact.company.empty? %>
-                <div><h5><%= @contact.position.capitalize %><h5> at <strong><%= @contact.company.capitalize%></strong></div>
+                <div><%= @contact.position.upcase %> at <strong><%= @contact.company.capitalize%></strong></div>
               <% end %>
             </div>
             <div class="linkedin-dash contacts-inf">
