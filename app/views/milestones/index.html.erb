@@ -74,7 +74,7 @@
           </div>
         </div>
         <div class="m-buttons text-left contacts-inf">
-         <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button" %>  
+         <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button" %>
          <%= link_to "Edit Contact", edit_contact_path(@contact.id), class: "btn-medium mile-button" %>
         </div>
       </div>
@@ -140,12 +140,10 @@
           </div>
         </div>
         <% unless milestone.note.empty? %>
-        <h5  style="color: #2e242c;, font-weight: bold;">How can I help my contact?</h5>
-        <% if milestone.note.length >= 80%>
-        <p style="color: #ccc;"><%=  truncate(milestone.note, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
-        <% else %>
-        <h5 style="color: gray;"><%= milestone.note %></h5>
-        <% end %>
+          <h5  style="color: #2e242c;, font-weight: bold;">How can I help my contact?</h5>
+          <div class="mile-note">
+            <h5 style="color: gray;"><%= milestone.note %></h5>
+          </div>
         <% end %>
         <hr class="toq-line" size="pixels">
 
@@ -162,14 +160,9 @@
         <% end %>
         <% milestone.assigments.each do |assigment|%>
         <% unless assigment.title.nil? %>
-        <% if assigment.title.length >= 80 %>
-        <div class= "assigment-dash"><%= assigment.title%>
-          <p style="color: #ccc;"><%=  truncate(assigment.title, length: 80).gsub(".", " ") %><%= link_to "read more..", contact_milestone_path(@contact, milestone)  %></p>
-          <% else %>
 
           <p style="color: #ccc;"><%= assigment.title %></p>
 
-          <% end %>
           <% end %>
 
           <% end %>
