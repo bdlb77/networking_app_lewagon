@@ -84,7 +84,7 @@ before_action :find_contact
     end
     assignment1_exist = false
     if not @milestone.assigment_one.empty?
-      milestone.assigments.each do |assignment|
+      @milestone.assigments.each do |assignment|
         if assignment == milestone.assigment_one
           assignment1_exist = true
         end
@@ -94,15 +94,15 @@ before_action :find_contact
         @assigment1.save!
       end
     end
-    
+
     assignment2_exist = false
     if not @milestone.assigment_two.empty?
-      milestone.assigments.each do |assignment|
+      @milestone.assigments.each do |assignment|
         if assignment == milestone.assigment_two
           assignment2_exist = true
         end
       end
-      if assignment2_exist == false 
+      if assignment2_exist == false
         @assigment2 = Assigment.new(milestone_id:@milestone.id, title:@milestone.assigment_two)
         @assigment2.save!
       end
