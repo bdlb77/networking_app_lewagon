@@ -34,6 +34,23 @@
 .intro-milestone{
   border-bottom: 2px solid $torq;
 }
+
+.mile-note {
+  overflow: auto;
+  max-height: 150px;
+}
+.mile-note::-webkit-scrollbar {
+    width: 0.2em;
+}
+
+.mile-note::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.mile-note::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
 /* TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
