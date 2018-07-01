@@ -21,15 +21,24 @@
         <div class="ct-chart">
           <script class="chart">
             var milestoneChartData = {
-              labels: ['Physical', 'Virtual', 'Phone'],
+              labels: [' ', ' ', ' '],
               label: "Population (millions)",
               backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
               series: [<%= phy %>, <%= virt %> , <%= pho %> ]
             };
           </script>
         </div>
+
         <div class="chart-info">
+          <div id="labels">
+            <ul>
+              <li><span></span>Physical</li>
+              <li><span></span>Virtual</li>
+              <li><span></span>Phone</li>
+            </ul>
+          </div>
         </div>
+
         <div class="milestones-counter chart-info">
           <% counter = 0 %>
           <% @milestones.each do |stone| %>
@@ -73,11 +82,13 @@
             </div>
           </div>
         </div>
+        <div class="col-sm-12">
         <div class="m-buttons text-left contacts-inf">
-         <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button" %>  
+         <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button" %>
          <%= link_to "Edit Contact", edit_contact_path(@contact.id), class: "btn-medium mile-button" %>
         </div>
       </div>
+        </div>
       <!-- Right Column... Tags -->
       <div class="col-md-4 col-sm-12">
         <div class="locat-tag-dash">
