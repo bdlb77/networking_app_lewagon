@@ -1,6 +1,38 @@
 
   /* INTRO SECTION
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+#labels ul, #percentage ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: #333333;
+}
+
+#labels li, #percentage li {
+  display: block;
+  margin: 0;
+  padding: 0 0 8px 0;
+}
+
+#labels span{
+  display: block;
+  float: left;
+  width:8px;
+  height: 8px;
+  margin: 5px 5px 0 0 ;
+  background: #FFFFFF;
+  border: 0.2px solid gray;
+}
+
+#labels ul :nth-child(1) span{ background: $torq; }
+#labels ul :nth-child(2) span{ background: $wine; }
+#labels ul :nth-child(3) span{ background: #f6f7e9; }
+
+
+
 .mile-button {
   color: $wine;
   border: 1px solid #256e79;
@@ -23,7 +55,8 @@
   margin-left: 0 !important;
 }
 .m-buttons{
-  margin-top: 80px;
+  display: block;
+  float: bottom;
 }
 
 .locat-tag-dash{
@@ -108,7 +141,7 @@
 .timeline ul li:nth-child(odd) .stone::before {
   left: -15px;
   border-width: 8px 16px 8px 0;
-  border-color: transparent $wine transparent transparent;
+  border-color: transparent #767676 transparent transparent;
 }
 
 .timeline ul li:nth-child(even) .stone {
@@ -118,7 +151,7 @@
 .timeline ul li:nth-child(even) .stone::before {
   right: -15px;
   border-width: 8px 0 8px 16px;
-  border-color: transparent transparent transparent #256e79;
+  border-color: transparent transparent transparent #767676;
 }
 
 .timeline time {
