@@ -55,8 +55,10 @@
   margin-left: 0 !important;
 }
 .m-buttons{
-  display: block;
-  float: bottom;
+  display: flex;
+  justify-content: center;
+  margin: 10px 20px 10px 20px;
+
 }
 
 .locat-tag-dash{
@@ -300,4 +302,17 @@
   justify-content: space-around;
   margin: -16px;
 
+}
+
+.second-button {
+  padding: 10px 28px;
+  margin-left: 20px !important;
+}
+
+.first-button {
+  margin-right: 20px !important;
+}
+
+.intro-milestone {
+  margin: 0 200px 0 200px;
 }

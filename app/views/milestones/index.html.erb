@@ -14,7 +14,7 @@
 <% end %>
 <% end %>
 <div class="container-fluid intro-wrapper">
-  <div class="container intro-milestone">
+  <div class="container">
     <div class="row ">
       <!-- Chart -->
       <div class="col-md-4 col-sm-12">
@@ -82,12 +82,6 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-12">
-        <div class="m-buttons text-left contacts-inf">
-         <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button" %>
-         <%= link_to "Edit Contact", edit_contact_path(@contact.id), class: "btn-medium mile-button" %>
-        </div>
-      </div>
         </div>
       <!-- Right Column... Tags -->
       <div class="col-md-4 col-sm-12">
@@ -113,6 +107,15 @@
         </div>
       </div>
       <!-- 2nd ROW -->
+       <div class="row">
+        <div class="col-sm-12">
+        <div class="m-buttons text-left contacts-inf">
+         <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button first-button" %>
+         <%= link_to "Edit Contact", edit_contact_path(@contact.id), class: "btn-medium mile-button second-button" %>
+        </div>
+      </div>
+      </div>
+      <div class="intro-milestone"></div>
     </div>
     </div>
   </div>
