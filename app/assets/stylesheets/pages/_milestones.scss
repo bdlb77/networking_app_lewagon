@@ -3,6 +3,8 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 
+
+
 #labels ul, #percentage ul {
   list-style-type: none;
   margin: 0;
@@ -88,7 +90,9 @@
 }
 /* TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
+.loca {
+  margin-top: 13px;
+}
 .timeline ul {
   background: white;
   padding: 50px 0;

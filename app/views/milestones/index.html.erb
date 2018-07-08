@@ -14,7 +14,7 @@
 <% end %>
 <% end %>
 <div class="container-fluid intro-wrapper">
-  <div class="container intro-milestone">
+  <div class="container">
     <div class="row ">
       <!-- Chart -->
       <div class="col-md-4 col-sm-12">
@@ -90,13 +90,13 @@
                 <i class="fas fa-tags " style="color: black;"></i>
                 <p class="milestone-tags">
                   <% @contact.tags.each do |tag| %>
-                  <p class="badge-tag badge"><%= tag.title %></p>
+                  <p class="badge-tag badge dash-icons"><%= tag.title %></p>
                   <% end %>
                 </p>
               </div>
             </div>
               <div class="locat dashboard-scroll">
-                <i class="fas fa-globe globe" style="color: black;"></i>
+                <i class="fas fa-globe globe dash-icons" style="color: black;"></i>
                 <br>
                 <% @contact.locations.each do |location| %>
                 <p class="loca"><%= location.title %></p>
@@ -109,7 +109,7 @@
       <!-- 2nd ROW -->
        <div class="row">
         <div class="col-sm-12">
-        <div class="m-buttons text-left contacts-inf">
+        <div class="m-buttons text-center contacts-inf">
          <%= link_to "New Milestone", new_contact_milestone_path(@contact), class: "btn-medium mile-button first-button" %>
          <%= link_to "Edit Contact", edit_contact_path(@contact.id), class: "btn-medium mile-button second-button" %>
         </div>
