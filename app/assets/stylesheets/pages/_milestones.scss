@@ -34,11 +34,22 @@
 #labels ul :nth-child(3) span{ background: #f6f7e9; }
 
 
+.buttons-row{
+  margin: 50px 0;
+}
+@media screen and (max-width: 600px){
+  .buttons-row{
+    margin-top: 0px;
+  }
+
+}
 
 .mile-button {
   color: $wine;
+  font-size: 16px;
   border: 1px solid #256e79;
   padding: 10px 15px;
+  margin: 0 5px;
   border-radius: 50px;
   font-weight: 400;
   opacity: 0.6;
@@ -58,9 +69,6 @@
 }
 .m-buttons{
   display: flex;
-  justify-content: center;
-  margin: 10px 20px 10px 20px;
-
 }
 
 .locat-tag-dash{
@@ -308,15 +316,4 @@
 
 }
 
-.second-button {
-  padding: 10px 28px;
-  margin-left: 20px !important;
-}
 
-.first-button {
-  margin-right: 20px !important;
-}
-
-.intro-milestone {
-  margin: 0 200px 0 200px;
-}
