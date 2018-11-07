@@ -41,7 +41,7 @@ class ContactsController < ApplicationController
     # if (@contact_first_name.blank? && @contact_last_name.blank?)
 
     if @contact.save!
-      flash[:alert] = "Your contact has been set!"
+      flash[:success] = "Your contact has been set!"
       @locations = Location.all
       @have_location = false
         @locations.each do |l|
@@ -112,11 +112,12 @@ class ContactsController < ApplicationController
       end
 
       else
-        render :edit
+        flash[:alert] = "Error with your form. Please refill in the fields."
+        render :new
       end
       redirect_to contact_milestones_path(@contact)
     else
-      render :edit
+      render :new
     end
   end
 
@@ -126,9 +127,10 @@ class ContactsController < ApplicationController
 
   def update
     if @contact.update(contact_params)
-      flash[:alert] = " Your contact has been updated!"
+      flash[:success] = " Your contact has been updated!"
       redirect_to contact_path(@contact)
     else
+      fl
       render :edit
     end
   end

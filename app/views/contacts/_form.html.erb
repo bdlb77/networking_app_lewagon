@@ -32,7 +32,7 @@
       <%end%>
     <div class="dropdown-text col-md-6">
        <select name="contact_form_location" id="contact_form_location">
-        <option value="Choose_location">Choose a location*</option>
+        <option value="Choose_location" required>Choose a location*</option>
         <option value="contact_fake_location">Enter a new location</option>
           <% @locations_array.each do |la|%>
           <option value='<%=la%>'><%=la%></option>
